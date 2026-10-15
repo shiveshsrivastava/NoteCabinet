@@ -1,0 +1,1812 @@
+{
+  "notes": [
+    {
+      "date": "2025-09-29",
+      "type": "lecture",
+      "title": "E596C Lecture 1 - Backprop Fundamentals",
+      "slug": "e596c-lecture-1-backprop",
+      "tags": [
+        "deep-learning",
+        "lecture"
+      ],
+      "fact_ids": [
+        "F001",
+        "F010",
+        "F003"
+      ],
+      "glossary_ids": [
+        "G12",
+        "G22",
+        "G18",
+        "G19"
+      ]
+    },
+    {
+      "date": "2025-09-30",
+      "type": "meeting",
+      "title": "Kickoff 1:1 with PFOX",
+      "slug": "pfox-kickoff-1on1",
+      "tags": [
+        "autonav",
+        "advisor"
+      ],
+      "fact_ids": [
+        "F002",
+        "F006"
+      ],
+      "glossary_ids": [
+        "G01",
+        "G16",
+        "G09"
+      ]
+    },
+    {
+      "date": "2025-10-01",
+      "type": "meeting",
+      "title": "E235 TA Kickoff with PATL",
+      "slug": "e235-ta-kickoff",
+      "tags": [
+        "ta",
+        "ee235"
+      ],
+      "fact_ids": [
+        "F004"
+      ],
+      "glossary_ids": [
+        "G03",
+        "G14",
+        "G20",
+        "G05"
+      ]
+    },
+    {
+      "date": "2025-10-02",
+      "type": "idea",
+      "title": "ECHO - Smart Home Workshop Submission?",
+      "slug": "echo-workshop-submission",
+      "tags": [
+        "echosense",
+        "publishing"
+      ],
+      "fact_ids": [
+        "F005"
+      ],
+      "glossary_ids": [
+        "G02",
+        "G10"
+      ]
+    },
+    {
+      "date": "2025-10-03",
+      "type": "project log",
+      "title": "ANAV Env Setup + GCLU Access Request",
+      "slug": "anav-env-setup",
+      "tags": [
+        "autonav",
+        "setup"
+      ],
+      "fact_ids": [
+        "F006",
+        "F003"
+      ],
+      "glossary_ids": [
+        "G09",
+        "G19"
+      ]
+    },
+    {
+      "date": "2025-10-03",
+      "type": "todo",
+      "title": "Friday TA Logistics + Coffee",
+      "slug": "friday-ta-logistics",
+      "tags": [
+        "ta",
+        "personal"
+      ],
+      "fact_ids": [
+        "F007",
+        "F008"
+      ],
+      "glossary_ids": [
+        "G15",
+        "G14",
+        "G04"
+      ]
+    },
+    {
+      "date": "2025-10-04",
+      "type": "meeting",
+      "title": "Chat with LO - E596A Project Partner",
+      "slug": "liam-e596a-partner",
+      "tags": [
+        "computer-vision",
+        "project"
+      ],
+      "fact_ids": [
+        "F009"
+      ],
+      "glossary_ids": [
+        "G06",
+        "G11"
+      ]
+    },
+    {
+      "date": "2025-10-05",
+      "type": "reading",
+      "title": "E500D Textbook Ch. 1 - Intro to Agents",
+      "slug": "e500d-textbook-ch1",
+      "tags": [
+        "agentic-ai",
+        "reading"
+      ],
+      "fact_ids": [
+        "F011"
+      ],
+      "glossary_ids": [
+        "G13"
+      ]
+    },
+    {
+      "date": "2025-10-05",
+      "type": "todo",
+      "title": "Weekly Plan - Week 2",
+      "slug": "weekly-plan-wk2",
+      "tags": [
+        "weekly-plan"
+      ],
+      "fact_ids": [
+        "F004",
+        "F011"
+      ],
+      "glossary_ids": [
+        "G14",
+        "G20",
+        "G13"
+      ]
+    },
+    {
+      "date": "2025-10-06",
+      "type": "lecture",
+      "title": "E596C Lecture 2 - Gradient Descent",
+      "slug": "e596c-lecture-2-gradient-descent",
+      "tags": [
+        "deep-learning",
+        "lecture"
+      ],
+      "fact_ids": [
+        "F017",
+        "F010"
+      ],
+      "glossary_ids": [
+        "G12",
+        "G17",
+        "G22",
+        "G18"
+      ]
+    },
+    {
+      "date": "2025-10-06",
+      "type": "idea",
+      "title": "Schedule Conflict - DSEC vs LABM",
+      "slug": "dsec-labm-conflict",
+      "tags": [
+        "schedule",
+        "ta"
+      ],
+      "fact_ids": [
+        "F012",
+        "F004"
+      ],
+      "glossary_ids": [
+        "G20",
+        "G21",
+        "G14"
+      ]
+    },
+    {
+      "date": "2025-10-07",
+      "type": "meeting",
+      "title": "PATL - DSEC Reschedule",
+      "slug": "patl-dsec-reschedule",
+      "tags": [
+        "ta",
+        "schedule"
+      ],
+      "fact_ids": [
+        "F013",
+        "F012"
+      ],
+      "glossary_ids": [
+        "G03",
+        "G20",
+        "G14"
+      ]
+    },
+    {
+      "date": "2025-10-08",
+      "type": "project log",
+      "title": "GCLU Library Path Fix (thanks MW)",
+      "slug": "gclu-library-path-fix",
+      "tags": [
+        "gpu-cluster",
+        "debugging"
+      ],
+      "fact_ids": [
+        "F014",
+        "F003"
+      ],
+      "glossary_ids": [
+        "G08",
+        "G19"
+      ]
+    },
+    {
+      "date": "2025-10-08",
+      "type": "todo",
+      "title": "E235 Grading - Batch 1",
+      "slug": "e235-grading-batch-1",
+      "tags": [
+        "ta",
+        "grading"
+      ],
+      "fact_ids": [
+        "F015"
+      ],
+      "glossary_ids": [
+        "G05",
+        "G14"
+      ]
+    },
+    {
+      "date": "2025-10-09",
+      "type": "meeting",
+      "title": "First ANAV Lab Meeting - Repo Architecture",
+      "slug": "anav-first-lab-meeting",
+      "tags": [
+        "autonav",
+        "lab"
+      ],
+      "fact_ids": [
+        "F016",
+        "F006"
+      ],
+      "glossary_ids": [
+        "G21",
+        "G09",
+        "G01"
+      ]
+    },
+    {
+      "date": "2025-10-10",
+      "type": "project log",
+      "title": "ECHO Data Collection Script",
+      "slug": "echo-data-collection-script",
+      "tags": [
+        "echosense",
+        "data"
+      ],
+      "fact_ids": [
+        "F018",
+        "F005"
+      ],
+      "glossary_ids": [
+        "G02",
+        "G10"
+      ]
+    },
+    {
+      "date": "2025-10-11",
+      "type": "reading",
+      "title": "Robotic Coordinate Transformations Review",
+      "slug": "coordinate-transforms-review",
+      "tags": [
+        "robotics",
+        "autonav"
+      ],
+      "fact_ids": [
+        "F020"
+      ],
+      "glossary_ids": [
+        "G09"
+      ]
+    },
+    {
+      "date": "2025-10-12",
+      "type": "todo",
+      "title": "Weekly Plan - Week 3",
+      "slug": "weekly-plan-wk3",
+      "tags": [
+        "weekly-plan"
+      ],
+      "fact_ids": [
+        "F013",
+        "F019"
+      ],
+      "glossary_ids": [
+        "G20",
+        "G14",
+        "G04"
+      ]
+    },
+    {
+      "date": "2025-10-13",
+      "type": "meeting",
+      "title": "PATL - Final DSEC Slot + Moving OFHR",
+      "slug": "patl-dsec-oh-final-slots",
+      "tags": [
+        "ta",
+        "schedule"
+      ],
+      "fact_ids": [
+        "F022",
+        "F102",
+        "F021"
+      ],
+      "glossary_ids": [
+        "G03",
+        "G20",
+        "G15",
+        "G14"
+      ]
+    },
+    {
+      "date": "2025-10-13",
+      "type": "project log",
+      "title": "GCLU Maintenance Downtime",
+      "slug": "gclu-maintenance-downtime",
+      "tags": [
+        "gpu-cluster"
+      ],
+      "fact_ids": [
+        "F031",
+        "F014"
+      ],
+      "glossary_ids": [
+        "G19",
+        "G08"
+      ]
+    },
+    {
+      "date": "2025-10-14",
+      "type": "todo",
+      "title": "E235 Grading Done",
+      "slug": "e235-grading-done",
+      "tags": [
+        "ta",
+        "grading"
+      ],
+      "fact_ids": [
+        "F024",
+        "F015"
+      ],
+      "glossary_ids": [
+        "G14",
+        "G05"
+      ]
+    },
+    {
+      "date": "2025-10-15",
+      "type": "meeting",
+      "title": "Empty Office Hours",
+      "slug": "empty-office-hours",
+      "tags": [
+        "ta",
+        "office-hours"
+      ],
+      "fact_ids": [
+        "F025",
+        "F102"
+      ],
+      "glossary_ids": [
+        "G15",
+        "G14"
+      ]
+    },
+    {
+      "date": "2025-10-16",
+      "type": "lecture",
+      "title": "E596A Lecture 3 - Feature Tracking + Assignment 1",
+      "slug": "e596a-lecture-3-tracking",
+      "tags": [
+        "computer-vision",
+        "lecture"
+      ],
+      "fact_ids": [
+        "F023",
+        "F026"
+      ],
+      "glossary_ids": [
+        "G07",
+        "G11",
+        "G06"
+      ]
+    },
+    {
+      "date": "2025-10-16",
+      "type": "idea",
+      "title": "Real-Time Object Tracker for Final Project",
+      "slug": "realtime-tracker-idea",
+      "tags": [
+        "computer-vision",
+        "project"
+      ],
+      "fact_ids": [
+        "F026",
+        "F009"
+      ],
+      "glossary_ids": [
+        "G06",
+        "G11"
+      ]
+    },
+    {
+      "date": "2025-10-17",
+      "type": "meeting",
+      "title": "ECHO Sync - Pivot to Open Source",
+      "slug": "echo-open-source-pivot",
+      "tags": [
+        "echosense",
+        "planning"
+      ],
+      "fact_ids": [
+        "F028",
+        "F018"
+      ],
+      "glossary_ids": [
+        "G02",
+        "G10"
+      ]
+    },
+    {
+      "date": "2025-10-17",
+      "type": "todo",
+      "title": "Friday Coffee + Weekend List",
+      "slug": "friday-coffee-weekend-list",
+      "tags": [
+        "personal"
+      ],
+      "fact_ids": [
+        "F029",
+        "F008"
+      ],
+      "glossary_ids": [
+        "G04"
+      ]
+    },
+    {
+      "date": "2025-10-18",
+      "type": "reading",
+      "title": "E500D Reflection 1 Draft - ReAct",
+      "slug": "e500d-reflection-1-draft",
+      "tags": [
+        "agentic-ai",
+        "reflection"
+      ],
+      "fact_ids": [
+        "F030",
+        "F011"
+      ],
+      "glossary_ids": [
+        "G13"
+      ]
+    },
+    {
+      "date": "2025-10-19",
+      "type": "todo",
+      "title": "Weekly Plan - Week 4",
+      "slug": "weekly-plan-wk4",
+      "tags": [
+        "weekly-plan"
+      ],
+      "fact_ids": [
+        "F023",
+        "F030"
+      ],
+      "glossary_ids": [
+        "G11",
+        "G07",
+        "G13"
+      ]
+    },
+    {
+      "date": "2025-10-20",
+      "type": "lecture",
+      "title": "E596C Lecture 4 - Regularization",
+      "slug": "e596c-lecture-4-regularization",
+      "tags": [
+        "deep-learning",
+        "lecture"
+      ],
+      "fact_ids": [
+        "F010",
+        "F017"
+      ],
+      "glossary_ids": [
+        "G12",
+        "G22",
+        "G18",
+        "G17"
+      ]
+    },
+    {
+      "date": "2025-10-20",
+      "type": "meeting",
+      "title": "1:1 with PFOX - Switch to C++",
+      "slug": "pfox-1on1-cpp-switch",
+      "tags": [
+        "autonav",
+        "advisor"
+      ],
+      "fact_ids": [
+        "F032",
+        "F027",
+        "F002"
+      ],
+      "glossary_ids": [
+        "G01",
+        "G16",
+        "G09"
+      ]
+    },
+    {
+      "date": "2025-10-21",
+      "type": "project log",
+      "title": "PyTorch Profiling on GCLU",
+      "slug": "gclu-pytorch-profiling",
+      "tags": [
+        "gpu-cluster",
+        "pytorch"
+      ],
+      "fact_ids": [
+        "F039"
+      ],
+      "glossary_ids": [
+        "G08",
+        "G19"
+      ]
+    },
+    {
+      "date": "2025-10-21",
+      "type": "lecture",
+      "title": "E500D Lecture - Tool Use in Agents",
+      "slug": "e500d-lecture-tool-use",
+      "tags": [
+        "agentic-ai",
+        "lecture"
+      ],
+      "fact_ids": [
+        "F030"
+      ],
+      "glossary_ids": [
+        "G13"
+      ]
+    },
+    {
+      "date": "2025-10-22",
+      "type": "meeting",
+      "title": "DSEC Laplace Review + SK Covering OFHR",
+      "slug": "dsec-laplace-review",
+      "tags": [
+        "ta",
+        "ee235"
+      ],
+      "fact_ids": [
+        "F034",
+        "F035",
+        "F022"
+      ],
+      "glossary_ids": [
+        "G20",
+        "G14",
+        "G05",
+        "G15"
+      ]
+    },
+    {
+      "date": "2025-10-23",
+      "type": "project log",
+      "title": "ANAV Core Logic Ported to C++",
+      "slug": "anav-cpp-port-done",
+      "tags": [
+        "autonav",
+        "cpp"
+      ],
+      "fact_ids": [
+        "F036",
+        "F032"
+      ],
+      "glossary_ids": [
+        "G09"
+      ]
+    },
+    {
+      "date": "2025-10-23",
+      "type": "lecture",
+      "title": "E596A Lecture - Multi-Object Tracking + Deadline Extension",
+      "slug": "e596a-lecture-mot-deadline",
+      "tags": [
+        "computer-vision",
+        "lecture"
+      ],
+      "fact_ids": [
+        "F037",
+        "F033"
+      ],
+      "glossary_ids": [
+        "G07",
+        "G11",
+        "G06"
+      ]
+    },
+    {
+      "date": "2025-10-24",
+      "type": "project log",
+      "title": "ECHO Feature Extraction Bug",
+      "slug": "echo-feature-extraction-bug",
+      "tags": [
+        "echosense",
+        "debugging"
+      ],
+      "fact_ids": [
+        "F038",
+        "F041"
+      ],
+      "glossary_ids": [
+        "G02",
+        "G10"
+      ]
+    },
+    {
+      "date": "2025-10-25",
+      "type": "reading",
+      "title": "Midterm Study Day - Backprop Review",
+      "slug": "midterm-study-day",
+      "tags": [
+        "deep-learning",
+        "exam-prep"
+      ],
+      "fact_ids": [
+        "F040",
+        "F001"
+      ],
+      "glossary_ids": [
+        "G12",
+        "G18"
+      ]
+    },
+    {
+      "date": "2025-10-26",
+      "type": "todo",
+      "title": "Weekly Plan - Week 5",
+      "slug": "weekly-plan-wk5",
+      "tags": [
+        "weekly-plan"
+      ],
+      "fact_ids": [
+        "F037",
+        "F040"
+      ],
+      "glossary_ids": [
+        "G11",
+        "G07",
+        "G18",
+        "G12"
+      ]
+    },
+    {
+      "date": "2025-10-27",
+      "type": "lecture",
+      "title": "E596C Lecture 5 - Midterm Delayed, CNN Intro",
+      "slug": "e596c-lecture-5-midterm-delayed",
+      "tags": [
+        "deep-learning",
+        "lecture"
+      ],
+      "fact_ids": [
+        "F042",
+        "F040"
+      ],
+      "glossary_ids": [
+        "G12",
+        "G22",
+        "G18"
+      ]
+    },
+    {
+      "date": "2025-10-28",
+      "type": "idea",
+      "title": "Handling Occlusion in Our Tracker",
+      "slug": "tracker-occlusion-fix-ideas",
+      "tags": [
+        "computer-vision",
+        "tracking"
+      ],
+      "fact_ids": [
+        "F043",
+        "F026"
+      ],
+      "glossary_ids": [
+        "G06",
+        "G11"
+      ]
+    },
+    {
+      "date": "2025-10-29",
+      "type": "meeting",
+      "title": "Fourier Series OFHR Rush",
+      "slug": "fourier-series-oh-rush",
+      "tags": [
+        "ta",
+        "office-hours"
+      ],
+      "fact_ids": [
+        "F044"
+      ],
+      "glossary_ids": [
+        "G15",
+        "G14"
+      ]
+    },
+    {
+      "date": "2025-10-29",
+      "type": "todo",
+      "title": "1:1 Canceled - Async Update for PFOX",
+      "slug": "pfox-1on1-canceled",
+      "tags": [
+        "autonav",
+        "advisor"
+      ],
+      "fact_ids": [
+        "F045",
+        "F036"
+      ],
+      "glossary_ids": [
+        "G01",
+        "G16",
+        "G09"
+      ]
+    },
+    {
+      "date": "2025-10-30",
+      "type": "meeting",
+      "title": "LABM - On-Device Model Optimization",
+      "slug": "labm-on-device-optimization",
+      "tags": [
+        "lab",
+        "edge-ai"
+      ],
+      "fact_ids": [
+        "F046",
+        "F032"
+      ],
+      "glossary_ids": [
+        "G21",
+        "G09",
+        "G01"
+      ]
+    },
+    {
+      "date": "2025-10-31",
+      "type": "project log",
+      "title": "ECHO Feature Extraction Bug Fixed",
+      "slug": "echo-feature-bug-fixed",
+      "tags": [
+        "echosense",
+        "debugging"
+      ],
+      "fact_ids": [
+        "F048",
+        "F038"
+      ],
+      "glossary_ids": [
+        "G10",
+        "G02"
+      ]
+    },
+    {
+      "date": "2025-10-31",
+      "type": "todo",
+      "title": "Friday - Dinner w/ CN + Grading Script Review",
+      "slug": "friday-dinner-and-grading-script",
+      "tags": [
+        "personal",
+        "ta"
+      ],
+      "fact_ids": [
+        "F047",
+        "F049"
+      ],
+      "glossary_ids": [
+        "G04",
+        "G05",
+        "G14"
+      ]
+    },
+    {
+      "date": "2025-11-01",
+      "type": "project log",
+      "title": "KITTI Download Started on GCLU",
+      "slug": "kitti-download-started",
+      "tags": [
+        "gpu-cluster",
+        "data"
+      ],
+      "fact_ids": [
+        "F050"
+      ],
+      "glossary_ids": [
+        "G19"
+      ]
+    },
+    {
+      "date": "2025-11-02",
+      "type": "todo",
+      "title": "Weekly Plan - Week 6",
+      "slug": "weekly-plan-wk6",
+      "tags": [
+        "weekly-plan"
+      ],
+      "fact_ids": [
+        "F043",
+        "F050"
+      ],
+      "glossary_ids": [
+        "G11",
+        "G06",
+        "G19"
+      ]
+    },
+    {
+      "date": "2025-11-03",
+      "type": "lecture",
+      "title": "E596C Lecture 6 - CNNs, Midterm Moved to Wk8",
+      "slug": "e596c-lecture-6-cnns",
+      "tags": [
+        "deep-learning",
+        "lecture"
+      ],
+      "fact_ids": [
+        "F059",
+        "F052"
+      ],
+      "glossary_ids": [
+        "G12",
+        "G22",
+        "G18",
+        "G17"
+      ]
+    },
+    {
+      "date": "2025-11-04",
+      "type": "meeting",
+      "title": "PATL Request - Final Exam Question",
+      "slug": "patl-final-exam-question-ask",
+      "tags": [
+        "ta",
+        "ee235"
+      ],
+      "fact_ids": [
+        "F053"
+      ],
+      "glossary_ids": [
+        "G03",
+        "G14"
+      ]
+    },
+    {
+      "date": "2025-11-05",
+      "type": "meeting",
+      "title": "1:1 with PFOX - Scalable Edge AI",
+      "slug": "pfox-1on1-edge-ai",
+      "tags": [
+        "autonav",
+        "edge-ai"
+      ],
+      "fact_ids": [
+        "F054",
+        "F051",
+        "F002"
+      ],
+      "glossary_ids": [
+        "G01",
+        "G16",
+        "G09"
+      ]
+    },
+    {
+      "date": "2025-11-05",
+      "type": "meeting",
+      "title": "Packed DSEC - Bode Plots",
+      "slug": "dsec-bode-plots",
+      "tags": [
+        "ta",
+        "ee235"
+      ],
+      "fact_ids": [
+        "F058"
+      ],
+      "glossary_ids": [
+        "G20",
+        "G14"
+      ]
+    },
+    {
+      "date": "2025-11-05",
+      "type": "project log",
+      "title": "KITTI Download Done",
+      "slug": "kitti-download-done",
+      "tags": [
+        "gpu-cluster",
+        "data"
+      ],
+      "fact_ids": [
+        "F055",
+        "F050"
+      ],
+      "glossary_ids": [
+        "G19"
+      ]
+    },
+    {
+      "date": "2025-11-06",
+      "type": "project log",
+      "title": "ECHO First Raspberry Pi Prototype",
+      "slug": "echo-pi-prototype",
+      "tags": [
+        "echosense",
+        "edge-ai"
+      ],
+      "fact_ids": [
+        "F056",
+        "F048"
+      ],
+      "glossary_ids": [
+        "G02",
+        "G10"
+      ]
+    },
+    {
+      "date": "2025-11-06",
+      "type": "lecture",
+      "title": "E596A Lecture - Tracking Robustness",
+      "slug": "e596a-lecture-occlusion-fixed",
+      "tags": [
+        "computer-vision",
+        "lecture"
+      ],
+      "fact_ids": [
+        "F057",
+        "F043"
+      ],
+      "glossary_ids": [
+        "G06",
+        "G11",
+        "G07"
+      ]
+    },
+    {
+      "date": "2025-11-07",
+      "type": "idea",
+      "title": "E235 Exam Question Brainstorm - Bode/Fourier",
+      "slug": "e235-exam-question-brainstorm",
+      "tags": [
+        "ta",
+        "exam"
+      ],
+      "fact_ids": [
+        "F053",
+        "F058"
+      ],
+      "glossary_ids": [
+        "G14",
+        "G03"
+      ]
+    },
+    {
+      "date": "2025-11-08",
+      "type": "project log",
+      "title": "GCLU Storage Almost Full",
+      "slug": "gclu-storage-warning",
+      "tags": [
+        "gpu-cluster"
+      ],
+      "fact_ids": [
+        "F060",
+        "F055"
+      ],
+      "glossary_ids": [
+        "G08",
+        "G19"
+      ]
+    },
+    {
+      "date": "2025-11-08",
+      "type": "reading",
+      "title": "Midterm Review Notes - CNNs",
+      "slug": "midterm-review-cnn-notes",
+      "tags": [
+        "deep-learning",
+        "exam-prep"
+      ],
+      "fact_ids": [
+        "F061",
+        "F059",
+        "F052"
+      ],
+      "glossary_ids": [
+        "G12",
+        "G18",
+        "G17"
+      ]
+    },
+    {
+      "date": "2025-11-09",
+      "type": "todo",
+      "title": "Weekly Plan - Week 7",
+      "slug": "weekly-plan-wk7",
+      "tags": [
+        "weekly-plan"
+      ],
+      "fact_ids": [
+        "F053",
+        "F061"
+      ],
+      "glossary_ids": [
+        "G03",
+        "G14",
+        "G18",
+        "G12"
+      ]
+    },
+    {
+      "date": "2025-11-10",
+      "type": "reading",
+      "title": "E500D Reflection 3 Submitted",
+      "slug": "e500d-reflection-3-submitted",
+      "tags": [
+        "agentic-ai",
+        "reflection"
+      ],
+      "fact_ids": [
+        "F062"
+      ],
+      "glossary_ids": [
+        "G13"
+      ]
+    },
+    {
+      "date": "2025-11-10",
+      "type": "meeting",
+      "title": "LABM - Back to Python",
+      "slug": "labm-back-to-python",
+      "tags": [
+        "autonav",
+        "lab"
+      ],
+      "fact_ids": [
+        "F063",
+        "F036"
+      ],
+      "glossary_ids": [
+        "G21",
+        "G09"
+      ]
+    },
+    {
+      "date": "2025-11-11",
+      "type": "meeting",
+      "title": "ANAV Sim Demo for PFOX",
+      "slug": "anav-sim-demo-pfox",
+      "tags": [
+        "autonav",
+        "demo"
+      ],
+      "fact_ids": [
+        "F064",
+        "F063"
+      ],
+      "glossary_ids": [
+        "G01",
+        "G09"
+      ]
+    },
+    {
+      "date": "2025-11-11",
+      "type": "project log",
+      "title": "ANAV Python Interface Finalized",
+      "slug": "anav-python-interface",
+      "tags": [
+        "autonav",
+        "python"
+      ],
+      "fact_ids": [
+        "F069",
+        "F063"
+      ],
+      "glossary_ids": [
+        "G09"
+      ]
+    },
+    {
+      "date": "2025-11-12",
+      "type": "todo",
+      "title": "Exam Question Submitted, SK Covering DSEC",
+      "slug": "exam-question-submitted-sk-covers",
+      "tags": [
+        "ta",
+        "ee235"
+      ],
+      "fact_ids": [
+        "F065",
+        "F068"
+      ],
+      "glossary_ids": [
+        "G03",
+        "G14",
+        "G05",
+        "G20"
+      ]
+    },
+    {
+      "date": "2025-11-13",
+      "type": "project log",
+      "title": "ECHO Architecture Doc Kickoff",
+      "slug": "echo-architecture-doc",
+      "tags": [
+        "echosense",
+        "docs"
+      ],
+      "fact_ids": [
+        "F066",
+        "F056"
+      ],
+      "glossary_ids": [
+        "G02",
+        "G10"
+      ]
+    },
+    {
+      "date": "2025-11-13",
+      "type": "lecture",
+      "title": "E596A Lecture - Real-World Evaluation",
+      "slug": "e596a-lecture-street-footage",
+      "tags": [
+        "computer-vision",
+        "lecture"
+      ],
+      "fact_ids": [
+        "F067",
+        "F057"
+      ],
+      "glossary_ids": [
+        "G06",
+        "G11",
+        "G07"
+      ]
+    },
+    {
+      "date": "2025-11-14",
+      "type": "project log",
+      "title": "GCLU Overnight Storage Purge",
+      "slug": "gclu-storage-purge",
+      "tags": [
+        "gpu-cluster"
+      ],
+      "fact_ids": [
+        "F071",
+        "F060"
+      ],
+      "glossary_ids": [
+        "G19",
+        "G08"
+      ]
+    },
+    {
+      "date": "2025-11-15",
+      "type": "reading",
+      "title": "Reflections Review with CN",
+      "slug": "reflections-review-with-chloe",
+      "tags": [
+        "agentic-ai",
+        "reflection"
+      ],
+      "fact_ids": [
+        "F070",
+        "F062"
+      ],
+      "glossary_ids": [
+        "G04",
+        "G13"
+      ]
+    },
+    {
+      "date": "2025-11-16",
+      "type": "todo",
+      "title": "Weekly Plan - Week 8",
+      "slug": "weekly-plan-wk8",
+      "tags": [
+        "weekly-plan"
+      ],
+      "fact_ids": [
+        "F065",
+        "F067"
+      ],
+      "glossary_ids": [
+        "G14",
+        "G03",
+        "G11",
+        "G06"
+      ]
+    },
+    {
+      "date": "2025-11-17",
+      "type": "lecture",
+      "title": "E596C - Midterm Day",
+      "slug": "e596c-midterm-day",
+      "tags": [
+        "deep-learning",
+        "exam"
+      ],
+      "fact_ids": [
+        "F072",
+        "F059"
+      ],
+      "glossary_ids": [
+        "G12",
+        "G18",
+        "G22"
+      ]
+    },
+    {
+      "date": "2025-11-17",
+      "type": "meeting",
+      "title": "LABM - Poster Practice",
+      "slug": "labm-poster-practice",
+      "tags": [
+        "lab",
+        "poster"
+      ],
+      "fact_ids": [
+        "F079",
+        "F077"
+      ],
+      "glossary_ids": [
+        "G21",
+        "G09",
+        "G01"
+      ]
+    },
+    {
+      "date": "2025-11-18",
+      "type": "idea",
+      "title": "E500D Paper Topic - LLM Tool Use",
+      "slug": "e500d-paper-llm-tool-use",
+      "tags": [
+        "agentic-ai",
+        "paper"
+      ],
+      "fact_ids": [
+        "F074",
+        "F062"
+      ],
+      "glossary_ids": [
+        "G13"
+      ]
+    },
+    {
+      "date": "2025-11-18",
+      "type": "lecture",
+      "title": "E500D Lecture - Tool-Augmented LLMs",
+      "slug": "e500d-lecture-tool-augmented-llms",
+      "tags": [
+        "agentic-ai",
+        "lecture"
+      ],
+      "fact_ids": [
+        "F074"
+      ],
+      "glossary_ids": [
+        "G13"
+      ]
+    },
+    {
+      "date": "2025-11-19",
+      "type": "meeting",
+      "title": "OFHR - Only One Student",
+      "slug": "one-student-office-hours",
+      "tags": [
+        "ta",
+        "office-hours"
+      ],
+      "fact_ids": [
+        "F075"
+      ],
+      "glossary_ids": [
+        "G15",
+        "G14"
+      ]
+    },
+    {
+      "date": "2025-11-19",
+      "type": "meeting",
+      "title": "1:1 with PFOX - Poster Request",
+      "slug": "pfox-1on1-poster-request",
+      "tags": [
+        "autonav",
+        "poster"
+      ],
+      "fact_ids": [
+        "F077",
+        "F064"
+      ],
+      "glossary_ids": [
+        "G01",
+        "G16",
+        "G09"
+      ]
+    },
+    {
+      "date": "2025-11-20",
+      "type": "lecture",
+      "title": "E596A - Presentation Schedule Announced",
+      "slug": "e596a-presentation-schedule",
+      "tags": [
+        "computer-vision",
+        "lecture"
+      ],
+      "fact_ids": [
+        "F073",
+        "F067"
+      ],
+      "glossary_ids": [
+        "G07",
+        "G11",
+        "G06"
+      ]
+    },
+    {
+      "date": "2025-11-20",
+      "type": "project log",
+      "title": "ECHO Final Latency Benchmarks",
+      "slug": "echo-latency-benchmarks",
+      "tags": [
+        "echosense",
+        "benchmarks"
+      ],
+      "fact_ids": [
+        "F076",
+        "F066"
+      ],
+      "glossary_ids": [
+        "G02",
+        "G10"
+      ]
+    },
+    {
+      "date": "2025-11-21",
+      "type": "project log",
+      "title": "E596A Code Complete",
+      "slug": "e596a-code-complete",
+      "tags": [
+        "computer-vision",
+        "project"
+      ],
+      "fact_ids": [
+        "F078",
+        "F073"
+      ],
+      "glossary_ids": [
+        "G06",
+        "G11"
+      ]
+    },
+    {
+      "date": "2025-11-22",
+      "type": "todo",
+      "title": "Exam Question Approved - Apply Edits",
+      "slug": "exam-question-approved",
+      "tags": [
+        "ta",
+        "exam"
+      ],
+      "fact_ids": [
+        "F080",
+        "F065"
+      ],
+      "glossary_ids": [
+        "G03",
+        "G14"
+      ]
+    },
+    {
+      "date": "2025-11-23",
+      "type": "project log",
+      "title": "ECHO README Intro Draft",
+      "slug": "echo-readme-intro",
+      "tags": [
+        "echosense",
+        "docs"
+      ],
+      "fact_ids": [
+        "F081",
+        "F076"
+      ],
+      "glossary_ids": [
+        "G10",
+        "G02"
+      ]
+    },
+    {
+      "date": "2025-11-23",
+      "type": "todo",
+      "title": "Weekly Plan - Week 9",
+      "slug": "weekly-plan-wk9",
+      "tags": [
+        "weekly-plan"
+      ],
+      "fact_ids": [
+        "F074",
+        "F077"
+      ],
+      "glossary_ids": [
+        "G13",
+        "G09",
+        "G01"
+      ]
+    },
+    {
+      "date": "2025-11-24",
+      "type": "todo",
+      "title": "Thanksgiving Week Plan",
+      "slug": "thanksgiving-week-plan",
+      "tags": [
+        "weekly-plan",
+        "break"
+      ],
+      "fact_ids": [
+        "F082",
+        "F087",
+        "F090"
+      ],
+      "glossary_ids": [
+        "G06",
+        "G11",
+        "G08"
+      ]
+    },
+    {
+      "date": "2025-11-24",
+      "type": "idea",
+      "title": "Switching E500D Paper to MARL",
+      "slug": "e500d-switch-to-marl",
+      "tags": [
+        "agentic-ai",
+        "paper"
+      ],
+      "fact_ids": [
+        "F083",
+        "F082"
+      ],
+      "glossary_ids": [
+        "G13"
+      ]
+    },
+    {
+      "date": "2025-11-25",
+      "type": "project log",
+      "title": "ANAV Python Changes Merged",
+      "slug": "anav-python-merge",
+      "tags": [
+        "autonav",
+        "git"
+      ],
+      "fact_ids": [
+        "F084",
+        "F069"
+      ],
+      "glossary_ids": [
+        "G09"
+      ]
+    },
+    {
+      "date": "2025-11-26",
+      "type": "project log",
+      "title": "ECHO Repo Published",
+      "slug": "echo-repo-published",
+      "tags": [
+        "echosense",
+        "open-source"
+      ],
+      "fact_ids": [
+        "F085",
+        "F081"
+      ],
+      "glossary_ids": [
+        "G02",
+        "G10"
+      ]
+    },
+    {
+      "date": "2025-11-26",
+      "type": "reading",
+      "title": "MARL Survey Reading",
+      "slug": "marl-survey-reading",
+      "tags": [
+        "agentic-ai",
+        "reading"
+      ],
+      "fact_ids": [
+        "F083"
+      ],
+      "glossary_ids": [
+        "G13"
+      ]
+    },
+    {
+      "date": "2025-11-27",
+      "type": "idea",
+      "title": "Thanksgiving Dinner Thoughts - Winter Break Ideas",
+      "slug": "thanksgiving-winter-break-ideas",
+      "tags": [
+        "personal"
+      ],
+      "fact_ids": [
+        "F086"
+      ],
+      "glossary_ids": [
+        "G04"
+      ]
+    },
+    {
+      "date": "2025-11-28",
+      "type": "reading",
+      "title": "E500D References Compilation",
+      "slug": "e500d-references-compilation",
+      "tags": [
+        "agentic-ai",
+        "paper"
+      ],
+      "fact_ids": [
+        "F088"
+      ],
+      "glossary_ids": [
+        "G13"
+      ]
+    },
+    {
+      "date": "2025-11-29",
+      "type": "project log",
+      "title": "ANAV Poster Layout in Illustrator",
+      "slug": "anav-poster-layout",
+      "tags": [
+        "autonav",
+        "poster"
+      ],
+      "fact_ids": [
+        "F089"
+      ],
+      "glossary_ids": [
+        "G09",
+        "G01"
+      ]
+    },
+    {
+      "date": "2025-11-30",
+      "type": "project log",
+      "title": "E235 Final Exam Grading Script",
+      "slug": "e235-final-grading-script",
+      "tags": [
+        "ta",
+        "autograder"
+      ],
+      "fact_ids": [
+        "F091",
+        "F049"
+      ],
+      "glossary_ids": [
+        "G14",
+        "G05"
+      ]
+    },
+    {
+      "date": "2025-11-30",
+      "type": "todo",
+      "title": "Weekly Plan - Week 10",
+      "slug": "weekly-plan-wk10",
+      "tags": [
+        "weekly-plan"
+      ],
+      "fact_ids": [
+        "F091",
+        "F089"
+      ],
+      "glossary_ids": [
+        "G14",
+        "G09"
+      ]
+    },
+    {
+      "date": "2025-12-01",
+      "type": "project log",
+      "title": "ANAV Poster Printed",
+      "slug": "anav-poster-printed",
+      "tags": [
+        "autonav",
+        "poster"
+      ],
+      "fact_ids": [
+        "F092",
+        "F089"
+      ],
+      "glossary_ids": [
+        "G09"
+      ]
+    },
+    {
+      "date": "2025-12-01",
+      "type": "lecture",
+      "title": "E596C Final Lecture - Wrap-Up",
+      "slug": "e596c-final-lecture",
+      "tags": [
+        "deep-learning",
+        "lecture"
+      ],
+      "fact_ids": [
+        "F052",
+        "F072"
+      ],
+      "glossary_ids": [
+        "G12",
+        "G22",
+        "G17",
+        "G18"
+      ]
+    },
+    {
+      "date": "2025-12-02",
+      "type": "idea",
+      "title": "ECHO Got Starred - Next Steps",
+      "slug": "echo-starred-next-steps",
+      "tags": [
+        "echosense",
+        "open-source"
+      ],
+      "fact_ids": [
+        "F097",
+        "F085"
+      ],
+      "glossary_ids": [
+        "G02",
+        "G10"
+      ]
+    },
+    {
+      "date": "2025-12-03",
+      "type": "reading",
+      "title": "E500D Final Paper Submitted",
+      "slug": "e500d-final-paper-submitted",
+      "tags": [
+        "agentic-ai",
+        "paper"
+      ],
+      "fact_ids": [
+        "F095",
+        "F088"
+      ],
+      "glossary_ids": [
+        "G13"
+      ]
+    },
+    {
+      "date": "2025-12-03",
+      "type": "meeting",
+      "title": "Final OFHR - Room Packed",
+      "slug": "final-office-hours-packed",
+      "tags": [
+        "ta",
+        "office-hours"
+      ],
+      "fact_ids": [
+        "F094"
+      ],
+      "glossary_ids": [
+        "G15",
+        "G14"
+      ]
+    },
+    {
+      "date": "2025-12-04",
+      "type": "lecture",
+      "title": "E596A Final Project Presentations",
+      "slug": "e596a-final-presentations",
+      "tags": [
+        "computer-vision",
+        "presentation"
+      ],
+      "fact_ids": [
+        "F093",
+        "F073"
+      ],
+      "glossary_ids": [
+        "G06",
+        "G11",
+        "G07"
+      ]
+    },
+    {
+      "date": "2025-12-04",
+      "type": "meeting",
+      "title": "Department Showcase with PFOX",
+      "slug": "department-showcase-poster",
+      "tags": [
+        "autonav",
+        "poster"
+      ],
+      "fact_ids": [
+        "F096",
+        "F092"
+      ],
+      "glossary_ids": [
+        "G01",
+        "G09"
+      ]
+    },
+    {
+      "date": "2025-12-05",
+      "type": "meeting",
+      "title": "E235 Final Exam Proctoring",
+      "slug": "e235-final-proctoring",
+      "tags": [
+        "ta",
+        "exam"
+      ],
+      "fact_ids": [
+        "F098",
+        "F080"
+      ],
+      "glossary_ids": [
+        "G05",
+        "G03",
+        "G14"
+      ]
+    },
+    {
+      "date": "2025-12-06",
+      "type": "todo",
+      "title": "E235 Final Grading Finished",
+      "slug": "e235-grading-finished",
+      "tags": [
+        "ta",
+        "grading"
+      ],
+      "fact_ids": [
+        "F100",
+        "F098"
+      ],
+      "glossary_ids": [
+        "G14",
+        "G05"
+      ]
+    },
+    {
+      "date": "2025-12-07",
+      "type": "todo",
+      "title": "Quarter Wrap-Up + Backup",
+      "slug": "quarter-wrap-up-backup",
+      "tags": [
+        "weekly-plan",
+        "wrap-up"
+      ],
+      "fact_ids": [
+        "F101",
+        "F096",
+        "F099"
+      ],
+      "glossary_ids": [
+        "G09",
+        "G01",
+        "G04"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "fact_id": "F050",
+    "text": "I started downloading the KITTI dataset onto the GPU cluster."
+  },
+  {
+    "fact_id": "F055",
+    "text": "The KITTI dataset download finally finished on the GPU cluster."
+  },
+  {
+    "fact_id": "F060",
+    "text": "Marcus Webb warned the lab that the GPU cluster storage is almost completely full."
+  },
+  {
+    "fact_id": "F039",
+    "text": "Marcus Webb showed me how to profile PyTorch code efficiently on the GPU cluster."
+  },
+  {
+    "fact_id": "F014",
+    "text": "Marcus Webb helped me resolve a tricky library path issue on the GPU cluster."
+  },
+  {
+    "fact_id": "F031",
+    "text": "the GPU cluster was offline for four hours for scheduled network maintenance."
+  }
+]

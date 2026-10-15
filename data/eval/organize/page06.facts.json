@@ -1,0 +1,30 @@
+[
+  {
+    "fact_id": "F023",
+    "text": "Prof. Seitz released the first major coding assignment for EE P 596 A."
+  },
+  {
+    "fact_id": "F026",
+    "text": "Liam Ortiz suggested we build a real-time object tracker for EE P 596 A."
+  },
+  {
+    "fact_id": "F027",
+    "text": "I successfully integrated the new sensor suite into the AutoNav simulation."
+  },
+  {
+    "fact_id": "F028",
+    "text": "Ryan Park and I decided to target an open-source release instead for EchoSense."
+  },
+  {
+    "fact_id": "F029",
+    "text": "I met Chloe Nguyen for our weekly coffee at the library cafe."
+  },
+  {
+    "fact_id": "F030",
+    "text": "I started writing the first EE P 500 D reading reflection."
+  },
+  {
+    "fact_id": "F031",
+    "text": "the GPU cluster was offline for four hours for scheduled network maintenance."
+  }
+]

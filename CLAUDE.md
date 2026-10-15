@@ -28,7 +28,7 @@ Read `SPEC.md` before doing anything. It defines the goal, the design decisions,
 - Tests: `uv run pytest`
 
 ## Environment
-- `ANTHROPIC_API_KEY` and `JUDGE_MODEL` for dataset generation and judging only.
+- `ANTHROPIC_API_KEY` and `JUDGE_MODEL` for dataset generation and judging only. They live in `.env` (gitignored) and are loaded per command with `uv run --env-file .env ...` — never for the app itself.
 - `LLM_URL` (default `http://localhost:8080`).
 - `HF_HUB_OFFLINE=1` when running the app, so models load from the local cache only.
 - Fedora Linux, RTX 4060 (8 GB VRAM). Keep the LLM + embedder + reranker within that budget.

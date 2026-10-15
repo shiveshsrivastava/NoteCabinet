@@ -1,0 +1,30 @@
+[
+  {
+    "fact_id": "F043",
+    "text": "Liam Ortiz and I realized our EE P 596 A tracker had a major occlusion flaw."
+  },
+  {
+    "fact_id": "F045",
+    "text": "Prof. Fox canceled our 1:1 meeting this week due to a grant deadline."
+  },
+  {
+    "fact_id": "F046",
+    "text": "We held a lab meeting to discuss on-device model optimization techniques."
+  },
+  {
+    "fact_id": "F048",
+    "text": "I finally fixed the feature extraction bug in the EchoSense pipeline."
+  },
+  {
+    "fact_id": "F051",
+    "text": "I got the C++ backend for AutoNav to compile without warnings."
+  },
+  {
+    "fact_id": "F050",
+    "text": "I started downloading the KITTI dataset onto the GPU cluster."
+  },
+  {
+    "fact_id": "F038",
+    "text": "Ryan Park reported a critical bug in the EchoSense feature extraction step."
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "fact_id": "F063",
+    "text": "We decided to switch the AutoNav backend back to Python for faster iteration."
+  },
+  {
+    "fact_id": "F064",
+    "text": "Prof. Fox was impressed with the simulation demo for AutoNav."
+  },
+  {
+    "fact_id": "F069",
+    "text": "I spent the afternoon finalizing the Python interface for AutoNav."
+  },
+  {
+    "fact_id": "F036",
+    "text": "I finished porting the core AutoNav logic to C++."
+  },
+  {
+    "fact_id": "F051",
+    "text": "I got the C++ backend for AutoNav to compile without warnings."
+  },
+  {
+    "fact_id": "F054",
+    "text": "I had a great 1:1 meeting with Prof. Fox about scalable Edge AI architecture."
+  }
+]

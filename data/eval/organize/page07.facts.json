@@ -1,0 +1,26 @@
+[
+  {
+    "fact_id": "F032",
+    "text": "Prof. Fox told me to switch the AutoNav backend from Python to C++."
+  },
+  {
+    "fact_id": "F036",
+    "text": "I finished porting the core AutoNav logic to C++."
+  },
+  {
+    "fact_id": "F039",
+    "text": "Marcus Webb showed me how to profile PyTorch code efficiently on the GPU cluster."
+  },
+  {
+    "fact_id": "F016",
+    "text": "We held the first lab meeting to discuss repository architecture for AutoNav."
+  },
+  {
+    "fact_id": "F027",
+    "text": "I successfully integrated the new sensor suite into the AutoNav simulation."
+  },
+  {
+    "fact_id": "F006",
+    "text": "I configured my local environment for the AutoNav perception module."
+  }
+]

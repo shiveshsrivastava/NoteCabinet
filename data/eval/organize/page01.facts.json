@@ -1,0 +1,34 @@
+[
+  {
+    "fact_id": "F001",
+    "text": "I attended the first EE P 596 C lecture on backpropagation fundamentals."
+  },
+  {
+    "fact_id": "F002",
+    "text": "Prof. Fox scheduled our weekly 1:1 meeting for Wednesdays at 2pm."
+  },
+  {
+    "fact_id": "F003",
+    "text": "I requested access to the GPU cluster for the EE P 596 C programming assignments."
+  },
+  {
+    "fact_id": "F004",
+    "text": "Prof. Atlas assigned me to teach the EE 235 discussion section on Thursdays at 10am."
+  },
+  {
+    "fact_id": "F006",
+    "text": "I configured my local environment for the AutoNav perception module."
+  },
+  {
+    "fact_id": "F007",
+    "text": "My EE 235 office hours are officially set for Fridays at 3pm."
+  },
+  {
+    "fact_id": "F010",
+    "text": "Prof. Lindqvist announced the EE P 596 C midterm exam will take place during week 5."
+  },
+  {
+    "fact_id": "F011",
+    "text": "I bought the required textbook for the EE P 500 D course."
+  }
+]

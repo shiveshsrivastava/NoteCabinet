@@ -1,0 +1,30 @@
+[
+  {
+    "fact_id": "F041",
+    "text": "We changed our EchoSense target back to the workshop since the deadline was extended."
+  },
+  {
+    "fact_id": "F048",
+    "text": "I finally fixed the feature extraction bug in the EchoSense pipeline."
+  },
+  {
+    "fact_id": "F056",
+    "text": "Ryan Park deployed the first EchoSense acoustic model prototype on a Raspberry Pi."
+  },
+  {
+    "fact_id": "F066",
+    "text": "Ryan Park and I started writing the system architecture document for EchoSense."
+  },
+  {
+    "fact_id": "F076",
+    "text": "Ryan Park generated the final latency benchmarks for EchoSense."
+  },
+  {
+    "fact_id": "F081",
+    "text": "I spent Sunday drafting the EchoSense GitHub README introduction section."
+  },
+  {
+    "fact_id": "F085",
+    "text": "Ryan Park published the EchoSense repository on the open-source portal."
+  }
+]

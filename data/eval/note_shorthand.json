@@ -1,0 +1,2207 @@
+{
+  "2025-09-29-e596c-lecture-1-backprop.md": [
+    {
+      "glossary_id": "G19",
+      "abbrev": "GCLU",
+      "original": "the GPU cluster"
+    },
+    {
+      "glossary_id": "G19",
+      "abbrev": "GCLU",
+      "original": "the GPU cluster"
+    },
+    {
+      "glossary_id": "G22",
+      "abbrev": "PLIN",
+      "original": "Prof. Lindqvist"
+    },
+    {
+      "glossary_id": "G18",
+      "abbrev": "MIDT",
+      "original": "midterm exam"
+    },
+    {
+      "glossary_id": "G18",
+      "abbrev": "MIDT",
+      "original": "midterm exam"
+    },
+    {
+      "glossary_id": "G12",
+      "abbrev": "E596C",
+      "original": "EE P 596 C"
+    }
+  ],
+  "2025-09-30-pfox-kickoff-1on1.md": [
+    {
+      "glossary_id": "G16",
+      "abbrev": "1ON1",
+      "original": "1:1 meeting"
+    },
+    {
+      "glossary_id": "G16",
+      "abbrev": "1ON1",
+      "original": "1:1 meeting"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ],
+  "2025-10-01-e235-ta-kickoff.md": [
+    {
+      "glossary_id": "G20",
+      "abbrev": "DSEC",
+      "original": "discussion section"
+    },
+    {
+      "glossary_id": "G20",
+      "abbrev": "DSEC",
+      "original": "discussion section"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-10-02-echo-workshop-submission.md": [
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G10",
+      "abbrev": "ECHO",
+      "original": "EchoSense"
+    }
+  ],
+  "2025-10-03-anav-env-setup.md": [
+    {
+      "glossary_id": "G19",
+      "abbrev": "GCLU",
+      "original": "the GPU cluster"
+    },
+    {
+      "glossary_id": "G12",
+      "abbrev": "E596C",
+      "original": "EE P 596 C"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ],
+  "2025-10-03-friday-ta-logistics.md": [
+    {
+      "glossary_id": "G04",
+      "abbrev": "CN",
+      "original": "Chloe Nguyen"
+    },
+    {
+      "glossary_id": "G15",
+      "abbrev": "OFHR",
+      "original": "office hours"
+    },
+    {
+      "glossary_id": "G15",
+      "abbrev": "OFHR",
+      "original": "office hours"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-10-04-liam-e596a-partner.md": [
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G11",
+      "abbrev": "E596A",
+      "original": "EE P 596 A"
+    }
+  ],
+  "2025-10-05-e500d-textbook-ch1.md": [
+    {
+      "glossary_id": "G13",
+      "abbrev": "E500D",
+      "original": "EE P 500 D"
+    }
+  ],
+  "2025-10-05-weekly-plan-wk2.md": [
+    {
+      "glossary_id": "G20",
+      "abbrev": "DSEC",
+      "original": "discussion section"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G13",
+      "abbrev": "E500D",
+      "original": "EE P 500 D"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-10-06-dsec-labm-conflict.md": [
+    {
+      "glossary_id": "G20",
+      "abbrev": "DSEC",
+      "original": "discussion section"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G21",
+      "abbrev": "LABM",
+      "original": "lab meeting"
+    },
+    {
+      "glossary_id": "G21",
+      "abbrev": "LABM",
+      "original": "lab meeting"
+    },
+    {
+      "glossary_id": "G21",
+      "abbrev": "LABM",
+      "original": "lab meeting"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-10-06-e596c-lecture-2-gradient-descent.md": [
+    {
+      "glossary_id": "G22",
+      "abbrev": "PLIN",
+      "original": "Prof. Lindqvist"
+    },
+    {
+      "glossary_id": "G17",
+      "abbrev": "HWKS",
+      "original": "problem sets"
+    },
+    {
+      "glossary_id": "G17",
+      "abbrev": "HWKS",
+      "original": "problem sets"
+    },
+    {
+      "glossary_id": "G18",
+      "abbrev": "MIDT",
+      "original": "midterm exam"
+    },
+    {
+      "glossary_id": "G18",
+      "abbrev": "MIDT",
+      "original": "midterm exam"
+    },
+    {
+      "glossary_id": "G12",
+      "abbrev": "E596C",
+      "original": "EE P 596 C"
+    }
+  ],
+  "2025-10-07-patl-dsec-reschedule.md": [
+    {
+      "glossary_id": "G20",
+      "abbrev": "DSEC",
+      "original": "discussion section"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G21",
+      "abbrev": "LABM",
+      "original": "lab meeting"
+    },
+    {
+      "glossary_id": "G21",
+      "abbrev": "LABM",
+      "original": "lab meeting"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-10-08-e235-grading-batch-1.md": [
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-10-08-gclu-library-path-fix.md": [
+    {
+      "glossary_id": "G19",
+      "abbrev": "GCLU",
+      "original": "the GPU cluster"
+    },
+    {
+      "glossary_id": "G08",
+      "abbrev": "MW",
+      "original": "Marcus Webb"
+    },
+    {
+      "glossary_id": "G12",
+      "abbrev": "E596C",
+      "original": "EE P 596 C"
+    }
+  ],
+  "2025-10-09-anav-first-lab-meeting.md": [
+    {
+      "glossary_id": "G21",
+      "abbrev": "LABM",
+      "original": "lab meeting"
+    },
+    {
+      "glossary_id": "G21",
+      "abbrev": "LABM",
+      "original": "lab meeting"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ],
+  "2025-10-10-echo-data-collection-script.md": [
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G10",
+      "abbrev": "ECHO",
+      "original": "EchoSense"
+    }
+  ],
+  "2025-10-11-coordinate-transforms-review.md": [
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ],
+  "2025-10-12-weekly-plan-wk3.md": [
+    {
+      "glossary_id": "G20",
+      "abbrev": "DSEC",
+      "original": "discussion section"
+    },
+    {
+      "glossary_id": "G20",
+      "abbrev": "DSEC",
+      "original": "discussion section"
+    },
+    {
+      "glossary_id": "G04",
+      "abbrev": "CN",
+      "original": "Chloe Nguyen"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-10-13-gclu-maintenance-downtime.md": [
+    {
+      "glossary_id": "G19",
+      "abbrev": "GCLU",
+      "original": "the GPU cluster"
+    },
+    {
+      "glossary_id": "G08",
+      "abbrev": "MW",
+      "original": "Marcus Webb"
+    }
+  ],
+  "2025-10-13-patl-dsec-oh-final-slots.md": [
+    {
+      "glossary_id": "G20",
+      "abbrev": "DSEC",
+      "original": "Discussion section"
+    },
+    {
+      "glossary_id": "G20",
+      "abbrev": "DSEC",
+      "original": "discussion section"
+    },
+    {
+      "glossary_id": "G20",
+      "abbrev": "DSEC",
+      "original": "discussion section"
+    },
+    {
+      "glossary_id": "G15",
+      "abbrev": "OFHR",
+      "original": "office hours"
+    },
+    {
+      "glossary_id": "G15",
+      "abbrev": "OFHR",
+      "original": "office hours"
+    },
+    {
+      "glossary_id": "G15",
+      "abbrev": "OFHR",
+      "original": "office hours"
+    },
+    {
+      "glossary_id": "G15",
+      "abbrev": "OFHR",
+      "original": "office hours"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-10-14-e235-grading-done.md": [
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-10-15-empty-office-hours.md": [
+    {
+      "glossary_id": "G15",
+      "abbrev": "OFHR",
+      "original": "office hours"
+    },
+    {
+      "glossary_id": "G15",
+      "abbrev": "OFHR",
+      "original": "office hours"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-10-16-e596a-lecture-3-tracking.md": [
+    {
+      "glossary_id": "G07",
+      "abbrev": "PSTE",
+      "original": "Prof. Seitz"
+    },
+    {
+      "glossary_id": "G07",
+      "abbrev": "PSTE",
+      "original": "Prof. Seitz"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G11",
+      "abbrev": "E596A",
+      "original": "EE P 596 A"
+    }
+  ],
+  "2025-10-16-realtime-tracker-idea.md": [
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G11",
+      "abbrev": "E596A",
+      "original": "EE P 596 A"
+    }
+  ],
+  "2025-10-17-echo-open-source-pivot.md": [
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G10",
+      "abbrev": "ECHO",
+      "original": "EchoSense"
+    }
+  ],
+  "2025-10-17-friday-coffee-weekend-list.md": [
+    {
+      "glossary_id": "G04",
+      "abbrev": "CN",
+      "original": "Chloe Nguyen"
+    }
+  ],
+  "2025-10-18-e500d-reflection-1-draft.md": [
+    {
+      "glossary_id": "G13",
+      "abbrev": "E500D",
+      "original": "EE P 500 D"
+    }
+  ],
+  "2025-10-19-weekly-plan-wk4.md": [
+    {
+      "glossary_id": "G07",
+      "abbrev": "PSTE",
+      "original": "Prof. Seitz"
+    },
+    {
+      "glossary_id": "G11",
+      "abbrev": "E596A",
+      "original": "EE P 596 A"
+    },
+    {
+      "glossary_id": "G13",
+      "abbrev": "E500D",
+      "original": "EE P 500 D"
+    }
+  ],
+  "2025-10-20-e596c-lecture-4-regularization.md": [
+    {
+      "glossary_id": "G22",
+      "abbrev": "PLIN",
+      "original": "Prof. Lindqvist"
+    },
+    {
+      "glossary_id": "G17",
+      "abbrev": "HWKS",
+      "original": "problem sets"
+    },
+    {
+      "glossary_id": "G18",
+      "abbrev": "MIDT",
+      "original": "midterm exam"
+    },
+    {
+      "glossary_id": "G12",
+      "abbrev": "E596C",
+      "original": "EE P 596 C"
+    }
+  ],
+  "2025-10-20-pfox-1on1-cpp-switch.md": [
+    {
+      "glossary_id": "G16",
+      "abbrev": "1ON1",
+      "original": "1:1 meeting"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ],
+  "2025-10-21-e500d-lecture-tool-use.md": [
+    {
+      "glossary_id": "G13",
+      "abbrev": "E500D",
+      "original": "EE P 500 D"
+    }
+  ],
+  "2025-10-21-gclu-pytorch-profiling.md": [
+    {
+      "glossary_id": "G19",
+      "abbrev": "GCLU",
+      "original": "the GPU cluster"
+    },
+    {
+      "glossary_id": "G19",
+      "abbrev": "GCLU",
+      "original": "the GPU cluster"
+    },
+    {
+      "glossary_id": "G08",
+      "abbrev": "MW",
+      "original": "Marcus Webb"
+    },
+    {
+      "glossary_id": "G08",
+      "abbrev": "MW",
+      "original": "Marcus Webb"
+    }
+  ],
+  "2025-10-22-dsec-laplace-review.md": [
+    {
+      "glossary_id": "G20",
+      "abbrev": "DSEC",
+      "original": "Discussion section"
+    },
+    {
+      "glossary_id": "G20",
+      "abbrev": "DSEC",
+      "original": "discussion section"
+    },
+    {
+      "glossary_id": "G20",
+      "abbrev": "DSEC",
+      "original": "discussion section"
+    },
+    {
+      "glossary_id": "G15",
+      "abbrev": "OFHR",
+      "original": "office hours"
+    },
+    {
+      "glossary_id": "G15",
+      "abbrev": "OFHR",
+      "original": "office hours"
+    },
+    {
+      "glossary_id": "G15",
+      "abbrev": "OFHR",
+      "original": "office hours"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-10-23-anav-cpp-port-done.md": [
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ],
+  "2025-10-23-e596a-lecture-mot-deadline.md": [
+    {
+      "glossary_id": "G07",
+      "abbrev": "PSTE",
+      "original": "Prof. Seitz"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G11",
+      "abbrev": "E596A",
+      "original": "EE P 596 A"
+    }
+  ],
+  "2025-10-24-echo-feature-extraction-bug.md": [
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G10",
+      "abbrev": "ECHO",
+      "original": "EchoSense"
+    }
+  ],
+  "2025-10-25-midterm-study-day.md": [
+    {
+      "glossary_id": "G18",
+      "abbrev": "MIDT",
+      "original": "midterm exam"
+    },
+    {
+      "glossary_id": "G12",
+      "abbrev": "E596C",
+      "original": "EE P 596 C"
+    }
+  ],
+  "2025-10-26-weekly-plan-wk5.md": [
+    {
+      "glossary_id": "G18",
+      "abbrev": "MIDT",
+      "original": "midterm exam"
+    },
+    {
+      "glossary_id": "G18",
+      "abbrev": "MIDT",
+      "original": "midterm exam"
+    },
+    {
+      "glossary_id": "G07",
+      "abbrev": "PSTE",
+      "original": "Prof. Seitz"
+    },
+    {
+      "glossary_id": "G11",
+      "abbrev": "E596A",
+      "original": "EE P 596 A"
+    },
+    {
+      "glossary_id": "G12",
+      "abbrev": "E596C",
+      "original": "EE P 596 C"
+    }
+  ],
+  "2025-10-27-e596c-lecture-5-midterm-delayed.md": [
+    {
+      "glossary_id": "G22",
+      "abbrev": "PLIN",
+      "original": "Prof. Lindqvist"
+    },
+    {
+      "glossary_id": "G22",
+      "abbrev": "PLIN",
+      "original": "Prof. Lindqvist"
+    },
+    {
+      "glossary_id": "G18",
+      "abbrev": "MIDT",
+      "original": "midterm exam"
+    },
+    {
+      "glossary_id": "G18",
+      "abbrev": "MIDT",
+      "original": "midterm exam"
+    },
+    {
+      "glossary_id": "G12",
+      "abbrev": "E596C",
+      "original": "EE P 596 C"
+    }
+  ],
+  "2025-10-28-tracker-occlusion-fix-ideas.md": [
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G11",
+      "abbrev": "E596A",
+      "original": "EE P 596 A"
+    }
+  ],
+  "2025-10-29-fourier-series-oh-rush.md": [
+    {
+      "glossary_id": "G15",
+      "abbrev": "OFHR",
+      "original": "office hours"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-10-29-pfox-1on1-canceled.md": [
+    {
+      "glossary_id": "G16",
+      "abbrev": "1ON1",
+      "original": "1:1 meeting"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ],
+  "2025-10-30-labm-on-device-optimization.md": [
+    {
+      "glossary_id": "G21",
+      "abbrev": "LABM",
+      "original": "lab meeting"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ],
+  "2025-10-31-echo-feature-bug-fixed.md": [
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G10",
+      "abbrev": "ECHO",
+      "original": "EchoSense"
+    },
+    {
+      "glossary_id": "G10",
+      "abbrev": "ECHO",
+      "original": "EchoSense"
+    }
+  ],
+  "2025-10-31-friday-dinner-and-grading-script.md": [
+    {
+      "glossary_id": "G04",
+      "abbrev": "CN",
+      "original": "Chloe Nguyen"
+    },
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-11-01-kitti-download-started.md": [
+    {
+      "glossary_id": "G19",
+      "abbrev": "GCLU",
+      "original": "the GPU cluster"
+    },
+    {
+      "glossary_id": "G19",
+      "abbrev": "GCLU",
+      "original": "the GPU cluster"
+    }
+  ],
+  "2025-11-02-weekly-plan-wk6.md": [
+    {
+      "glossary_id": "G19",
+      "abbrev": "GCLU",
+      "original": "the GPU cluster"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G11",
+      "abbrev": "E596A",
+      "original": "EE P 596 A"
+    }
+  ],
+  "2025-11-03-e596c-lecture-6-cnns.md": [
+    {
+      "glossary_id": "G22",
+      "abbrev": "PLIN",
+      "original": "Prof. Lindqvist"
+    },
+    {
+      "glossary_id": "G17",
+      "abbrev": "HWKS",
+      "original": "problem sets"
+    },
+    {
+      "glossary_id": "G18",
+      "abbrev": "MIDT",
+      "original": "midterm exam"
+    },
+    {
+      "glossary_id": "G12",
+      "abbrev": "E596C",
+      "original": "EE P 596 C"
+    }
+  ],
+  "2025-11-04-patl-final-exam-question-ask.md": [
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-11-05-dsec-bode-plots.md": [
+    {
+      "glossary_id": "G20",
+      "abbrev": "DSEC",
+      "original": "discussion section"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-11-05-kitti-download-done.md": [
+    {
+      "glossary_id": "G19",
+      "abbrev": "GCLU",
+      "original": "the GPU cluster"
+    },
+    {
+      "glossary_id": "G19",
+      "abbrev": "GCLU",
+      "original": "the GPU cluster"
+    },
+    {
+      "glossary_id": "G19",
+      "abbrev": "GCLU",
+      "original": "the GPU cluster"
+    }
+  ],
+  "2025-11-05-pfox-1on1-edge-ai.md": [
+    {
+      "glossary_id": "G16",
+      "abbrev": "1ON1",
+      "original": "1:1 meeting"
+    },
+    {
+      "glossary_id": "G16",
+      "abbrev": "1ON1",
+      "original": "1:1 meeting"
+    },
+    {
+      "glossary_id": "G16",
+      "abbrev": "1ON1",
+      "original": "1:1 meeting"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ],
+  "2025-11-06-e596a-lecture-occlusion-fixed.md": [
+    {
+      "glossary_id": "G07",
+      "abbrev": "PSTE",
+      "original": "Prof. Seitz"
+    },
+    {
+      "glossary_id": "G07",
+      "abbrev": "PSTE",
+      "original": "Prof. Seitz"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G11",
+      "abbrev": "E596A",
+      "original": "EE P 596 A"
+    },
+    {
+      "glossary_id": "G11",
+      "abbrev": "E596A",
+      "original": "EE P 596 A"
+    }
+  ],
+  "2025-11-06-echo-pi-prototype.md": [
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G10",
+      "abbrev": "ECHO",
+      "original": "EchoSense"
+    },
+    {
+      "glossary_id": "G10",
+      "abbrev": "ECHO",
+      "original": "EchoSense"
+    }
+  ],
+  "2025-11-07-e235-exam-question-brainstorm.md": [
+    {
+      "glossary_id": "G20",
+      "abbrev": "DSEC",
+      "original": "discussion section"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-11-08-gclu-storage-warning.md": [
+    {
+      "glossary_id": "G19",
+      "abbrev": "GCLU",
+      "original": "the GPU cluster"
+    },
+    {
+      "glossary_id": "G19",
+      "abbrev": "GCLU",
+      "original": "the GPU cluster"
+    },
+    {
+      "glossary_id": "G19",
+      "abbrev": "GCLU",
+      "original": "the GPU cluster"
+    },
+    {
+      "glossary_id": "G08",
+      "abbrev": "MW",
+      "original": "Marcus Webb"
+    }
+  ],
+  "2025-11-08-midterm-review-cnn-notes.md": [
+    {
+      "glossary_id": "G22",
+      "abbrev": "PLIN",
+      "original": "Prof. Lindqvist"
+    },
+    {
+      "glossary_id": "G17",
+      "abbrev": "HWKS",
+      "original": "problem sets"
+    },
+    {
+      "glossary_id": "G17",
+      "abbrev": "HWKS",
+      "original": "problem sets"
+    },
+    {
+      "glossary_id": "G17",
+      "abbrev": "HWKS",
+      "original": "problem sets"
+    },
+    {
+      "glossary_id": "G18",
+      "abbrev": "MIDT",
+      "original": "midterm exam"
+    },
+    {
+      "glossary_id": "G12",
+      "abbrev": "E596C",
+      "original": "EE P 596 C"
+    }
+  ],
+  "2025-11-09-weekly-plan-wk7.md": [
+    {
+      "glossary_id": "G18",
+      "abbrev": "MIDT",
+      "original": "midterm exam"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G12",
+      "abbrev": "E596C",
+      "original": "EE P 596 C"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-11-10-e500d-reflection-3-submitted.md": [
+    {
+      "glossary_id": "G13",
+      "abbrev": "E500D",
+      "original": "EE P 500 D"
+    }
+  ],
+  "2025-11-10-labm-back-to-python.md": [
+    {
+      "glossary_id": "G21",
+      "abbrev": "LABM",
+      "original": "lab meeting"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ],
+  "2025-11-11-anav-python-interface.md": [
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ],
+  "2025-11-11-anav-sim-demo-pfox.md": [
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ],
+  "2025-11-12-exam-question-submitted-sk-covers.md": [
+    {
+      "glossary_id": "G20",
+      "abbrev": "DSEC",
+      "original": "discussion section"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-11-13-e596a-lecture-street-footage.md": [
+    {
+      "glossary_id": "G07",
+      "abbrev": "PSTE",
+      "original": "Prof. Seitz"
+    },
+    {
+      "glossary_id": "G07",
+      "abbrev": "PSTE",
+      "original": "Prof. Seitz"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G11",
+      "abbrev": "E596A",
+      "original": "EE P 596 A"
+    }
+  ],
+  "2025-11-13-echo-architecture-doc.md": [
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G10",
+      "abbrev": "ECHO",
+      "original": "EchoSense"
+    },
+    {
+      "glossary_id": "G10",
+      "abbrev": "ECHO",
+      "original": "EchoSense"
+    },
+    {
+      "glossary_id": "G10",
+      "abbrev": "ECHO",
+      "original": "EchoSense"
+    }
+  ],
+  "2025-11-14-gclu-storage-purge.md": [
+    {
+      "glossary_id": "G19",
+      "abbrev": "GCLU",
+      "original": "the GPU cluster"
+    },
+    {
+      "glossary_id": "G19",
+      "abbrev": "GCLU",
+      "original": "the GPU cluster"
+    },
+    {
+      "glossary_id": "G08",
+      "abbrev": "MW",
+      "original": "Marcus Webb"
+    },
+    {
+      "glossary_id": "G08",
+      "abbrev": "MW",
+      "original": "Marcus Webb"
+    },
+    {
+      "glossary_id": "G08",
+      "abbrev": "MW",
+      "original": "Marcus Webb"
+    }
+  ],
+  "2025-11-15-reflections-review-with-chloe.md": [
+    {
+      "glossary_id": "G04",
+      "abbrev": "CN",
+      "original": "Chloe Nguyen"
+    },
+    {
+      "glossary_id": "G13",
+      "abbrev": "E500D",
+      "original": "EE P 500 D"
+    },
+    {
+      "glossary_id": "G13",
+      "abbrev": "E500D",
+      "original": "EE P 500 D"
+    }
+  ],
+  "2025-11-16-weekly-plan-wk8.md": [
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G11",
+      "abbrev": "E596A",
+      "original": "EE P 596 A"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-11-17-e596c-midterm-day.md": [
+    {
+      "glossary_id": "G22",
+      "abbrev": "PLIN",
+      "original": "Prof. Lindqvist"
+    },
+    {
+      "glossary_id": "G18",
+      "abbrev": "MIDT",
+      "original": "midterm exam"
+    },
+    {
+      "glossary_id": "G18",
+      "abbrev": "MIDT",
+      "original": "midterm exam"
+    },
+    {
+      "glossary_id": "G12",
+      "abbrev": "E596C",
+      "original": "EE P 596 C"
+    }
+  ],
+  "2025-11-17-labm-poster-practice.md": [
+    {
+      "glossary_id": "G21",
+      "abbrev": "LABM",
+      "original": "lab meeting"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ],
+  "2025-11-18-e500d-lecture-tool-augmented-llms.md": [
+    {
+      "glossary_id": "G13",
+      "abbrev": "E500D",
+      "original": "EE P 500 D"
+    }
+  ],
+  "2025-11-18-e500d-paper-llm-tool-use.md": [
+    {
+      "glossary_id": "G13",
+      "abbrev": "E500D",
+      "original": "EE P 500 D"
+    },
+    {
+      "glossary_id": "G13",
+      "abbrev": "E500D",
+      "original": "EE P 500 D"
+    }
+  ],
+  "2025-11-19-one-student-office-hours.md": [
+    {
+      "glossary_id": "G15",
+      "abbrev": "OFHR",
+      "original": "office hours"
+    },
+    {
+      "glossary_id": "G15",
+      "abbrev": "OFHR",
+      "original": "office hours"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-11-19-pfox-1on1-poster-request.md": [
+    {
+      "glossary_id": "G16",
+      "abbrev": "1ON1",
+      "original": "1:1 meeting"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ],
+  "2025-11-20-e596a-presentation-schedule.md": [
+    {
+      "glossary_id": "G07",
+      "abbrev": "PSTE",
+      "original": "Prof. Seitz"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G11",
+      "abbrev": "E596A",
+      "original": "EE P 596 A"
+    },
+    {
+      "glossary_id": "G11",
+      "abbrev": "E596A",
+      "original": "EE P 596 A"
+    }
+  ],
+  "2025-11-20-echo-latency-benchmarks.md": [
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G10",
+      "abbrev": "ECHO",
+      "original": "EchoSense"
+    },
+    {
+      "glossary_id": "G10",
+      "abbrev": "ECHO",
+      "original": "EchoSense"
+    }
+  ],
+  "2025-11-21-e596a-code-complete.md": [
+    {
+      "glossary_id": "G07",
+      "abbrev": "PSTE",
+      "original": "Prof. Seitz"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G11",
+      "abbrev": "E596A",
+      "original": "EE P 596 A"
+    },
+    {
+      "glossary_id": "G11",
+      "abbrev": "E596A",
+      "original": "EE P 596 A"
+    }
+  ],
+  "2025-11-22-exam-question-approved.md": [
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-11-23-echo-readme-intro.md": [
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G10",
+      "abbrev": "ECHO",
+      "original": "EchoSense"
+    },
+    {
+      "glossary_id": "G10",
+      "abbrev": "ECHO",
+      "original": "EchoSense"
+    }
+  ],
+  "2025-11-23-weekly-plan-wk9.md": [
+    {
+      "glossary_id": "G13",
+      "abbrev": "E500D",
+      "original": "EE P 500 D"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ],
+  "2025-11-24-e500d-switch-to-marl.md": [
+    {
+      "glossary_id": "G13",
+      "abbrev": "E500D",
+      "original": "EE P 500 D"
+    }
+  ],
+  "2025-11-24-thanksgiving-week-plan.md": [
+    {
+      "glossary_id": "G08",
+      "abbrev": "MW",
+      "original": "Marcus Webb"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G11",
+      "abbrev": "E596A",
+      "original": "EE P 596 A"
+    }
+  ],
+  "2025-11-25-anav-python-merge.md": [
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ],
+  "2025-11-26-echo-repo-published.md": [
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G10",
+      "abbrev": "ECHO",
+      "original": "EchoSense"
+    },
+    {
+      "glossary_id": "G10",
+      "abbrev": "ECHO",
+      "original": "EchoSense"
+    }
+  ],
+  "2025-11-26-marl-survey-reading.md": [
+    {
+      "glossary_id": "G13",
+      "abbrev": "E500D",
+      "original": "EE P 500 D"
+    }
+  ],
+  "2025-11-27-thanksgiving-winter-break-ideas.md": [
+    {
+      "glossary_id": "G04",
+      "abbrev": "CN",
+      "original": "Chloe Nguyen"
+    },
+    {
+      "glossary_id": "G04",
+      "abbrev": "CN",
+      "original": "Chloe Nguyen"
+    }
+  ],
+  "2025-11-28-e500d-references-compilation.md": [
+    {
+      "glossary_id": "G13",
+      "abbrev": "E500D",
+      "original": "EE P 500 D"
+    }
+  ],
+  "2025-11-29-anav-poster-layout.md": [
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ],
+  "2025-11-30-e235-final-grading-script.md": [
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-11-30-weekly-plan-wk10.md": [
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-12-01-anav-poster-printed.md": [
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ],
+  "2025-12-01-e596c-final-lecture.md": [
+    {
+      "glossary_id": "G22",
+      "abbrev": "PLIN",
+      "original": "Prof. Lindqvist"
+    },
+    {
+      "glossary_id": "G22",
+      "abbrev": "PLIN",
+      "original": "Prof. Lindqvist"
+    },
+    {
+      "glossary_id": "G17",
+      "abbrev": "HWKS",
+      "original": "Problem sets"
+    },
+    {
+      "glossary_id": "G17",
+      "abbrev": "HWKS",
+      "original": "problem sets"
+    },
+    {
+      "glossary_id": "G18",
+      "abbrev": "MIDT",
+      "original": "midterm exam"
+    },
+    {
+      "glossary_id": "G12",
+      "abbrev": "E596C",
+      "original": "EE P 596 C"
+    }
+  ],
+  "2025-12-02-echo-starred-next-steps.md": [
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G02",
+      "abbrev": "RP",
+      "original": "Ryan Park"
+    },
+    {
+      "glossary_id": "G10",
+      "abbrev": "ECHO",
+      "original": "EchoSense"
+    },
+    {
+      "glossary_id": "G10",
+      "abbrev": "ECHO",
+      "original": "EchoSense"
+    }
+  ],
+  "2025-12-03-e500d-final-paper-submitted.md": [
+    {
+      "glossary_id": "G13",
+      "abbrev": "E500D",
+      "original": "EE P 500 D"
+    },
+    {
+      "glossary_id": "G13",
+      "abbrev": "E500D",
+      "original": "EE P 500 D"
+    },
+    {
+      "glossary_id": "G13",
+      "abbrev": "E500D",
+      "original": "EE P 500 D"
+    }
+  ],
+  "2025-12-03-final-office-hours-packed.md": [
+    {
+      "glossary_id": "G15",
+      "abbrev": "OFHR",
+      "original": "office hours"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-12-04-department-showcase-poster.md": [
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ],
+  "2025-12-04-e596a-final-presentations.md": [
+    {
+      "glossary_id": "G07",
+      "abbrev": "PSTE",
+      "original": "Prof. Seitz"
+    },
+    {
+      "glossary_id": "G07",
+      "abbrev": "PSTE",
+      "original": "Prof. Seitz"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G06",
+      "abbrev": "LO",
+      "original": "Liam Ortiz"
+    },
+    {
+      "glossary_id": "G11",
+      "abbrev": "E596A",
+      "original": "EE P 596 A"
+    },
+    {
+      "glossary_id": "G11",
+      "abbrev": "E596A",
+      "original": "EE P 596 A"
+    }
+  ],
+  "2025-12-05-e235-final-proctoring.md": [
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-12-06-e235-grading-finished.md": [
+    {
+      "glossary_id": "G03",
+      "abbrev": "PATL",
+      "original": "Prof. Atlas"
+    },
+    {
+      "glossary_id": "G05",
+      "abbrev": "SK",
+      "original": "Sarah Kim"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    },
+    {
+      "glossary_id": "G14",
+      "abbrev": "E235",
+      "original": "EE 235"
+    }
+  ],
+  "2025-12-07-quarter-wrap-up-backup.md": [
+    {
+      "glossary_id": "G04",
+      "abbrev": "CN",
+      "original": "Chloe Nguyen"
+    },
+    {
+      "glossary_id": "G01",
+      "abbrev": "PFOX",
+      "original": "Prof. Fox"
+    },
+    {
+      "glossary_id": "G09",
+      "abbrev": "ANAV",
+      "original": "AutoNav"
+    }
+  ]
+}

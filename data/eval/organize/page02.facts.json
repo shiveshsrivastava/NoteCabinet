@@ -1,0 +1,22 @@
+[
+  {
+    "fact_id": "F005",
+    "text": "Ryan Park and I decided to submit EchoSense to a smart home workshop."
+  },
+  {
+    "fact_id": "F009",
+    "text": "Liam Ortiz agreed to be my partner for the EE P 596 A final project."
+  },
+  {
+    "fact_id": "F008",
+    "text": "Chloe Nguyen and I agreed to get coffee every Friday morning this quarter."
+  },
+  {
+    "fact_id": "F003",
+    "text": "I requested access to the GPU cluster for the EE P 596 C programming assignments."
+  },
+  {
+    "fact_id": "F006",
+    "text": "I configured my local environment for the AutoNav perception module."
+  }
+]

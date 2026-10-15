@@ -1,0 +1,30 @@
+[
+  {
+    "fact_id": "F012",
+    "text": "I realized the Thursday 10am discussion section conflicts with my lab meeting."
+  },
+  {
+    "fact_id": "F015",
+    "text": "Sarah Kim asked me to grade the first batch of EE 235 submissions."
+  },
+  {
+    "fact_id": "F021",
+    "text": "Only three students showed up to my Friday office hours."
+  },
+  {
+    "fact_id": "F022",
+    "text": "Prof. Atlas moved my EE 235 discussion section to Wednesdays at 4pm permanently."
+  },
+  {
+    "fact_id": "F102",
+    "text": "I moved my EE 235 office hours to Wednesdays at 3pm because Friday attendance was so low."
+  },
+  {
+    "fact_id": "F024",
+    "text": "I completed the grading for the EE 235 homework batch."
+  },
+  {
+    "fact_id": "F025",
+    "text": "My EE 235 office hours were completely empty this afternoon."
+  }
+]

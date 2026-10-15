@@ -1,0 +1,30 @@
+[
+  {
+    "fact_id": "F016",
+    "text": "We held the first lab meeting to discuss repository architecture for AutoNav."
+  },
+  {
+    "fact_id": "F027",
+    "text": "I successfully integrated the new sensor suite into the AutoNav simulation."
+  },
+  {
+    "fact_id": "F032",
+    "text": "Prof. Fox told me to switch the AutoNav backend from Python to C++."
+  },
+  {
+    "fact_id": "F036",
+    "text": "I finished porting the core AutoNav logic to C++."
+  },
+  {
+    "fact_id": "F045",
+    "text": "Prof. Fox canceled our 1:1 meeting this week due to a grant deadline."
+  },
+  {
+    "fact_id": "F051",
+    "text": "I got the C++ backend for AutoNav to compile without warnings."
+  },
+  {
+    "fact_id": "F054",
+    "text": "I had a great 1:1 meeting with Prof. Fox about scalable Edge AI architecture."
+  }
+]

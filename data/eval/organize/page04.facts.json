@@ -1,0 +1,26 @@
+[
+  {
+    "fact_id": "F014",
+    "text": "Marcus Webb helped me resolve a tricky library path issue on the GPU cluster."
+  },
+  {
+    "fact_id": "F017",
+    "text": "I finished the first set of EE P 596 C problem sets on gradient descent."
+  },
+  {
+    "fact_id": "F003",
+    "text": "I requested access to the GPU cluster for the EE P 596 C programming assignments."
+  },
+  {
+    "fact_id": "F020",
+    "text": "I spent Saturday morning reviewing robotic coordinate transformations."
+  },
+  {
+    "fact_id": "F016",
+    "text": "We held the first lab meeting to discuss repository architecture for AutoNav."
+  },
+  {
+    "fact_id": "F018",
+    "text": "Ryan Park shared the initial data collection script for EchoSense."
+  }
+]

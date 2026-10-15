@@ -1,0 +1,390 @@
+{
+  "2025-09-29-e596c-lecture-1-backprop.md": [
+    "F001",
+    "F010",
+    "F003"
+  ],
+  "2025-09-30-pfox-kickoff-1on1.md": [
+    "F002",
+    "F006"
+  ],
+  "2025-10-01-e235-ta-kickoff.md": [
+    "F004"
+  ],
+  "2025-10-02-echo-workshop-submission.md": [
+    "F005"
+  ],
+  "2025-10-03-anav-env-setup.md": [
+    "F006",
+    "F003"
+  ],
+  "2025-10-03-friday-ta-logistics.md": [
+    "F007",
+    "F008"
+  ],
+  "2025-10-04-liam-e596a-partner.md": [
+    "F009"
+  ],
+  "2025-10-05-e500d-textbook-ch1.md": [
+    "F011"
+  ],
+  "2025-10-05-weekly-plan-wk2.md": [
+    "F004",
+    "F011"
+  ],
+  "2025-10-06-dsec-labm-conflict.md": [
+    "F012",
+    "F004"
+  ],
+  "2025-10-06-e596c-lecture-2-gradient-descent.md": [
+    "F017",
+    "F010"
+  ],
+  "2025-10-07-patl-dsec-reschedule.md": [
+    "F013",
+    "F012"
+  ],
+  "2025-10-08-e235-grading-batch-1.md": [
+    "F015"
+  ],
+  "2025-10-08-gclu-library-path-fix.md": [
+    "F014",
+    "F003"
+  ],
+  "2025-10-09-anav-first-lab-meeting.md": [
+    "F016",
+    "F006"
+  ],
+  "2025-10-10-echo-data-collection-script.md": [
+    "F018",
+    "F005"
+  ],
+  "2025-10-11-coordinate-transforms-review.md": [
+    "F020"
+  ],
+  "2025-10-12-weekly-plan-wk3.md": [
+    "F013",
+    "F019"
+  ],
+  "2025-10-13-gclu-maintenance-downtime.md": [
+    "F031",
+    "F014"
+  ],
+  "2025-10-13-patl-dsec-oh-final-slots.md": [
+    "F022",
+    "F102",
+    "F021"
+  ],
+  "2025-10-14-e235-grading-done.md": [
+    "F024",
+    "F015"
+  ],
+  "2025-10-15-empty-office-hours.md": [
+    "F025",
+    "F102"
+  ],
+  "2025-10-16-e596a-lecture-3-tracking.md": [
+    "F023",
+    "F026"
+  ],
+  "2025-10-16-realtime-tracker-idea.md": [
+    "F026",
+    "F009"
+  ],
+  "2025-10-17-echo-open-source-pivot.md": [
+    "F028",
+    "F018"
+  ],
+  "2025-10-17-friday-coffee-weekend-list.md": [
+    "F029",
+    "F008"
+  ],
+  "2025-10-18-e500d-reflection-1-draft.md": [
+    "F030",
+    "F011"
+  ],
+  "2025-10-19-weekly-plan-wk4.md": [
+    "F023",
+    "F030"
+  ],
+  "2025-10-20-e596c-lecture-4-regularization.md": [
+    "F010",
+    "F017"
+  ],
+  "2025-10-20-pfox-1on1-cpp-switch.md": [
+    "F032",
+    "F027",
+    "F002"
+  ],
+  "2025-10-21-e500d-lecture-tool-use.md": [
+    "F030"
+  ],
+  "2025-10-21-gclu-pytorch-profiling.md": [
+    "F039"
+  ],
+  "2025-10-22-dsec-laplace-review.md": [
+    "F034",
+    "F035",
+    "F022"
+  ],
+  "2025-10-23-anav-cpp-port-done.md": [
+    "F036",
+    "F032"
+  ],
+  "2025-10-23-e596a-lecture-mot-deadline.md": [
+    "F037",
+    "F033"
+  ],
+  "2025-10-24-echo-feature-extraction-bug.md": [
+    "F038",
+    "F041"
+  ],
+  "2025-10-25-midterm-study-day.md": [
+    "F040",
+    "F001"
+  ],
+  "2025-10-26-weekly-plan-wk5.md": [
+    "F037",
+    "F040"
+  ],
+  "2025-10-27-e596c-lecture-5-midterm-delayed.md": [
+    "F042",
+    "F040"
+  ],
+  "2025-10-28-tracker-occlusion-fix-ideas.md": [
+    "F043",
+    "F026"
+  ],
+  "2025-10-29-fourier-series-oh-rush.md": [
+    "F044"
+  ],
+  "2025-10-29-pfox-1on1-canceled.md": [
+    "F045",
+    "F036"
+  ],
+  "2025-10-30-labm-on-device-optimization.md": [
+    "F046",
+    "F032"
+  ],
+  "2025-10-31-echo-feature-bug-fixed.md": [
+    "F048",
+    "F038"
+  ],
+  "2025-10-31-friday-dinner-and-grading-script.md": [
+    "F047",
+    "F049"
+  ],
+  "2025-11-01-kitti-download-started.md": [
+    "F050"
+  ],
+  "2025-11-02-weekly-plan-wk6.md": [
+    "F043",
+    "F050"
+  ],
+  "2025-11-03-e596c-lecture-6-cnns.md": [
+    "F059",
+    "F052"
+  ],
+  "2025-11-04-patl-final-exam-question-ask.md": [
+    "F053"
+  ],
+  "2025-11-05-dsec-bode-plots.md": [
+    "F058"
+  ],
+  "2025-11-05-kitti-download-done.md": [
+    "F055",
+    "F050"
+  ],
+  "2025-11-05-pfox-1on1-edge-ai.md": [
+    "F054",
+    "F051",
+    "F002"
+  ],
+  "2025-11-06-e596a-lecture-occlusion-fixed.md": [
+    "F057",
+    "F043"
+  ],
+  "2025-11-06-echo-pi-prototype.md": [
+    "F056",
+    "F048"
+  ],
+  "2025-11-07-e235-exam-question-brainstorm.md": [
+    "F053",
+    "F058"
+  ],
+  "2025-11-08-gclu-storage-warning.md": [
+    "F060",
+    "F055"
+  ],
+  "2025-11-08-midterm-review-cnn-notes.md": [
+    "F061",
+    "F059",
+    "F052"
+  ],
+  "2025-11-09-weekly-plan-wk7.md": [
+    "F053",
+    "F061"
+  ],
+  "2025-11-10-e500d-reflection-3-submitted.md": [
+    "F062"
+  ],
+  "2025-11-10-labm-back-to-python.md": [
+    "F063",
+    "F036"
+  ],
+  "2025-11-11-anav-python-interface.md": [
+    "F069",
+    "F063"
+  ],
+  "2025-11-11-anav-sim-demo-pfox.md": [
+    "F064",
+    "F063"
+  ],
+  "2025-11-12-exam-question-submitted-sk-covers.md": [
+    "F065",
+    "F068"
+  ],
+  "2025-11-13-e596a-lecture-street-footage.md": [
+    "F067",
+    "F057"
+  ],
+  "2025-11-13-echo-architecture-doc.md": [
+    "F066",
+    "F056"
+  ],
+  "2025-11-14-gclu-storage-purge.md": [
+    "F071",
+    "F060"
+  ],
+  "2025-11-15-reflections-review-with-chloe.md": [
+    "F070",
+    "F062"
+  ],
+  "2025-11-16-weekly-plan-wk8.md": [
+    "F065",
+    "F067"
+  ],
+  "2025-11-17-e596c-midterm-day.md": [
+    "F072",
+    "F059"
+  ],
+  "2025-11-17-labm-poster-practice.md": [
+    "F079",
+    "F077"
+  ],
+  "2025-11-18-e500d-lecture-tool-augmented-llms.md": [
+    "F074"
+  ],
+  "2025-11-18-e500d-paper-llm-tool-use.md": [
+    "F074",
+    "F062"
+  ],
+  "2025-11-19-one-student-office-hours.md": [
+    "F075"
+  ],
+  "2025-11-19-pfox-1on1-poster-request.md": [
+    "F077",
+    "F064"
+  ],
+  "2025-11-20-e596a-presentation-schedule.md": [
+    "F073",
+    "F067"
+  ],
+  "2025-11-20-echo-latency-benchmarks.md": [
+    "F076",
+    "F066"
+  ],
+  "2025-11-21-e596a-code-complete.md": [
+    "F078",
+    "F073"
+  ],
+  "2025-11-22-exam-question-approved.md": [
+    "F080",
+    "F065"
+  ],
+  "2025-11-23-echo-readme-intro.md": [
+    "F081",
+    "F076"
+  ],
+  "2025-11-23-weekly-plan-wk9.md": [
+    "F074",
+    "F077"
+  ],
+  "2025-11-24-e500d-switch-to-marl.md": [
+    "F083",
+    "F082"
+  ],
+  "2025-11-24-thanksgiving-week-plan.md": [
+    "F082",
+    "F087",
+    "F090"
+  ],
+  "2025-11-25-anav-python-merge.md": [
+    "F084",
+    "F069"
+  ],
+  "2025-11-26-echo-repo-published.md": [
+    "F085",
+    "F081"
+  ],
+  "2025-11-26-marl-survey-reading.md": [
+    "F083"
+  ],
+  "2025-11-27-thanksgiving-winter-break-ideas.md": [
+    "F086"
+  ],
+  "2025-11-28-e500d-references-compilation.md": [
+    "F088"
+  ],
+  "2025-11-29-anav-poster-layout.md": [
+    "F089"
+  ],
+  "2025-11-30-e235-final-grading-script.md": [
+    "F091",
+    "F049"
+  ],
+  "2025-11-30-weekly-plan-wk10.md": [
+    "F091",
+    "F089"
+  ],
+  "2025-12-01-anav-poster-printed.md": [
+    "F092",
+    "F089"
+  ],
+  "2025-12-01-e596c-final-lecture.md": [
+    "F052",
+    "F072"
+  ],
+  "2025-12-02-echo-starred-next-steps.md": [
+    "F097",
+    "F085"
+  ],
+  "2025-12-03-e500d-final-paper-submitted.md": [
+    "F095",
+    "F088"
+  ],
+  "2025-12-03-final-office-hours-packed.md": [
+    "F094"
+  ],
+  "2025-12-04-department-showcase-poster.md": [
+    "F096",
+    "F092"
+  ],
+  "2025-12-04-e596a-final-presentations.md": [
+    "F093",
+    "F073"
+  ],
+  "2025-12-05-e235-final-proctoring.md": [
+    "F098",
+    "F080"
+  ],
+  "2025-12-06-e235-grading-finished.md": [
+    "F100",
+    "F098"
+  ],
+  "2025-12-07-quarter-wrap-up-backup.md": [
+    "F101",
+    "F096",
+    "F099"
+  ]
+}
