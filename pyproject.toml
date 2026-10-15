@@ -9,4 +9,5 @@ dependencies = [
     "sqlite-vec",
     "httpx",
     "anthropic",
+    "wordfreq>=3.1.1",
 ]

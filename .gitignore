@@ -11,3 +11,6 @@ models/
 
 # raw eval logs (summary tables are committed)
 results/**/raw/
+
+# gen_* resume cache
+data/eval/.gen_cache/
