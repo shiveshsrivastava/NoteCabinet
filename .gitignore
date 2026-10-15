@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+
+# generated, rebuildable from data/notes
+index/
+
+# model weights
+models/
+
+# raw eval logs (summary tables are committed)
+results/**/raw/

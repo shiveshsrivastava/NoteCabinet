@@ -1,0 +1,12 @@
+[project]
+name = "notecabinet"
+version = "0.1.0"
+description = "Local-first AI layer over a folder of markdown notes"
+requires-python = ">=3.11"
+dependencies = [
+    "torch",
+    "sentence-transformers",
+    "sqlite-vec",
+    "httpx",
+    "anthropic",
+]
