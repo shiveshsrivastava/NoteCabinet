@@ -34,7 +34,8 @@ These carry forward to the full app. Do not change them without asking.
 | Word list (shorthand detection) | `wordfreq` English word list (offline after install) |
 | Reranker | `BAAI/bge-reranker-base` (cross-encoder, fp16) |
 | LLM | `llama-server` (llama.cpp, CUDA), **Qwen3-4B-Instruct-2507** (non-thinking), Q4_K_M GGUF, on the RTX 4060 |
-| Structured output | llama-server JSON-schema constrained decoding |
+| Orchestration | LangChain (`langchain-core`, `langchain-openai`, `langchain-text-splitters`): `Document`, custom `BaseRetriever`s, LCEL chains, `ChatOpenAI` pointed at llama-server. Retrieval logic, fusion and reranking are our own code inside those interfaces; no LangChain vector-store wrappers. LangSmith tracing is always off. |
+| Structured output | llama-server JSON-schema constrained decoding (via `with_structured_output`) |
 | Generation settings | temperature 0, fixed seed, for the app and all evals |
 | Dataset generation + eval judge | Claude API (different model family from the app's LLM, to avoid circular eval). Model set via `JUDGE_MODEL` env var |
 
@@ -71,7 +72,8 @@ Note frontmatter: `title`, `date`, `tags`.
   - Python's `sqlite3` supports `enable_load_extension`, and `sqlite-vec` loads and runs a vector query;
   - FTS5 is available;
   - CUDA is visible to torch;
-  - llama-server responds at `LLM_URL` (warn, don't fail, if it isn't running).
+  - llama-server responds at `LLM_URL` (warn, don't fail, if it isn't running);
+  - LangSmith tracing is disabled (no `LANGCHAIN_TRACING_V2` / `LANGSMITH_TRACING` set to true).
   - It prints a clear PASS/FAIL per check. **Nothing else in M0 starts until it passes.**
 - **Shivesh writes `data/bible.md` by hand (~45 min):** a fictional grad student over a 10-week quarter — 3 courses, 2 projects, a TA job, ~8 recurring people, a personal shorthand glossary (≥15 abbreviations), and a dated timeline of facts and decisions, including at least 3 facts that change over time. Use the format above.
 - `scripts/download_models.py`: fetches the embedder and reranker into the local Hugging Face cache (the only time the app's models touch the network).
@@ -92,15 +94,15 @@ Note frontmatter: `title`, `date`, `tags`.
 - Done when: files exist, a sample of notes looks genuinely messy, all QA pairs are verified.
 
 ### M1 — Indexing (Day 1, ~2h)
-- Parse frontmatter; chunk by heading/paragraph to ~300 tokens (counted with the bge tokenizer) with small overlap; keep char spans.
+- Parse frontmatter; chunk by heading/paragraph to ~300 tokens (counted with the bge tokenizer) with small overlap; keep char spans. Use LangChain's `RecursiveCharacterTextSplitter` with the bge tokenizer as length function and `add_start_index=True`; chunks are LangChain `Document`s with path, date and span in metadata.
 - Text embedded and shown to the LLM is prefixed with the note's title and date; spans refer to the raw note body only.
 - Write chunks to SQLite: FTS5 table + sqlite-vec table + metadata (path, date, span).
 - `notecabinet index data/notes` rebuilds the DB; re-indexing skips unchanged files by content hash, removes chunks of deleted files, and does a full rebuild if the chunker or embedding model changes (stored in a `meta` table).
 - Done when: indexing all notes works and a test confirms spans map back to the exact source text.
 
 ### M2 — Retrieval + Ask (Day 1, ~3h)
-- Retrievers: `bm25`, `dense`, `hybrid` (Reciprocal Rank Fusion, k=60), `hybrid+rerank` (rerank top 30 → keep 5). Non-rerank retrievers keep their top 5. Selectable by config.
-- Ask: retrieved chunks → prompt → llama-server → answer with inline citations `[n]` mapped to note path + span.
+- Retrievers: `bm25`, `dense`, `hybrid` (Reciprocal Rank Fusion, k=60), `hybrid+rerank` (rerank top 30 → keep 5). Non-rerank retrievers keep their top 5. Selectable by config. Each is a LangChain `BaseRetriever` subclass over our SQLite index; reranker scores are stored in each `Document`'s metadata.
+- Ask: retrieved chunks → prompt → llama-server → answer with inline citations `[n]` mapped to note path + span. Generation is an LCEL chain (`ChatPromptTemplate | ChatOpenAI(base_url=LLM_URL) | parser`).
 - Abstention: return `NOT_FOUND` if either
   - the top **reranker score** over the final 5 chunks is below a threshold tuned on the dev split. The reranker scores the final chunks for **every** retriever (for non-rerank retrievers it only scores, it does not reorder), so one threshold applies across the ablation; or
   - the model's answer is exactly `NOT_FOUND` (the prompt instructs this).

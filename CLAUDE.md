@@ -14,6 +14,8 @@ Read `SPEC.md` before doing anything. It defines the goal, the design decisions,
 - **Never modify files in `data/notes/`** from app code. Notes are read-only to the app.
 - **Never tune on the full eval set.** Use a small dev split (~10 questions) for thresholds; report on the rest.
 - The app itself must make **no network calls except to the local llama-server**. Only `scripts/gen_*` and the eval judge may call the Claude API.
+- **LangSmith tracing is always off.** The app forces `LANGCHAIN_TRACING_V2=false` / `LANGSMITH_TRACING=false` at startup; the smoke test checks it.
+- **Evals are our own scripts in `eval/`**, never LangSmith or LangChain evaluators. They call each retriever, the reranker and the chain directly so every stage can be swapped and timed.
 - Keep the judge prompts in `eval/prompts/` so they can be read and audited.
 - **Report honestly.** Every percentage in results tables is shown with raw counts, e.g. "80% (8/10)". The README's Limitations section states the test-set sizes, that the abstention threshold was tuned on a dev split with few unanswerable questions, and that judge agreement was measured on a small hand-graded sample.
 

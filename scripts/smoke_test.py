@@ -1,7 +1,7 @@
 """Environment smoke test. Run before anything else in M0.
 
 Checks: sqlite extension loading + sqlite-vec, FTS5, CUDA in torch,
-and (warn-only) llama-server at LLM_URL.
+(warn-only) llama-server at LLM_URL, and that LangSmith tracing is off.
 """
 
 import os
@@ -76,10 +76,19 @@ def check_llama_server():
     return f"{LLM_URL}/health -> {r.json()}"
 
 
+def check_no_tracing():
+    on = [k for k in ("LANGCHAIN_TRACING_V2", "LANGSMITH_TRACING")
+          if os.environ.get(k, "").strip().lower() in ("1", "true", "yes")]
+    if on:
+        raise RuntimeError(f"LangSmith tracing enabled via {', '.join(on)}; the app must stay offline")
+    return "LangSmith tracing off"
+
+
 check("sqlite-vec", check_sqlite_vec)
 check("fts5", check_fts5)
 check("cuda", check_cuda)
 check("llama-server", check_llama_server, warn_only=True)
+check("no-tracing", check_no_tracing)
 
 for name, status, detail in results:
     print(f"[{status}] {name:13} {detail}")
