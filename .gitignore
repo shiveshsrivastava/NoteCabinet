@@ -14,3 +14,9 @@ results/**/raw/
 
 # gen_* resume cache
 data/eval/.gen_cache/
+
+# dataset generators: local only, never committed
+scripts/common.py
+scripts/gen_*.py
+scripts/review_qa.py
+__pycache__/

@@ -38,7 +38,7 @@ Read `SPEC.md` before doing anything. It defines the goal, the design decisions,
 ## Layout
 ```
 notecabinet/   # package: index.py, retrieve.py, ask.py, organize.py, api.py, cli.py
-scripts/       # smoke_test.py, download_models.py, gen_notes.py, gen_qa.py, gen_organize.py
+scripts/       # smoke_test.py, download_models.py (committed); gen_*.py, common.py, review_qa.py (local only, gitignored)
 eval/          # eval_ask.py, eval_organize.py, prompts/ (packaged in pyproject so `notecabinet eval` can import it)
 data/          # bible.md, notes/, eval/
 results/       # eval outputs (committed: the summary tables; gitignored: raw logs)
