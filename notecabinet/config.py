@@ -30,7 +30,7 @@ RERANKER_REVISION = "2cfc18c9415c912f9d8155881c133215df768a70"
 # ---- chunking ----
 CHUNK_TOKENS = 300   # counted with the embedder's tokenizer
 CHUNK_OVERLAP = 40
-CHUNKER_VERSION = 1  # bump when chunking logic changes; forces a full re-index
+CHUNKER_VERSION = 1  # bump when chunking or context_text() changes; forces a full re-index
 
 # ---- local LLM ----
 LLM_URL = os.environ.get("LLM_URL", "http://localhost:8080")
