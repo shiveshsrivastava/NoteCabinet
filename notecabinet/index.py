@@ -114,6 +114,17 @@ def chunk_note(note, splitter):
     return docs
 
 
+def context_text(doc):
+    """What the embedder (and later the LLM) sees: the chunk prefixed with its note's title and date.
+
+    A chunk like "- moved to Wed 4pm" means little alone; "DSEC reschedule (2025-10-13)" above it
+    tells the model what moved and when. The prefix is never part of the stored span: the span
+    still points at doc.page_content in the raw file, so citations highlight only real note text.
+    """
+    m = doc.metadata
+    return f"{m['title']} ({m['date']})\n{doc.page_content}"
+
+
 def find_notes(notes_dir):
     """All .md files under notes_dir (including subfolders), in a stable order."""
     return sorted(Path(notes_dir).rglob("*.md"))
