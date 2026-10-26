@@ -199,6 +199,54 @@ def build_index(notes_dir=config.NOTES_DIR, db_path=config.INDEX_PATH):
     return {"notes": len(notes), "chunks": len(docs), "seconds": time.perf_counter() - t0}
 
 
+def update_index(notes_dir=config.NOTES_DIR, db_path=config.INDEX_PATH):
+    """Incremental update: skip notes whose hash is unchanged, re-index changed or new ones,
+    and remove notes that no longer exist. Only new/changed chunks are embedded."""
+    t0 = time.perf_counter()
+    notes_dir = Path(notes_dir).resolve()
+    conn = db.connect(db_path)
+    db.create_schema(conn)
+    if db.get_meta(conn, "embedder") is None:  # never built: nothing to compare against
+        conn.close()
+        return {**build_index(notes_dir, db_path), "mode": "full (no index yet)"}
+
+    indexed = dict(conn.execute("SELECT path, sha256 FROM files").fetchall())
+    on_disk = {note.path: note for note in (read_note(p, notes_dir) for p in find_notes(notes_dir))}
+    new = [n for path, n in on_disk.items() if path not in indexed]
+    changed = [n for path, n in on_disk.items() if path in indexed and indexed[path] != n.sha256]
+    deleted = [path for path in indexed if path not in on_disk]
+
+    to_index = new + changed
+    chunked, docs, vectors = [], [], []
+    if to_index:  # load models only when there is something to embed
+        splitter = make_splitter(load_tokenizer())
+        chunked = [(note, chunk_note(note, splitter)) for note in to_index]
+        docs = [d for _, note_docs in chunked for d in note_docs]
+        vectors = embed_documents(docs, load_embedder()) if docs else []
+
+    with conn:
+        for path in deleted + [n.path for n in changed]:
+            _remove_note(conn, path)
+        i = 0
+        for note, note_docs in chunked:
+            _add_note(conn, note, note_docs, vectors[i:i + len(note_docs)])
+            i += len(note_docs)
+    check_counts(conn)
+    conn.close()
+    return {"mode": "incremental", "notes": len(on_disk), "new": len(new), "changed": len(changed),
+            "deleted": len(deleted), "unchanged": len(on_disk) - len(to_index),
+            "chunks_embedded": len(docs), "seconds": time.perf_counter() - t0}
+
+
+def _remove_note(conn, path):
+    """Delete one note's rows from every table."""
+    ids = [(r[0],) for r in conn.execute("SELECT id FROM chunks WHERE path = ?", (path,))]
+    conn.executemany("DELETE FROM chunks_fts WHERE rowid = ?", ids)
+    conn.executemany("DELETE FROM chunks_vec WHERE rowid = ?", ids)
+    conn.execute("DELETE FROM chunks WHERE path = ?", (path,))
+    conn.execute("DELETE FROM files WHERE path = ?", (path,))
+
+
 def _add_note(conn, note, docs, vectors):
     """Insert one note's chunks into chunks / chunks_fts / chunks_vec (same id) and record it in files."""
     for doc, vector in zip(docs, vectors):
