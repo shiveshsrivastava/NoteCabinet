@@ -209,6 +209,13 @@ def update_index(notes_dir=config.NOTES_DIR, db_path=config.INDEX_PATH):
     if db.get_meta(conn, "embedder") is None:  # never built: nothing to compare against
         conn.close()
         return {**build_index(notes_dir, db_path), "mode": "full (no index yet)"}
+    if reasons := stale_reasons(conn, notes_dir):
+        # Old and new chunks/vectors can't be mixed. Start from an empty file: the vector table's
+        # dimension and the schema are fixed at creation, so emptying the tables isn't enough.
+        conn.close()
+        for suffix in ("", "-wal", "-shm"):
+            Path(f"{db_path}{suffix}").unlink(missing_ok=True)
+        return {**build_index(notes_dir, db_path), "mode": "full (" + "; ".join(reasons) + ")"}
 
     indexed = dict(conn.execute("SELECT path, sha256 FROM files").fetchall())
     on_disk = {note.path: note for note in (read_note(p, notes_dir) for p in find_notes(notes_dir))}
@@ -236,6 +243,17 @@ def update_index(notes_dir=config.NOTES_DIR, db_path=config.INDEX_PATH):
     return {"mode": "incremental", "notes": len(on_disk), "new": len(new), "changed": len(changed),
             "deleted": len(deleted), "unchanged": len(on_disk) - len(to_index),
             "chunks_embedded": len(docs), "seconds": time.perf_counter() - t0}
+
+
+def stale_reasons(conn, notes_dir):
+    """Why the stored index can't be updated incrementally (empty list = it can)."""
+    expected = {**index_signature(), "schema_version": db.SCHEMA_VERSION, "notes_dir": Path(notes_dir).resolve()}
+    reasons = []
+    for key, value in expected.items():
+        stored = db.get_meta(conn, key)
+        if stored != str(value):
+            reasons.append(f"{key} changed: {stored} -> {value}")
+    return reasons
 
 
 def _remove_note(conn, path):
