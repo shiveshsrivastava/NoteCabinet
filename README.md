@@ -2,7 +2,7 @@
 
 **Privacy-focused notes assistant with fully on-device AI.** Ask questions about your markdown notes and get answers with citations, or turn a messy page into a clean, structured view. Nothing leaves your machine.
 
-> **Status:** work in progress. The benchmark dataset is done (M0); indexing is being built (M1). See the [roadmap](#roadmap).
+> **Status:** work in progress. The benchmark dataset (M0) and indexing (M1) are done; retrieval and Ask (M2) are next. See the [roadmap](#roadmap).
 
 ## What it does
 
@@ -89,8 +89,8 @@ How it was made: the bible was drafted with Gemini and then edited by hand to fi
 | | Milestone | Status |
 |---|---|---|
 | M0 | Synthetic benchmark dataset | ✅ |
-| M1 | Indexing: chunking with exact spans, SQLite FTS5 + sqlite-vec, incremental re-index | 🚧 |
-| M2 | Retrieval (BM25 / dense / hybrid / rerank) + Ask with citations and abstention | |
+| M1 | Indexing: chunking with exact spans, SQLite FTS5 + sqlite-vec, incremental re-index | ✅ |
+| M2 | Retrieval (BM25 / dense / hybrid / rerank) + Ask with citations and abstention | 🚧 |
 | M3 | Ask evaluation: recall, correctness, abstention, ablation, latency | |
 | M4 | Organize page + evaluation, with vs. without retrieval | |
 | M5 | Demo UI, results, write-up | |
@@ -105,15 +105,32 @@ Requires Python 3.11+, [uv](https://docs.astral.sh/uv/), an NVIDIA GPU, and a CU
 uv sync
 uv run python scripts/download_models.py          # one-time: embedder, reranker, Qwen GGUF
 llama-server -m models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf -ngl 99 -c 8192 --port 8080
-uv run python scripts/smoke_test.py               # checks sqlite-vec, FTS5, CUDA, llama-server
+uv run python scripts/smoke_test.py               # checks sqlite-vec, FTS5, CUDA, llama-server, tracing off
 ```
 
-Coming with M1/M2: `uv run notecabinet index data/notes` and `uv run notecabinet ask "..."`.
+Build the index (one SQLite file at `index/notes.db`, rebuildable at any time):
+
+```bash
+uv run notecabinet index data/notes            # incremental: only changed notes are re-embedded
+uv run notecabinet index data/notes --full     # rebuild from scratch
+uv run pytest                                  # span + incremental-indexing tests
+```
+
+```
+full (--full): 100 notes, 139 chunks in 5.0s -> index/notes.db
+incremental: 100 notes (0 new, 0 changed, 0 deleted, 100 unchanged), 0 chunks embedded in 0.0s -> index/notes.db
+```
+
+Indexing reads notes and never writes them. Each chunk is embedded with its note's title and date as context, and stores a `(start, end)` span into the raw file, so citations highlight the exact source text. Changing the chunker or embedding model triggers a full rebuild automatically.
+
+Coming with M2: `uv run notecabinet ask "..."`.
 
 ## Repository layout
 
 ```
-notecabinet/   the app package (config, CLI; indexing, retrieval, ask, organize coming)
+notecabinet/   the app package: config, CLI, index.py (read/chunk/embed/index), db.py (SQLite schema)
+               retrieval, ask and organize coming
 scripts/       smoke test, model download
+tests/         pytest suite (spans, incremental indexing)
 data/          bible, notes, eval sets
 ```
