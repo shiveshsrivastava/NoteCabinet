@@ -40,3 +40,10 @@ RRF_K = 60              # Reciprocal Rank Fusion constant
 
 # ---- local LLM ----
 LLM_URL = os.environ.get("LLM_URL", "http://localhost:8080")
+SEED = 42             # with temperature 0 and llama-server --parallel 1: repeatable answers
+LLM_MAX_TOKENS = 400
+
+# ---- abstention ----
+# Answer NOT_FOUND when the best reranker score among the final chunks is below this.
+# None = not tuned yet (only the model's own NOT_FOUND abstains). Tuned on the dev split only.
+ABSTAIN_THRESHOLD = None
