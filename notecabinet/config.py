@@ -45,5 +45,7 @@ LLM_MAX_TOKENS = 400
 
 # ---- abstention ----
 # Answer NOT_FOUND when the best reranker score among the final chunks is below this.
-# None = not tuned yet (only the model's own NOT_FOUND abstains). Tuned on the dev split only.
-ABSTAIN_THRESHOLD = None
+# Tuned on the dev split only (10 questions, 2 unanswerable) by eval/tune_threshold.py:
+# results/2026-10-25_224256-tune-threshold/ (9/10 correct decisions; any value in [0, 0.0202) is equivalent).
+# Low on purpose: on dev, unanswerable questions score mid-range, so a higher gate only rejects answerable ones.
+ABSTAIN_THRESHOLD = 0.0101
