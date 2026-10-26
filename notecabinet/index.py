@@ -72,6 +72,11 @@ def read_note(path, notes_dir):
     )
 
 
+def find_notes(notes_dir):
+    """All .md files under notes_dir (including subfolders), in a stable order."""
+    return sorted(Path(notes_dir).rglob("*.md"))
+
+
 # ---------------------------------------------------------------- chunking
 
 def load_tokenizer():
@@ -117,17 +122,39 @@ def chunk_note(note, splitter):
 def context_text(doc):
     """What the embedder (and later the LLM) sees: the chunk prefixed with its note's title and date.
 
-    A chunk like "- moved to Wed 4pm" means little alone; "DSEC reschedule (2025-10-13)" above it
+    A chunk like "- moved to Wed 4pm" means little alone; "DSEC reschedule (Mon 2025-10-13)" above it
     tells the model what moved and when. The prefix is never part of the stored span: the span
     still points at doc.page_content in the raw file, so citations highlight only real note text.
     """
     m = doc.metadata
-    return f"{m['title']} ({m['date']})\n{doc.page_content}"
+    weekday = date.fromisoformat(m["date"]).strftime("%a")  # "Mon": helps "what's on my Wednesdays?"
+    return f"{m['title']} ({weekday} {m['date']})\n{doc.page_content}"
 
 
-def find_notes(notes_dir):
-    """All .md files under notes_dir (including subfolders), in a stable order."""
-    return sorted(Path(notes_dir).rglob("*.md"))
+# ---------------------------------------------------------------- embedding
+
+def load_embedder():
+    """bge-small on the GPU if there is one (from the local cache only, see config)."""
+    import torch
+    from sentence_transformers import SentenceTransformer
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    return SentenceTransformer(config.EMBEDDER, revision=config.EMBEDDER_REVISION, device=device)
+
+
+def embed_documents(docs, model, batch_size=32):
+    """One float32 vector per chunk, shape (len(docs), EMBEDDING_DIM).
+
+    Vectors are normalized to length 1, so cosine similarity is a plain dot product
+    (and sqlite-vec's distances rank the same way).
+    """
+    return model.encode(
+        [context_text(d) for d in docs],
+        batch_size=batch_size,
+        normalize_embeddings=True,
+        convert_to_numpy=True,
+        show_progress_bar=False,
+    ).astype("float32")
 
 
 def _as_date(value):
