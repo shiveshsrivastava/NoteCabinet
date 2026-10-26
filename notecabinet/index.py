@@ -13,6 +13,13 @@ from datetime import date, datetime
 from pathlib import Path
 
 import yaml
+from langchain_core.documents import Document
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+from notecabinet import config
+
+# Split on markdown structure first (headings, paragraphs, lines), words only as a last resort.
+SEPARATORS = ["\n## ", "\n### ", "\n\n", "\n", " ", ""]
 
 # Optional BOM, a '---' line, the YAML, a closing '---' line. Works with \n and \r\n.
 FRONTMATTER_RE = re.compile(r"\A﻿?---[ \t]*\r?\n(.*?)\r?\n---[ \t]*(?:\r?\n|\Z)", re.S)
@@ -63,6 +70,48 @@ def read_note(path, notes_dir):
         body_offset=body_offset,
         sha256=hashlib.sha256(data).hexdigest(),
     )
+
+
+# ---------------------------------------------------------------- chunking
+
+def load_tokenizer():
+    """The embedder's own tokenizer, so chunk sizes are measured the way the model sees text."""
+    from transformers import AutoTokenizer
+
+    return AutoTokenizer.from_pretrained(config.EMBEDDER, revision=config.EMBEDDER_REVISION)
+
+
+def make_splitter(tokenizer):
+    return RecursiveCharacterTextSplitter.from_huggingface_tokenizer(
+        tokenizer, chunk_size=config.CHUNK_TOKENS, chunk_overlap=config.CHUNK_OVERLAP, separators=SEPARATORS
+    )
+
+
+def chunk_note(note, splitter):
+    """Split a note's body into Documents whose metadata carries an exact span into note.raw.
+
+    We compute spans ourselves instead of using add_start_index=True: with a token-based
+    overlap, LangChain backs up only CHUNK_OVERLAP *characters* before searching, which
+    misses some chunks (start_index = -1 on 2 of 139 chunks in our notes). Each chunk is an
+    exact substring of the body, so searching from just after the previous chunk's start
+    always finds it.
+    """
+    docs, search_from = [], 0
+    for i, text in enumerate(splitter.split_text(note.body)):
+        pos = note.body.find(text, search_from)
+        if pos < 0:
+            raise ValueError(f"{note.path}: chunk {i} not found in body")
+        start = note.body_offset + pos
+        docs.append(Document(page_content=text, metadata={
+            "path": note.path,
+            "title": note.title,
+            "date": note.date.isoformat(),
+            "chunk_index": i,
+            "start": start,
+            "end": start + len(text),
+        }))
+        search_from = pos + 1
+    return docs
 
 
 def find_notes(notes_dir):
