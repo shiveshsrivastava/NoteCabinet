@@ -32,5 +32,11 @@ CHUNK_TOKENS = 300   # counted with the embedder's tokenizer
 CHUNK_OVERLAP = 40
 CHUNKER_VERSION = 1  # bump when chunking or context_text() changes; forces a full re-index
 
+# ---- retrieval ----
+QUERY_PREFIX = "Represent this sentence for searching relevant passages: "  # bge: queries only, not chunks
+FINAL_K = 5             # chunks handed to the LLM
+RERANK_CANDIDATES = 30  # hybrid+rerank: candidates the cross-encoder chooses from
+RRF_K = 60              # Reciprocal Rank Fusion constant
+
 # ---- local LLM ----
 LLM_URL = os.environ.get("LLM_URL", "http://localhost:8080")
