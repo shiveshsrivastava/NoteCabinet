@@ -116,5 +116,4 @@ Coming with M1/M2: `uv run notecabinet index data/notes` and `uv run notecabinet
 notecabinet/   the app package (config, CLI; indexing, retrieval, ask, organize coming)
 scripts/       smoke test, model download
 data/          bible, notes, eval sets
-SPEC.md        full spec: design decisions, milestones, definitions of done
 ```
