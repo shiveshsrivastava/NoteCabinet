@@ -8,15 +8,16 @@ Notes are only ever read, never written.
 import hashlib
 import re
 import sys
+import time
 from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 import yaml
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from notecabinet import config
+from notecabinet import config, db
 
 # Split on markdown structure first (headings, paragraphs, lines), words only as a last resort.
 SEPARATORS = ["\n## ", "\n### ", "\n\n", "\n", " ", ""]
@@ -127,7 +128,7 @@ def context_text(doc):
     still points at doc.page_content in the raw file, so citations highlight only real note text.
     """
     m = doc.metadata
-    weekday = date.fromisoformat(m["date"]).strftime("%a")  # "Mon": helps "what's on my Wednesdays?"
+    weekday = date.fromisoformat(m["date"]).strftime("%a")  # "Mon": helps "what's on my Mondays?"
     return f"{m['title']} ({weekday} {m['date']})\n{doc.page_content}"
 
 
@@ -155,6 +156,72 @@ def embed_documents(docs, model, batch_size=32):
         convert_to_numpy=True,
         show_progress_bar=False,
     ).astype("float32")
+
+
+# ---------------------------------------------------------------- writing the index
+
+def index_signature():
+    """Everything that, if it changes, makes stored chunks or vectors invalid."""
+    return {
+        "chunker_version": config.CHUNKER_VERSION,
+        "chunk_tokens": config.CHUNK_TOKENS,
+        "chunk_overlap": config.CHUNK_OVERLAP,
+        "embedder": config.EMBEDDER,
+        "embedder_revision": config.EMBEDDER_REVISION,
+        "embedding_dim": config.EMBEDDING_DIM,
+    }
+
+
+def build_index(notes_dir=config.NOTES_DIR, db_path=config.INDEX_PATH):
+    """Full rebuild: read, chunk and embed every note, then replace the whole index in one transaction."""
+    t0 = time.perf_counter()
+    notes_dir = Path(notes_dir).resolve()
+    notes = [read_note(p, notes_dir) for p in find_notes(notes_dir)]
+    splitter = make_splitter(load_tokenizer())
+    chunked = [(note, chunk_note(note, splitter)) for note in notes]
+    docs = [d for _, note_docs in chunked for d in note_docs]
+    vectors = embed_documents(docs, load_embedder()) if docs else []  # one GPU pass for all chunks
+
+    conn = db.connect(db_path)
+    db.create_schema(conn)
+    with conn:  # one transaction: a crash leaves the previous index intact
+        for table in ("chunks", "chunks_fts", "chunks_vec", "files"):
+            conn.execute(f"DELETE FROM {table}")
+        i = 0
+        for note, note_docs in chunked:
+            _add_note(conn, note, note_docs, vectors[i:i + len(note_docs)])
+            i += len(note_docs)
+        for key, value in index_signature().items():
+            db.set_meta(conn, key, value)
+        db.set_meta(conn, "notes_dir", notes_dir)
+    check_counts(conn)
+    conn.close()
+    return {"notes": len(notes), "chunks": len(docs), "seconds": time.perf_counter() - t0}
+
+
+def _add_note(conn, note, docs, vectors):
+    """Insert one note's chunks into chunks / chunks_fts / chunks_vec (same id) and record it in files."""
+    for doc, vector in zip(docs, vectors):
+        m = doc.metadata
+        chunk_id = conn.execute(
+            "INSERT INTO chunks(path, chunk_index, title, date, start, end, text) VALUES (?, ?, ?, ?, ?, ?, ?)",
+            (m["path"], m["chunk_index"], m["title"], m["date"], m["start"], m["end"], doc.page_content),
+        ).lastrowid
+        conn.execute("INSERT INTO chunks_fts(rowid, text) VALUES (?, ?)", (chunk_id, context_text(doc)))
+        conn.execute("INSERT INTO chunks_vec(rowid, embedding) VALUES (?, ?)", (chunk_id, vector.tobytes()))
+    conn.execute(
+        "INSERT INTO files(path, sha256, n_chunks, indexed_at) VALUES (?, ?, ?, ?)",
+        (note.path, note.sha256, len(docs), datetime.now(timezone.utc).isoformat(timespec="seconds")),
+    )
+
+
+def check_counts(conn):
+    """The three chunk tables must hold the same rows, matching what files says was indexed."""
+    n = {t: conn.execute(f"SELECT count(*) FROM {t}").fetchone()[0] for t in ("chunks", "chunks_fts", "chunks_vec")}
+    expected = conn.execute("SELECT coalesce(sum(n_chunks), 0) FROM files").fetchone()[0]
+    if len(set(n.values())) != 1 or n["chunks"] != expected:
+        raise RuntimeError(f"index is inconsistent: {n}, files expects {expected}")
+    return n["chunks"]
 
 
 def _as_date(value):
