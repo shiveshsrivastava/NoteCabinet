@@ -51,9 +51,9 @@ CREATE TABLE IF NOT EXISTS meta (
 """
 
 
-def connect(path=config.INDEX_PATH, check_same_thread=True):
+def connect(path=None, check_same_thread=True):
     """Open (creating if needed) the index and load the sqlite-vec extension."""
-    path = Path(path)
+    path = Path(path or config.INDEX_PATH)
     path.parent.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(path, check_same_thread=check_same_thread)
     conn.enable_load_extension(True)

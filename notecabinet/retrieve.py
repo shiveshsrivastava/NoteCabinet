@@ -22,7 +22,7 @@ RETRIEVERS = ("bm25", "dense", "hybrid", "hybrid+rerank")
 class Index:
     """Read access to the index, plus the embedder for queries. Safe to share across threads."""
 
-    def __init__(self, db_path=config.INDEX_PATH):
+    def __init__(self, db_path=None):
         self.conn = db.connect(db_path, check_same_thread=False)
         self._lock = threading.Lock()
         self._embedder = None

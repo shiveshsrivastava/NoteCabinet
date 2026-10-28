@@ -172,9 +172,10 @@ def index_signature():
     }
 
 
-def build_index(notes_dir=config.NOTES_DIR, db_path=config.INDEX_PATH):
+def build_index(notes_dir, db_path=None):
     """Full rebuild: read, chunk and embed every note, then replace the whole index in one transaction."""
     t0 = time.perf_counter()
+    db_path = db_path or config.INDEX_PATH
     notes_dir = Path(notes_dir).resolve()
     notes = [read_note(p, notes_dir) for p in find_notes(notes_dir)]
     splitter = make_splitter(load_tokenizer())
@@ -199,10 +200,11 @@ def build_index(notes_dir=config.NOTES_DIR, db_path=config.INDEX_PATH):
     return {"notes": len(notes), "chunks": len(docs), "seconds": time.perf_counter() - t0}
 
 
-def update_index(notes_dir=config.NOTES_DIR, db_path=config.INDEX_PATH):
+def update_index(notes_dir, db_path=None):
     """Incremental update: skip notes whose hash is unchanged, re-index changed or new ones,
     and remove notes that no longer exist. Only new/changed chunks are embedded."""
     t0 = time.perf_counter()
+    db_path = db_path or config.INDEX_PATH
     notes_dir = Path(notes_dir).resolve()
     conn = db.connect(db_path)
     db.create_schema(conn)
@@ -241,12 +243,26 @@ def update_index(notes_dir=config.NOTES_DIR, db_path=config.INDEX_PATH):
             "chunks_embedded": len(docs), "seconds": time.perf_counter() - t0}
 
 
-def rebuild_index(notes_dir=config.NOTES_DIR, db_path=config.INDEX_PATH):
+def rebuild_index(notes_dir, db_path=None):
     """Delete the index file and build from scratch. Emptying the tables isn't enough when
     the schema or the vector dimension changed: both are fixed when the tables are created."""
+    db_path = db_path or config.INDEX_PATH
     for suffix in ("", "-wal", "-shm"):
         Path(f"{db_path}{suffix}").unlink(missing_ok=True)
     return build_index(notes_dir, db_path)
+
+
+def stored_notes_dir(db_path=None):
+    """The notes folder an existing index was built from, or None if there is no index yet."""
+    db_path = Path(db_path or config.INDEX_PATH)
+    if not db_path.exists():
+        return None
+    conn = db.connect(db_path)
+    try:
+        stored = db.get_meta(conn, "notes_dir")
+    finally:
+        conn.close()
+    return Path(stored) if stored else None
 
 
 def stale_reasons(conn, notes_dir):

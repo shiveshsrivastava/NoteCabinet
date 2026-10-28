@@ -18,6 +18,7 @@ from pathlib import Path
 
 from notecabinet import config
 from notecabinet.ask import SYSTEM_PROMPT, USER_PROMPT, Asker
+from notecabinet.index import stored_notes_dir
 
 RETRIEVER = "hybrid+rerank"
 RESULTS = config.ROOT / "results"
@@ -47,6 +48,10 @@ def decisions(rows, t):
 def main():
     qa = [json.loads(l) for l in (config.ROOT / "data/eval/qa.jsonl").read_text().splitlines() if l.strip()]
     dev = [q for q in qa if q["split"] == "dev"]
+    built_from = stored_notes_dir(config.INDEX_PATH)
+    if built_from is None or built_from.resolve() != config.BENCHMARK_NOTES_DIR.resolve():
+        raise SystemExit(f"the index at {config.INDEX_PATH} must be built from the benchmark notes first:\n"
+                         f"  notecabinet index {config.BENCHMARK_NOTES_DIR.relative_to(config.ROOT)}")
     asker = Asker(threshold=None)
     asker.ask("warm-up question")
 
@@ -84,7 +89,7 @@ def main():
         "retrieval": {"final_k": config.FINAL_K, "rerank_candidates": config.RERANK_CANDIDATES, "rrf_k": config.RRF_K},
         "chosen_threshold": threshold, "best_correct": best_correct, "tied_interval": [lo, hi],
         "git": git_state(), "data_eval_sha256": sha256_files(eval_files),
-        "notes_sha256": sha256_files(list(config.NOTES_DIR.rglob("*.md"))),
+        "notes_sha256": sha256_files(list(config.BENCHMARK_NOTES_DIR.rglob("*.md"))),
         "prompt_sha256": {"system": hashlib.sha256(SYSTEM_PROMPT.encode()).hexdigest(),
                           "user": hashlib.sha256(USER_PROMPT.encode()).hexdigest()},
     }

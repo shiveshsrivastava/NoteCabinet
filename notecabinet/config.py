@@ -16,9 +16,15 @@ os.environ["LANGCHAIN_TRACING_V2"] = "false"
 os.environ["LANGSMITH_TRACING"] = "false"
 
 # ---- paths ----
+# The index lives in $NOTECABINET_INDEX, else the XDG data folder. There is no default notes
+# folder: the first `notecabinet index PATH` names it, and the index remembers it.
+DATA_HOME = Path(os.environ.get("XDG_DATA_HOME") or Path.home() / ".local" / "share") / "notecabinet"
+INDEX_PATH = Path(os.environ.get("NOTECABINET_INDEX") or DATA_HOME / "notes.db")
+
+# The source checkout. Only meaningful when running from the repo (tests, evals, benchmark data);
+# the installed app never relies on it.
 ROOT = Path(__file__).resolve().parent.parent
-NOTES_DIR = ROOT / "data" / "notes"
-INDEX_PATH = ROOT / "index" / "notes.db"
+BENCHMARK_NOTES_DIR = ROOT / "data" / "notes"
 
 # ---- models (revisions pinned to what scripts/download_models.py fetched) ----
 EMBEDDER = "BAAI/bge-small-en-v1.5"

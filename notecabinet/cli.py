@@ -11,16 +11,16 @@ def main(argv=None):
     sub = parser.add_subparsers(dest="command", required=True)
 
     p_index = sub.add_parser("index", help="build or update the index from a notes folder")
-    p_index.add_argument("notes_dir", nargs="?", default=str(config.NOTES_DIR),
-                         help=f"folder of .md notes (default: {config.NOTES_DIR.relative_to(config.ROOT)})")
+    p_index.add_argument("notes_dir", nargs="?",
+                         help="folder of .md notes (required the first time; then defaults to the folder indexed last)")
     p_index.add_argument("--full", action="store_true", help="ignore what's indexed and rebuild from scratch")
-    p_index.add_argument("--db", default=str(config.INDEX_PATH), help=argparse.SUPPRESS)  # for tests
+    p_index.add_argument("--db", help=argparse.SUPPRESS)  # for tests; users set $NOTECABINET_INDEX
 
     p_ask = sub.add_parser("ask", help="answer a question from your notes, with citations")
     p_ask.add_argument("question")
     p_ask.add_argument("--retriever", default="hybrid+rerank", choices=["bm25", "dense", "hybrid", "hybrid+rerank"])
     p_ask.add_argument("--json", action="store_true", help="print the full result as JSON")
-    p_ask.add_argument("--db", default=str(config.INDEX_PATH), help=argparse.SUPPRESS)
+    p_ask.add_argument("--db", help=argparse.SUPPRESS)
 
     args = parser.parse_args(argv)
     if args.command == "index":
@@ -30,9 +30,15 @@ def main(argv=None):
 
 
 def cmd_index(parser, args):
-    from notecabinet.index import rebuild_index, update_index  # heavy imports only when needed
+    from notecabinet.index import rebuild_index, stored_notes_dir, update_index  # heavy imports only when needed
 
-    notes_dir = Path(args.notes_dir)
+    args.db = Path(args.db or config.INDEX_PATH)
+    if args.notes_dir is None:
+        notes_dir = stored_notes_dir(args.db)
+        if notes_dir is None:
+            parser.error("which notes folder? The first time, run: notecabinet index PATH/TO/NOTES")
+    else:
+        notes_dir = Path(args.notes_dir)
     if not notes_dir.is_dir():
         parser.error(f"not a folder: {notes_dir}")
     if args.full:
@@ -51,7 +57,8 @@ def cmd_index(parser, args):
 def cmd_ask(parser, args):
     import json
 
-    if not Path(args.db).exists():
+    args.db = Path(args.db or config.INDEX_PATH)
+    if not args.db.exists():
         parser.error(f"no index at {_short(args.db)}; run `notecabinet index` first")
     from notecabinet.ask import Asker
     from notecabinet.retrieve import Index

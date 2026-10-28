@@ -5,13 +5,12 @@ The only outbound call is to the local llama-server (via /ask). Notes are only e
 """
 
 import threading
-from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-from notecabinet import config, db
-from notecabinet.index import find_notes, read_note
+from notecabinet import config
+from notecabinet.index import find_notes, read_note, stored_notes_dir
 from notecabinet.retrieve import RETRIEVERS
 
 app = FastAPI(title="NoteCabinet", description="Local-first AI over your markdown notes.")
@@ -21,16 +20,11 @@ _lock = threading.Lock()  # one question at a time: llama-server runs a single s
 
 
 def notes_dir():
-    """The folder the index was built from (falls back to the configured default)."""
-    if config.INDEX_PATH.exists():
-        conn = db.connect(config.INDEX_PATH)
-        try:
-            stored = db.get_meta(conn, "notes_dir")
-        finally:
-            conn.close()
-        if stored:
-            return Path(stored)
-    return config.NOTES_DIR
+    """The folder the index was built from. The API only serves notes that have been indexed."""
+    folder = stored_notes_dir(config.INDEX_PATH)
+    if folder is None:
+        raise HTTPException(503, "no index yet; run `notecabinet index PATH/TO/NOTES` first")
+    return folder
 
 
 def get_asker():

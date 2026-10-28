@@ -18,7 +18,7 @@ from notecabinet.retrieve import RETRIEVERS, Index, Reranker, make_retriever, rr
 @pytest.fixture(scope="module")
 def small_index(tmp_path_factory):
     folder = tmp_path_factory.mktemp("notes")
-    for p in find_notes(config.NOTES_DIR)[:12]:
+    for p in find_notes(config.BENCHMARK_NOTES_DIR)[:12]:
         shutil.copy(p, folder / p.name)
     db_path = folder.parent / "small.db"
     build_index(folder, db_path)
@@ -120,22 +120,29 @@ def test_every_retriever_gets_rerank_scores_for_the_threshold(small_index, reran
 @pytest.fixture
 def api_client(monkeypatch, tmp_path):
     from notecabinet import api
-    monkeypatch.setattr(config, "INDEX_PATH", tmp_path / "none.db")  # no index -> notes_dir() = config.NOTES_DIR
+    monkeypatch.setattr(config, "INDEX_PATH", tmp_path / "none.db")    # no index: /ask must say so
+    monkeypatch.setattr(api, "notes_dir", lambda: config.BENCHMARK_NOTES_DIR)  # serve the repo's notes read-only
     return TestClient(api.app)
 
 
 def test_api_lists_and_returns_notes(api_client):
     notes = api_client.get("/notes").json()
-    assert len(notes) == len(find_notes(config.NOTES_DIR))
+    assert len(notes) == len(find_notes(config.BENCHMARK_NOTES_DIR))
     first = notes[0]["path"]
     raw = api_client.get(f"/notes/{first}").json()["raw"]
-    assert raw == (config.NOTES_DIR / first).read_bytes().decode("utf-8")
+    assert raw == (config.BENCHMARK_NOTES_DIR / first).read_bytes().decode("utf-8")
 
 
 @pytest.mark.parametrize("path", ["../CLAUDE.md", "..%2F..%2F.env", "%2e%2e/%2e%2e/.env", "/etc/passwd",
                                   "../../pyproject.toml", "nope.md", "../data/bible.md"])
 def test_api_refuses_paths_outside_the_notes_folder(api_client, path):
     assert api_client.get(f"/notes/{path}").status_code == 404
+
+
+def test_api_notes_without_index_is_503(monkeypatch, tmp_path):
+    from notecabinet import api
+    monkeypatch.setattr(config, "INDEX_PATH", tmp_path / "none.db")
+    assert TestClient(api.app).get("/notes").status_code == 503
 
 
 def test_api_ask_without_index_is_503(api_client):
