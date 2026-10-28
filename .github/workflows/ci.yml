@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      # No GPU on the runner, and the default (CUDA) torch wheels are ~4 GB.
+      - name: Install CPU-only torch
+        run: pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Install notecabinet with dev tools
+        run: pip install -e ".[dev]"
+
+      - name: Lint
+        run: ruff check .
+
+      # Embedder + reranker weights (~600 MB), pinned by revision in notecabinet/config.py.
+      - name: Cache model weights
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-models-${{ hashFiles('notecabinet/config.py') }}
+
+      - name: Download model weights
+        run: notecabinet download-models
+
+      # No test needs llama-server: LLM calls are faked.
+      - name: Test
+        run: pytest -q
