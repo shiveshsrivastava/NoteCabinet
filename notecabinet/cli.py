@@ -23,12 +23,14 @@ def main(argv=None):
     p_ask.add_argument("--json", action="store_true", help="print the full result as JSON")
     p_ask.add_argument("--db", help=argparse.SUPPRESS)
 
-    p_models = sub.add_parser("download-models", help="one-time download of the embedder and reranker (and optionally the LLM)")
+    p_models = sub.add_parser("download-models",
+                              help="one-time download of the embedder and reranker (and optionally the LLM)")
     p_models.add_argument("--with-llm", action="store_true", help=f"also download {config.LLM_FILE} for llama-server")
     p_models.add_argument("--llm-dir", help=f"where to put the GGUF (default: {config.DATA_HOME / 'models'})")
 
     p_serve = sub.add_parser("serve", help="start the HTTP API (POST /ask, GET /notes)")
-    p_serve.add_argument("--host", default="127.0.0.1", help="interface to bind (default: 127.0.0.1, this machine only)")
+    p_serve.add_argument("--host", default="127.0.0.1",
+                         help="interface to bind (default: 127.0.0.1, this machine only)")
     p_serve.add_argument("--port", type=int, default=8000)
 
     args = parser.parse_args(argv)

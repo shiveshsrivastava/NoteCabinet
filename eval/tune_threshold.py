@@ -14,7 +14,6 @@ import hashlib
 import json
 import subprocess
 from datetime import datetime
-from pathlib import Path
 
 from notecabinet import config
 from notecabinet.ask import SYSTEM_PROMPT, USER_PROMPT, Asker
@@ -32,7 +31,9 @@ def sha256_files(paths):
 
 
 def git_state():
-    run = lambda *a: subprocess.run(["git", *a], cwd=config.ROOT, capture_output=True, text=True).stdout.strip()
+    def run(*a):
+        return subprocess.run(["git", *a], cwd=config.ROOT, capture_output=True, text=True).stdout.strip()
+
     return {"commit": run("rev-parse", "HEAD"), "dirty": bool(run("status", "--porcelain", "--untracked-files=no"))}
 
 
@@ -46,7 +47,7 @@ def decisions(rows, t):
 
 
 def main():
-    qa = [json.loads(l) for l in (config.ROOT / "data/eval/qa.jsonl").read_text().splitlines() if l.strip()]
+    qa = [json.loads(line) for line in (config.ROOT / "data/eval/qa.jsonl").read_text().splitlines() if line.strip()]
     dev = [q for q in qa if q["split"] == "dev"]
     built_from = stored_notes_dir(config.INDEX_PATH)
     if built_from is None or built_from.resolve() != config.BENCHMARK_NOTES_DIR.resolve():
@@ -101,7 +102,7 @@ def main():
              f"({best_correct}/{len(rows)} correct abstain/answer decisions; any value in "
              f"[{lo:.4f}, {hi:.4f}) behaves the same on dev).", "",
              "| threshold interval | correct decisions |", "|---|---|"]
-    lines += [f"| [{l:.4f}, {h:.4f}) | {c}/{len(rows)} ({c / len(rows):.0%}) |" for c, _, l, h in graded]
+    lines += [f"| [{low:.4f}, {high:.4f}) | {c}/{len(rows)} ({c / len(rows):.0%}) |" for c, _, low, high in graded]
     lines += ["", "| id | type | top rerank score | model abstained | source note in top 5 |", "|---|---|---|---|---|"]
     lines += [f"| {r['id']} | {r['type']} | {r['top_rerank_score']:.3f} | {r['model_abstained']} | "
               f"{'n/a' if r['unanswerable'] else r['source_in_top5']} |" for r in rows]

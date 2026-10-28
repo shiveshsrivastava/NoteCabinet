@@ -11,7 +11,13 @@ import pytest
 
 from notecabinet import config, db
 from notecabinet.index import (
-    build_index, chunk_note, find_notes, load_tokenizer, make_splitter, read_note, update_index,
+    build_index,
+    chunk_note,
+    find_notes,
+    load_tokenizer,
+    make_splitter,
+    read_note,
+    update_index,
 )
 
 
