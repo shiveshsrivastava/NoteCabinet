@@ -5,9 +5,15 @@ skipped, with a clear reason, if the weights aren't downloaded (`notecabinet dow
 No test needs llama-server: LLM calls are replaced by a fake chain (see test_retrieve_ask.py).
 """
 
+from pathlib import Path
+
 import pytest
 
 from notecabinet import config as nc
+
+# The repo's benchmark notes, located from the tests folder (not from the package, which may be an
+# installed wheel in site-packages). Tests only ever read these.
+BENCHMARK_NOTES = Path(__file__).resolve().parent.parent / "data" / "notes"
 
 # Fixtures whose setup loads model weights (tokenizer, embedder or reranker).
 MODEL_FIXTURES = {"splitter", "full_index", "small_index", "reranker", "small_notes"}

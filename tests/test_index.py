@@ -8,6 +8,7 @@ import shutil
 
 import numpy as np
 import pytest
+from conftest import BENCHMARK_NOTES
 
 from notecabinet import config, db
 from notecabinet.index import (
@@ -23,7 +24,7 @@ from notecabinet.index import (
 
 def notes_fingerprint():
     h = hashlib.sha256()
-    for p in find_notes(config.BENCHMARK_NOTES_DIR):
+    for p in find_notes(BENCHMARK_NOTES):
         h.update(p.name.encode() + p.read_bytes())
     return h.hexdigest()
 
@@ -44,7 +45,7 @@ def splitter():
 def full_index(tmp_path_factory):
     """A fresh index of the real notes, built into a temp database."""
     path = tmp_path_factory.mktemp("full") / "notes.db"
-    build_index(config.BENCHMARK_NOTES_DIR, path)
+    build_index(BENCHMARK_NOTES, path)
     return path
 
 
@@ -67,11 +68,11 @@ def assert_spans_exact(db_path, notes_dir):
 # ---------------------------------------------------------------- task 12: spans
 
 def test_every_span_maps_to_the_exact_source_text(full_index):
-    assert_spans_exact(full_index, config.BENCHMARK_NOTES_DIR)
+    assert_spans_exact(full_index, BENCHMARK_NOTES)
 
 
 def test_every_note_is_indexed_and_tables_agree(full_index):
-    n_notes = len(find_notes(config.BENCHMARK_NOTES_DIR))
+    n_notes = len(find_notes(BENCHMARK_NOTES))
     assert rows(full_index, "SELECT count(*) FROM files")[0][0] == n_notes
     counts = [rows(full_index, f"SELECT count(*) FROM {t}")[0][0] for t in ("chunks", "chunks_fts", "chunks_vec")]
     assert len(set(counts)) == 1
@@ -79,7 +80,7 @@ def test_every_note_is_indexed_and_tables_agree(full_index):
 
 def test_spans_never_cover_frontmatter(full_index):
     for path, start in rows(full_index, "SELECT path, start FROM chunks"):
-        assert start >= read_note(config.BENCHMARK_NOTES_DIR / path, config.BENCHMARK_NOTES_DIR).body_offset
+        assert start >= read_note(BENCHMARK_NOTES / path, BENCHMARK_NOTES).body_offset
 
 
 def test_chunks_respect_the_token_limit(full_index):
@@ -121,8 +122,8 @@ def test_missing_frontmatter_falls_back_to_filename(tmp_path):
 @pytest.fixture
 def small_notes(tmp_path):
     """A temp folder with 6 real notes (one of them long enough to be split)."""
-    src = find_notes(config.BENCHMARK_NOTES_DIR)
-    picked = src[:5] + [config.BENCHMARK_NOTES_DIR / "2025-10-23-e596a-lecture-mot-deadline.md"]
+    src = find_notes(BENCHMARK_NOTES)
+    picked = src[:5] + [BENCHMARK_NOTES / "2025-10-23-e596a-lecture-mot-deadline.md"]
     folder = tmp_path / "notes"
     folder.mkdir()
     for p in picked:
