@@ -32,6 +32,9 @@ EMBEDDER_REVISION = "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a"
 EMBEDDING_DIM = 384
 RERANKER = "BAAI/bge-reranker-base"
 RERANKER_REVISION = "2cfc18c9415c912f9d8155881c133215df768a70"
+LLM_REPO = "unsloth/Qwen3-4B-Instruct-2507-GGUF"  # served by llama-server, not loaded by the app
+LLM_REVISION = "a06e946bb6b655725eafa393f4a9745d460374c9"
+LLM_FILE = "Qwen3-4B-Instruct-2507-Q4_K_M.gguf"
 
 # ---- chunking ----
 CHUNK_TOKENS = 300   # counted with the embedder's tokenizer

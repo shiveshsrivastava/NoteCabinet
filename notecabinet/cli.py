@@ -22,8 +22,15 @@ def main(argv=None):
     p_ask.add_argument("--json", action="store_true", help="print the full result as JSON")
     p_ask.add_argument("--db", help=argparse.SUPPRESS)
 
+    p_models = sub.add_parser("download-models", help="one-time download of the embedder and reranker (and optionally the LLM)")
+    p_models.add_argument("--with-llm", action="store_true", help=f"also download {config.LLM_FILE} for llama-server")
+    p_models.add_argument("--llm-dir", help=f"where to put the GGUF (default: {config.DATA_HOME / 'models'})")
+
     args = parser.parse_args(argv)
-    if args.command == "index":
+    if args.command == "download-models":
+        from notecabinet.models import download_models
+        download_models(with_llm=args.with_llm, llm_dir=args.llm_dir)
+    elif args.command == "index":
         cmd_index(p_index, args)
     elif args.command == "ask":
         cmd_ask(p_ask, args)
