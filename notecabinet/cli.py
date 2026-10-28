@@ -1,4 +1,4 @@
-"""Command line: `notecabinet index ...` and `notecabinet ask "..."` (eval arrives in M3)."""
+"""Command line: `notecabinet download-models | index | ask | serve` (eval arrives in M3)."""
 
 import argparse
 from pathlib import Path
@@ -8,6 +8,7 @@ from notecabinet import config
 
 def main(argv=None):
     parser = argparse.ArgumentParser(prog="notecabinet", description="Local-first AI over your markdown notes.")
+    parser.add_argument("--version", action="version", version=f"%(prog)s {_version()}")
     sub = parser.add_subparsers(dest="command", required=True)
 
     p_index = sub.add_parser("index", help="build or update the index from a notes folder")
@@ -26,8 +27,15 @@ def main(argv=None):
     p_models.add_argument("--with-llm", action="store_true", help=f"also download {config.LLM_FILE} for llama-server")
     p_models.add_argument("--llm-dir", help=f"where to put the GGUF (default: {config.DATA_HOME / 'models'})")
 
+    p_serve = sub.add_parser("serve", help="start the HTTP API (POST /ask, GET /notes)")
+    p_serve.add_argument("--host", default="127.0.0.1", help="interface to bind (default: 127.0.0.1, this machine only)")
+    p_serve.add_argument("--port", type=int, default=8000)
+
     args = parser.parse_args(argv)
-    if args.command == "download-models":
+    if args.command == "serve":
+        import uvicorn
+        uvicorn.run("notecabinet.api:app", host=args.host, port=args.port)
+    elif args.command == "download-models":
         from notecabinet.models import download_models
         download_models(with_llm=args.with_llm, llm_dir=args.llm_dir)
     elif args.command == "index":
@@ -91,6 +99,14 @@ def cmd_ask(parser, args):
         print(f"[{c['n']}] {c['path']}:{c['start']}-{c['end']}  {snippet}...")
     if result["invalid_citations"]:
         print(f"(warning: answer cites excerpts that don't exist: {result['invalid_citations']})")
+
+
+def _version():
+    from importlib.metadata import PackageNotFoundError, version
+    try:
+        return version("notecabinet")
+    except PackageNotFoundError:  # running from a source tree that isn't installed
+        return "unknown"
 
 
 def _short(path):
