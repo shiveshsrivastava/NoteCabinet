@@ -31,7 +31,7 @@ jobs:
       - name: Lint
         run: ruff check .
 
-      # Embedder + reranker weights (~600 MB), pinned by revision in notecabinet/config.py.
+      # Embedder + reranker weights (~1.2 GB), pinned by revision in notecabinet/config.py.
       - name: Cache model weights
         uses: actions/cache@v4
         with:
