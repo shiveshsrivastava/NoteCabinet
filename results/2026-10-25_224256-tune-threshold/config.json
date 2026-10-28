@@ -1,0 +1,42 @@
+{
+  "task": "tune abstention threshold",
+  "split": "dev",
+  "n_questions": 10,
+  "n_unanswerable": 2,
+  "retriever": "hybrid+rerank",
+  "models": {
+    "llm": "models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+    "embedder": "BAAI/bge-small-en-v1.5",
+    "embedder_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "reranker": "BAAI/bge-reranker-base",
+    "reranker_revision": "2cfc18c9415c912f9d8155881c133215df768a70"
+  },
+  "sampling": {
+    "temperature": 0,
+    "seed": 42,
+    "max_tokens": 400,
+    "cache_prompt": false,
+    "llama_server_parallel": 1
+  },
+  "retrieval": {
+    "final_k": 5,
+    "rerank_candidates": 30,
+    "rrf_k": 60
+  },
+  "chosen_threshold": 0.0101,
+  "best_correct": 9,
+  "tied_interval": [
+    0.0,
+    0.020215967670083046
+  ],
+  "git": {
+    "commit": "a52383ac1645a1dd01cf0321748f819c67e4458b",
+    "dirty": false
+  },
+  "data_eval_sha256": "84e91fda8bdba8b7a813a4c7ed4e987c4e79ad21902f444321a9ad2e753aa68f",
+  "notes_sha256": "ca844d2bbdfee501fe354c2b68aa93fc5e0e425c1d6a35499464cda97f7818d2",
+  "prompt_sha256": {
+    "system": "1d5d8cde21eba58426e086da278afd356542b0b6dee3f61d5a9db154d479cd6e",
+    "user": "f30765b24e8716cf6cc3bf17aabcca5f295c37f13292e73c7c47fdddd9942227"
+  }
+}

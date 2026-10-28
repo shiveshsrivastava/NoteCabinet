@@ -2,19 +2,23 @@
 
 **Privacy-focused notes assistant with fully on-device AI.** Ask questions about your markdown notes and get answers with citations, or turn a messy page into a clean, structured view. Nothing leaves your machine.
 
-> **Status:** work in progress. The benchmark dataset (M0) and indexing (M1) are done; retrieval and Ask (M2) are next. See the [roadmap](#roadmap).
+> **Status:** work in progress. Indexing and Ask work end to end (M0–M2); the evaluation (M3) is next. See the [roadmap](#roadmap).
 
 ## What it does
 
 **Ask**: answer questions about your notes, with every claim linked to the exact note and character span it came from. When the answer isn't in your notes, it says so instead of guessing.
 
 ```
-> when is my discussion section now?
-Wednesdays at 4pm [1]. It moved there permanently in week 3 after two earlier changes [2].
-[1] 2025-10-13-patl-dsec-oh-final-slots.md:211-262
-[2] 2025-10-07-patl-dsec-reschedule.md:88-140
+$ notecabinet ask "what did MW show me how to do on GCLU?"
+MW showed you how to profile PyTorch code efficiently on GCLU by wrapping the region of interest in the
+built-in profiler, focusing only on short windows to avoid large, useless traces, [...] [4].
+
+[4] 2025-10-21-gclu-pytorch-profiling.md:94-1205  ## what happened - Marcus Webb sat down w/ me & showed how to profile PyTorch code efficie...
+
+$ notecabinet ask "what is my GPA this quarter?"
+Not in your notes (no relevant notes found).
 ```
-*(illustrative output; the Ask feature arrives in M2)*
+*(real output on the benchmark notes; the first answer is shortened at `[...]`)*
 
 **Organize page**: turn one shorthand-heavy page into sections, action items and open questions, without dropping or inventing facts. Personal shorthand ("mtg w/ PATL re DSEC") is resolved by retrieving how you've used it in your *other* notes; anything still unclear is marked uncertain, never guessed. The original note is never modified.
 
@@ -90,47 +94,101 @@ How it was made: the bible was drafted with Gemini and then edited by hand to fi
 |---|---|---|
 | M0 | Synthetic benchmark dataset | ✅ |
 | M1 | Indexing: chunking with exact spans, SQLite FTS5 + sqlite-vec, incremental re-index | ✅ |
-| M2 | Retrieval (BM25 / dense / hybrid / rerank) + Ask with citations and abstention | 🚧 |
+| M2 | Retrieval (BM25 / dense / hybrid / rerank) + Ask with citations and abstention | ✅ |
 | M3 | Ask evaluation: recall, correctness, abstention, ablation, latency | |
 | M4 | Organize page + evaluation, with vs. without retrieval | |
 | M5 | Demo UI, results, write-up | |
 
 Beyond the mini version: sync across devices, Android client, and tiered inference across devices.
 
-## Running it
+## Install
 
-Requires Python 3.11+, [uv](https://docs.astral.sh/uv/), an NVIDIA GPU, and a CUDA build of [llama.cpp](https://github.com/ggml-org/llama.cpp)'s `llama-server`.
-
-```bash
-uv sync
-uv run python scripts/download_models.py          # one-time: embedder, reranker, Qwen GGUF
-llama-server -m models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf -ngl 99 -c 8192 --port 8080
-uv run python scripts/smoke_test.py               # checks sqlite-vec, FTS5, CUDA, llama-server, tracing off
-```
-
-Build the index (one SQLite file at `index/notes.db`, rebuildable at any time):
+Requirements:
+- Linux, Python 3.10+
+- [`llama-server`](https://github.com/ggml-org/llama.cpp) from llama.cpp, installed separately (a CUDA build for GPU speed)
+- An NVIDIA GPU is recommended. The embedder and reranker fall back to the CPU; the LLM is slow on CPU.
 
 ```bash
-uv run notecabinet index data/notes            # incremental: only changed notes are re-embedded
-uv run notecabinet index data/notes --full     # rebuild from scratch
-uv run pytest                                  # span + incremental-indexing tests
+pipx install git+https://github.com/shiveshsrivastava/NoteCabinet
+notecabinet download-models --with-llm     # one-time: embedder + reranker, plus the Qwen GGUF
 ```
 
-```
-full (--full): 100 notes, 139 chunks in 5.0s -> index/notes.db
-incremental: 100 notes (0 new, 0 changed, 0 deleted, 100 unchanged), 0 chunks embedded in 0.0s -> index/notes.db
+`pipx` installs PyTorch from PyPI, which includes its CUDA libraries (several GB). The models are pinned to exact
+revisions; after this download the app loads them offline and never touches the network again.
+
+Start the local LLM (keep it running in another terminal):
+
+```bash
+llama-server -m ~/.local/share/notecabinet/models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf -ngl 99 -c 8192 --parallel 1 --port 8080
 ```
 
-Indexing reads notes and never writes them. Each chunk is embedded with its note's title and date as context, and stores a `(start, end)` span into the raw file, so citations highlight the exact source text. Changing the chunker or embedding model triggers a full rebuild automatically.
+`--parallel 1` plus temperature 0 and a fixed seed makes answers repeatable. Point NoteCabinet at a different
+server with `LLM_URL` (default `http://localhost:8080`).
 
-Coming with M2: `uv run notecabinet ask "..."`.
+## Usage
+
+```bash
+notecabinet --help
+notecabinet --version
+```
+
+**`notecabinet download-models [--with-llm] [--llm-dir DIR]`**: one-time download of the pinned embedder and
+reranker into the Hugging Face cache; `--with-llm` also fetches the GGUF for llama-server
+(default folder `~/.local/share/notecabinet/models`).
+
+**`notecabinet index [NOTES_DIR] [--full]`**: build or update the index. Give the notes folder the first time;
+later runs remember it. Only changed notes are re-embedded; `--full` rebuilds from scratch.
+
+```
+$ notecabinet index data/notes
+full (no index yet): 100 notes, 139 chunks in 6.9s -> .../notecabinet/notes.db
+$ notecabinet index
+incremental: 100 notes (0 new, 0 changed, 0 deleted, 100 unchanged), 0 chunks embedded in 0.0s -> .../notecabinet/notes.db
+```
+*(real output on the benchmark notes; the index path is shortened)*
+
+The index is one SQLite file at `$NOTECABINET_INDEX`, else `$XDG_DATA_HOME/notecabinet/notes.db`
+(`~/.local/share/notecabinet/notes.db`). Delete it any time; it is rebuilt from your notes. Indexing only reads
+notes, never writes them. Changing the chunker or embedding model triggers a full rebuild automatically.
+
+**`notecabinet ask "QUESTION" [--retriever bm25|dense|hybrid|hybrid+rerank] [--json]`**: answer from your notes
+with `[n]` citations (note path and character span), or say it isn't in your notes. The default retriever is
+`hybrid+rerank`; `--json` prints the full result, including the retrieved chunks, scores and per-stage timings.
+
+**`notecabinet serve [--host 127.0.0.1] [--port 8000]`**: start the HTTP API (interactive docs at `/docs`).
+
+```bash
+curl -s localhost:8000/ask -H 'content-type: application/json' -d '{"question": "where did I print the AutoNav poster?"}'
+curl -s localhost:8000/notes                                   # list indexed notes
+curl -s localhost:8000/notes/2025-12-01-anav-poster-printed.md # raw text; citation spans index into "raw"
+```
+
+## Development and tests
+
+```bash
+git clone https://github.com/shiveshsrivastava/NoteCabinet && cd NoteCabinet
+pip install -e ".[dev]"            # or: uv sync --extra dev
+notecabinet download-models        # the tests need the embedder + reranker weights
+ruff check .
+pytest                             # whole suite; no llama-server needed (LLM calls are faked)
+pytest -m "not models"             # only the tests that don't need model weights
+python scripts/smoke_test.py       # environment check: sqlite-vec, FTS5, CUDA, llama-server
+```
+
+Tests that need model weights are marked `models` and are skipped, with a reason, if the weights are missing.
+CI runs ruff and the full suite on Python 3.10–3.13 ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)).
+
+To run against the benchmark notes in this repo: `notecabinet index data/notes`.
 
 ## Repository layout
 
 ```
-notecabinet/   the app package: config, CLI, index.py (read/chunk/embed/index), db.py (SQLite schema)
-               retrieval, ask and organize coming
-scripts/       smoke test, model download
-tests/         pytest suite (spans, incremental indexing)
-data/          bible, notes, eval sets
+notecabinet/   the package: cli, config, index (read/chunk/embed), db (SQLite schema), retrieve (bm25/dense/
+               hybrid/rerank), ask (LLM + citations + abstention), api (FastAPI), models (download)
+tests/         pytest suite
+eval/          evaluation scripts (dev-split threshold tuning; full evals in M3)
+results/       eval outputs, one timestamped folder per run with its config.json
+scripts/       environment smoke test, model download for a source checkout
+data/          benchmark: bible, notes, eval sets
 ```
+
