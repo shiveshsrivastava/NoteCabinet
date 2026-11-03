@@ -7,9 +7,10 @@ Gold answer: {gold}
 System answer: {answer}
 
 Grading rules:
-- "correct": the system answer states the key information in the gold answer, and nothing it says contradicts the gold answer. Wording does not matter. Citation markers like [2] do not matter.
-- "incorrect": it leaves out or gets wrong any key part of the gold answer, contradicts it, or does not answer the question.
-- If the gold answer has several parts, all of them are needed for "correct".
+- "correct": the system answer gives what the gold answer says for everything the question asks, and nothing it says contradicts the gold answer. Wording does not matter. Citation markers like [2] do not matter.
+- "incorrect": it leaves out or gets wrong anything the question asks for, contradicts the gold answer, or does not answer the question.
+- If the question asks for several things (for example every time slot, or two different counts), all of them are needed for "correct".
+- Gold answers sometimes add background the question does not ask for, such as what something replaced, why it happened, or when it was decided. Leaving that background out is fine; stating it wrongly is a contradiction.
 - Extra details that are not in the gold answer do not make an answer incorrect unless they contradict it. (Whether the answer is supported by the notes is graded separately.)
 - The question is written by the student ("I", "my") and the system replies to them as "you"; that is expected.
 - Judge only against the gold answer. Do not use your own knowledge of the facts.
