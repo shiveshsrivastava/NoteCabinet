@@ -10,31 +10,13 @@ Writes results/<timestamp>-tune-threshold/: config.json, summary.md, raw/per_que
 Usage: uv run python eval/tune_threshold.py
 """
 
-import hashlib
 import json
-import subprocess
-from datetime import datetime
 
+from eval.common import load_qa, new_run_dir, require_benchmark_index, run_config, sha256_text
 from notecabinet import config
 from notecabinet.ask import SYSTEM_PROMPT, USER_PROMPT, Asker
-from notecabinet.index import stored_notes_dir
 
 RETRIEVER = "hybrid+rerank"
-RESULTS = config.ROOT / "results"
-
-
-def sha256_files(paths):
-    h = hashlib.sha256()
-    for p in sorted(paths):
-        h.update(str(p.relative_to(config.ROOT)).encode() + p.read_bytes())
-    return h.hexdigest()
-
-
-def git_state():
-    def run(*a):
-        return subprocess.run(["git", *a], cwd=config.ROOT, capture_output=True, text=True).stdout.strip()
-
-    return {"commit": run("rev-parse", "HEAD"), "dirty": bool(run("status", "--porcelain", "--untracked-files=no"))}
 
 
 def decisions(rows, t):
@@ -47,12 +29,8 @@ def decisions(rows, t):
 
 
 def main():
-    qa = [json.loads(line) for line in (config.ROOT / "data/eval/qa.jsonl").read_text().splitlines() if line.strip()]
-    dev = [q for q in qa if q["split"] == "dev"]
-    built_from = stored_notes_dir(config.INDEX_PATH)
-    if built_from is None or built_from.resolve() != config.BENCHMARK_NOTES_DIR.resolve():
-        raise SystemExit(f"the index at {config.INDEX_PATH} must be built from the benchmark notes first:\n"
-                         f"  notecabinet index {config.BENCHMARK_NOTES_DIR.relative_to(config.ROOT)}")
+    dev = [q for q in load_qa() if q["split"] == "dev"]
+    require_benchmark_index()
     asker = Asker(threshold=None)
     asker.ask("warm-up question")
 
@@ -73,27 +51,15 @@ def main():
     _, width, lo, hi = max(g for g in graded if g[0] == best_correct)  # widest tied interval
     threshold = round((lo + hi) / 2, 4)
 
-    stamp = datetime.now().strftime("%Y-%m-%d_%H%M%S")
-    out = RESULTS / f"{stamp}-tune-threshold"
-    (out / "raw").mkdir(parents=True)
+    out = new_run_dir("tune-threshold")
     (out / "raw" / "per_question.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
 
-    eval_files = [p for p in (config.ROOT / "data/eval").rglob("*") if p.is_file() and ".gen_cache" not in p.parts]
-    cfg = {
-        "task": "tune abstention threshold", "split": "dev", "n_questions": len(rows),
-        "n_unanswerable": sum(r["unanswerable"] for r in rows), "retriever": RETRIEVER,
-        "models": {"llm": "models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf", "embedder": config.EMBEDDER,
-                   "embedder_revision": config.EMBEDDER_REVISION, "reranker": config.RERANKER,
-                   "reranker_revision": config.RERANKER_REVISION},
-        "sampling": {"temperature": 0, "seed": config.SEED, "max_tokens": config.LLM_MAX_TOKENS,
-                     "cache_prompt": False, "llama_server_parallel": 1},
-        "retrieval": {"final_k": config.FINAL_K, "rerank_candidates": config.RERANK_CANDIDATES, "rrf_k": config.RRF_K},
-        "chosen_threshold": threshold, "best_correct": best_correct, "tied_interval": [lo, hi],
-        "git": git_state(), "data_eval_sha256": sha256_files(eval_files),
-        "notes_sha256": sha256_files(list(config.BENCHMARK_NOTES_DIR.rglob("*.md"))),
-        "prompt_sha256": {"system": hashlib.sha256(SYSTEM_PROMPT.encode()).hexdigest(),
-                          "user": hashlib.sha256(USER_PROMPT.encode()).hexdigest()},
-    }
+    cfg = run_config(
+        task="tune abstention threshold", split="dev", n_questions=len(rows),
+        n_unanswerable=sum(r["unanswerable"] for r in rows), retriever=RETRIEVER,
+        chosen_threshold=threshold, best_correct=best_correct, tied_interval=[lo, hi],
+        prompt_sha256={"system": sha256_text(SYSTEM_PROMPT), "user": sha256_text(USER_PROMPT)},
+    )
     (out / "config.json").write_text(json.dumps(cfg, indent=2) + "\n")
 
     lines = [f"# Abstention threshold tuning (dev split, {len(rows)} questions, "
