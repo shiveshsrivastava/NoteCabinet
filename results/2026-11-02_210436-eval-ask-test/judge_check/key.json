@@ -1,0 +1,101 @@
+{
+  "seed": 1234,
+  "per_type": {
+    "single": 5,
+    "multi": 4,
+    "temporal": 4,
+    "shorthand": 2
+  },
+  "items": [
+    {
+      "item": "G01",
+      "retriever": "bm25",
+      "id": "q009",
+      "type": "single"
+    },
+    {
+      "item": "G02",
+      "retriever": "hybrid",
+      "id": "q004",
+      "type": "single"
+    },
+    {
+      "item": "G03",
+      "retriever": "hybrid",
+      "id": "q045",
+      "type": "shorthand"
+    },
+    {
+      "item": "G04",
+      "retriever": "hybrid+rerank",
+      "id": "q011",
+      "type": "single"
+    },
+    {
+      "item": "G05",
+      "retriever": "dense",
+      "id": "q016",
+      "type": "single"
+    },
+    {
+      "item": "G06",
+      "retriever": "hybrid+rerank",
+      "id": "q039",
+      "type": "temporal"
+    },
+    {
+      "item": "G07",
+      "retriever": "hybrid+rerank",
+      "id": "q032",
+      "type": "multi"
+    },
+    {
+      "item": "G08",
+      "retriever": "bm25",
+      "id": "q019",
+      "type": "single"
+    },
+    {
+      "item": "G09",
+      "retriever": "hybrid",
+      "id": "q040",
+      "type": "temporal"
+    },
+    {
+      "item": "G10",
+      "retriever": "hybrid",
+      "id": "q022",
+      "type": "multi"
+    },
+    {
+      "item": "G11",
+      "retriever": "bm25",
+      "id": "q036",
+      "type": "temporal"
+    },
+    {
+      "item": "G12",
+      "retriever": "dense",
+      "id": "q024",
+      "type": "multi"
+    },
+    {
+      "item": "G13",
+      "retriever": "dense",
+      "id": "q023",
+      "type": "multi"
+    },
+    {
+      "item": "G14",
+      "retriever": "hybrid+rerank",
+      "id": "q038",
+      "type": "temporal"
+    },
+    {
+      "item": "G15",
+      "retriever": "bm25",
+      "id": "q049",
+      "type": "shorthand"
+    }
+  ]
+}

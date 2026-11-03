@@ -1,0 +1,49 @@
+{
+  "task": "eval ask",
+  "split": "test",
+  "n_questions": 51,
+  "n_unanswerable": 10,
+  "retrievers": [
+    "bm25",
+    "dense",
+    "hybrid",
+    "hybrid+rerank"
+  ],
+  "abstain_threshold": 0.0101,
+  "judge": {
+    "model": "claude-haiku-5-5",
+    "effort": "medium"
+  },
+  "prompt_sha256": {
+    "ask_system": "1d5d8cde21eba58426e086da278afd356542b0b6dee3f61d5a9db154d479cd6e",
+    "ask_user": "f30765b24e8716cf6cc3bf17aabcca5f295c37f13292e73c7c47fdddd9942227",
+    "judge_correctness": "6011944f5c46e0a62cec7a0f79ed98a84546833de0ba14971e3dc3b8e9780836",
+    "judge_faithfulness": "829e2e36da4d11e9ec4c568dd2eab44eb964f46c5de0cfb34d81a00558113534"
+  },
+  "warmup_question": "What did I work on this week?",
+  "models": {
+    "llm": "models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+    "embedder": "BAAI/bge-small-en-v1.5",
+    "embedder_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "reranker": "BAAI/bge-reranker-base",
+    "reranker_revision": "2cfc18c9415c912f9d8155881c133215df768a70"
+  },
+  "sampling": {
+    "temperature": 0,
+    "seed": 42,
+    "max_tokens": 400,
+    "cache_prompt": false,
+    "llama_server_parallel": 1
+  },
+  "retrieval": {
+    "final_k": 5,
+    "rerank_candidates": 30,
+    "rrf_k": 60
+  },
+  "git": {
+    "commit": "e58e735891605bac8c5591891010e9234a1e218b",
+    "dirty": false
+  },
+  "data_eval_sha256": "c84e6f3f821b7ae7aa0846cb5ac97b9e127d4422da1c17a921cac068d5c2fbcc",
+  "notes_sha256": "ca844d2bbdfee501fe354c2b68aa93fc5e0e425c1d6a35499464cda97f7818d2"
+}

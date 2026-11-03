@@ -1,0 +1,249 @@
+{
+  "agreement": {
+    "correct": {
+      "n": 15,
+      "agree": 13,
+      "kappa": 0.7058823529411765,
+      "human_yes": 11,
+      "judge_yes": 9,
+      "human_yes_judge_no": 2,
+      "human_no_judge_yes": 0
+    },
+    "faithful": {
+      "n": 15,
+      "agree": 8,
+      "kappa": 0.0,
+      "human_yes": 15,
+      "judge_yes": 8,
+      "human_yes_judge_no": 7,
+      "human_no_judge_yes": 0
+    }
+  },
+  "items": [
+    {
+      "item": "G01",
+      "retriever": "bm25",
+      "id": "q009",
+      "type": "single",
+      "human_correct": true,
+      "judge_correct": true,
+      "human_faithful": true,
+      "judge_faithful": true,
+      "note": "",
+      "judge_reasons": {
+        "correctness": "The gold answer says the reason was a dentist appointment. The system answer states the same reason, that the user had a dentist appointment and could not attend their own office hours, with no contradiction.",
+        "faithfulness": "Excerpt [1] states the author had a dentist appointment and couldn't do their OFHR, and that SK covered the E235 OFHR. The answer's claim that Sarah Kim covered because of the dentist appointment is directly supported."
+      }
+    },
+    {
+      "item": "G02",
+      "retriever": "hybrid",
+      "id": "q004",
+      "type": "single",
+      "human_correct": true,
+      "judge_correct": true,
+      "human_faithful": true,
+      "judge_faithful": true,
+      "note": "",
+      "judge_reasons": {
+        "correctness": "The gold answer says the second set of EE P 596 C problem sets was about CNNs, and the system answer states the same thing, with only a citation marker added, which does not affect grading.",
+        "faithfulness": "Excerpt 2 states the student finished the second set of E596C problem sets on CNNs before lecture, so the answer's claim that the second set was about CNNs is directly supported."
+      }
+    },
+    {
+      "item": "G03",
+      "retriever": "hybrid",
+      "id": "q045",
+      "type": "shorthand",
+      "human_correct": true,
+      "judge_correct": true,
+      "human_faithful": true,
+      "judge_faithful": true,
+      "note": "",
+      "judge_reasons": {
+        "correctness": "The gold answer says Marcus Webb (MW) showed the student how to profile PyTorch code efficiently on the GPU cluster. The system answer says MW showed how to profile PyTorch code efficiently on GCLU, matching the core content; the extra details about the profiler, trace viewer, and CUDA vs CPU time are not in the gold answer but do not contradict it.",
+        "faithfulness": "Every claim in the answer (MW as Marcus Webb, wrapping the region in the built-in profiler, profiling a short window, separating CUDA and CPU time, using the trace viewer to see gaps between kernels, and treating idle GPU time as the thing to hunt) is stated in excerpt [4]. The MW expansion is also confirmed by excerpt [5]."
+      }
+    },
+    {
+      "item": "G04",
+      "retriever": "hybrid+rerank",
+      "id": "q011",
+      "type": "single",
+      "human_correct": false,
+      "judge_correct": false,
+      "human_faithful": true,
+      "judge_faithful": false,
+      "note": "I think it didnt see the correct excerpt",
+      "judge_reasons": {
+        "correctness": "The gold answer says students were getting help with Fourier series, but the system answer says Laplace transforms (ROC, partial fractions). This directly contradicts the gold answer on the one thing the question asks for.",
+        "faithfulness": "Excerpt 1 describes a DSEC Laplace review session, not office hours. Its ROC and repeated-roots struggles were observed in that DSEC session. Office hours in excerpts 3 and 4 had one student or none, and no topic is recorded for them. The note about SK's office hours is only a guess ('prob same Laplace confusion')."
+      }
+    },
+    {
+      "item": "G05",
+      "retriever": "dense",
+      "id": "q016",
+      "type": "single",
+      "human_correct": false,
+      "judge_correct": false,
+      "human_faithful": true,
+      "judge_faithful": true,
+      "note": "I think it didnt see the correct excerpt",
+      "judge_reasons": {
+        "correctness": "The gold answer says students were asking about Bode plots. The system answer never names Bode plots; it says students asked about 'the same part of a problem' and that 'certain concepts' were confusing, without identifying the topic. It fails to give the required specific content, so it is incorrect.",
+        "faithfulness": "Both cited claims are supported: excerpt [5] says a few students asked about the same part of a problem and that the wording maybe could have been clearer, and excerpt [1] says the TA worked on the whiteboard for the whole room because the room was full and the same confusions kept coming up. The answer's inference that multiple students were tripped up by certain concepts follows from that. The question's phrase 'discussion section' is not in the notes, but the answer does not itself assert anything about a discussion section."
+      }
+    },
+    {
+      "item": "G06",
+      "retriever": "hybrid+rerank",
+      "id": "q039",
+      "type": "temporal",
+      "human_correct": false,
+      "judge_correct": false,
+      "human_faithful": true,
+      "judge_faithful": false,
+      "note": "It picked the info from oct 27, even though the questions specifies oct 25",
+      "judge_reasons": {
+        "correctness": "The gold answer says the deep learning midterm was scheduled for Week 5, but the system answer says Week 7, which directly contradicts the gold answer.",
+        "faithfulness": "The week 7 date was announced in Lecture 5 on Mon 2025-10-27, after October 25. Excerpt 2 says the midterm was 'delayed to week 7', and the student studied on Saturday 'thinking it was coming up soon', so the excerpts do not support week 7 as the schedule on October 25."
+      }
+    },
+    {
+      "item": "G07",
+      "retriever": "hybrid+rerank",
+      "id": "q032",
+      "type": "multi",
+      "human_correct": true,
+      "judge_correct": true,
+      "human_faithful": true,
+      "judge_faithful": true,
+      "note": "",
+      "judge_reasons": {
+        "correctness": "The system answer covers all three parts: Sarah Kim sent her half of the automated grading script (matching the gold), the script was finalized on 2025-11-30 (matching November 30), and grading of the final exams finished on 2025-12-06 (matching December 6). The only omission is the 'week 5' timing, which is not a question requirement, and no statements contradict the gold answer.",
+        "faithfulness": "Excerpt 1 (dated Sun 2025-11-30) says SK sent her half of the E235 grading script, the user merged it with their part, and the script was finalized. Excerpt 2 (dated Sat 2025-12-06) says the user finished grading their assigned stack of E235 finals. Excerpt 4 identifies SK as Sarah Kim, so every factual claim in the answer is supported."
+      }
+    },
+    {
+      "item": "G08",
+      "retriever": "bm25",
+      "id": "q019",
+      "type": "single",
+      "human_correct": true,
+      "judge_correct": true,
+      "human_faithful": true,
+      "judge_faithful": false,
+      "note": "",
+      "judge_reasons": {
+        "correctness": "The system answer states the AutoNav poster was printed at the university library, which matches the gold answer exactly. The citation marker does not affect grading, and no contradictory details are present.",
+        "faithfulness": "The excerpts refer only to the 'ANAV poster' and never say ANAV means AutoNav; 'AutoNav' appears only in excerpt 4 as a separate vault page link, so the expansion is not shown. The printing location at the university library is supported by excerpt 2."
+      }
+    },
+    {
+      "item": "G09",
+      "retriever": "hybrid",
+      "id": "q040",
+      "type": "temporal",
+      "human_correct": false,
+      "judge_correct": false,
+      "human_faithful": true,
+      "judge_faithful": true,
+      "note": "It didnt fetch the excerpt from the correct date",
+      "judge_reasons": {
+        "correctness": "The gold answer says the EE P 596 C midterm was set for week 7, delayed from week 5. The system answer says week 5, which is the original date that the gold answer says was delayed, so it contradicts the gold answer's current week.",
+        "faithfulness": "Excerpt 5 (dated 2025-09-29) states that Prof. Lindqvist said the EE P 596 C midterm is in week 5, and no later excerpt gives a different week. The 'as of October 30' framing is consistent with that note, since the Oct 25 excerpt refers to the upcoming midterm without changing the week."
+      }
+    },
+    {
+      "item": "G10",
+      "retriever": "hybrid",
+      "id": "q022",
+      "type": "multi",
+      "human_correct": true,
+      "judge_correct": true,
+      "human_faithful": true,
+      "judge_faithful": false,
+      "note": "",
+      "judge_reasons": {
+        "correctness": "The system answer gives week 5 as the original date and week 8 as when the student actually took the midterm, which matches the gold answer's core facts. It omits the specific date (Monday, November 17) and evening session, but the question asks only for the original timing and the actual timing, so the omitted details are not required by the question's wording to be considered complete; however, the question asks when the student actually took it, and week 8 answers that.",
+        "faithfulness": "Excerpt [3] says the midterm was moved to week 8, but it is a planned date. The actual exam appears in [1] as \"Midterm Day (Mon 2025-11-17)\", and nothing states that 2025-11-17 falls in week 8, so the claim about when it was actually taken is not established."
+      }
+    },
+    {
+      "item": "G11",
+      "retriever": "bm25",
+      "id": "q036",
+      "type": "temporal",
+      "human_correct": true,
+      "judge_correct": true,
+      "human_faithful": true,
+      "judge_faithful": true,
+      "note": "",
+      "judge_reasons": {
+        "correctness": "The system answer states the discussion section was rescheduled to Fridays at 2pm, which matches the gold answer's core content. It adds an initial Thursdays at 10am schedule, which is background not contradicting the gold answer and not asked for. It omits the October 7 date and Prof. Atlas, but the question does not ask for those.",
+        "faithfulness": "The answer's claims that the EE 235 section was first set for Thursdays at 10am (excerpts 1 and 2) and then moved to Fridays at 2pm because of the LABM conflict (excerpt 3) are all stated in the excerpts."
+      }
+    },
+    {
+      "item": "G12",
+      "retriever": "dense",
+      "id": "q024",
+      "type": "multi",
+      "human_correct": true,
+      "judge_correct": false,
+      "human_faithful": true,
+      "judge_faithful": true,
+      "note": "",
+      "judge_reasons": {
+        "correctness": "The gold answer says they switched back to the smart home workshop because its deadline was extended. The system answer instead attributes the change of mind to the open-source direction feeling right for a side project, reducing polish pressure and enabling community contributions. It does not mention the workshop or the deadline extension, and its reasoning contradicts the gold answer's cause.",
+        "faithfulness": "The answer's claims match excerpt [1]: the open-source direction felt right for a side project, it reduced pressure to polish for one narrow use, others could poke at it and find bugs, and the user felt relieved. The phrase 'community input' is a loose paraphrase of 'other ppl can poke at it' but is supported, and the joint decision with Ryan Park is listed as an attendee in the same note."
+      }
+    },
+    {
+      "item": "G13",
+      "retriever": "dense",
+      "id": "q023",
+      "type": "multi",
+      "human_correct": true,
+      "judge_correct": false,
+      "human_faithful": true,
+      "judge_faithful": false,
+      "note": "",
+      "judge_reasons": {
+        "correctness": "The system answer gives the final topic (multi-agent reinforcement learning), the original plan (LLM agent coordination, which matches the gold's LLM tool use only loosely), and the submission date (2025-12-03, matching December 3). However, the original plan is described as LLM agent coordination rather than the gold's LLM tool use, and it adds a confusing 'E500D paper topic' phrase; this mismatches the gold on what was originally planned.",
+        "faithfulness": "The submission date (Wed 2025-12-03) and the switch to MARL are supported. However, the excerpts never identify E500D as an Agentic AI course, and they never say the original topic was LLM agent coordination, so those claims go beyond the notes."
+      }
+    },
+    {
+      "item": "G14",
+      "retriever": "hybrid+rerank",
+      "id": "q038",
+      "type": "temporal",
+      "human_correct": true,
+      "judge_correct": true,
+      "human_faithful": true,
+      "judge_faithful": false,
+      "note": "Answer is a bit too wordy but it is correct",
+      "judge_reasons": {
+        "correctness": "The gold answer says office hours were Fridays at 3pm as of week 2. The system answer states Fridays at 3pm, matching the gold answer. It also mentions a discussed move to Wednesdays at 3pm as a potential solution, which is background that does not contradict the gold answer, though it is slightly muddled about whether the change was made. The core answer matches.",
+        "faithfulness": "Excerpt [1] says the OFHR was actually moved to Wednesdays at 3pm after Friday attendance dropped to three students, with Prof. Atlas agreeing, not merely discussed as a possibility. The excerpts also never define which week Oct 3 or Oct 13 falls in, so the 'as of week 2' conclusion is not directly supported."
+      }
+    },
+    {
+      "item": "G15",
+      "retriever": "bm25",
+      "id": "q049",
+      "type": "shorthand",
+      "human_correct": true,
+      "judge_correct": true,
+      "human_faithful": true,
+      "judge_faithful": false,
+      "note": "",
+      "judge_reasons": {
+        "correctness": "The system identifies the bug as a critical issue in the ECHO feature extraction step, matching the gold answer's EchoSense feature extraction bug, and gives the fix date as October 31, 2025, matching the gold answer's Oct 31. It omits the Oct 24 report date and the reporter being Ryan (RP), but the question asks what bug was flagged and when it was fixed, so the fix date is the requested timing; the answer does not contradict the gold answer.",
+        "faithfulness": "Note [1] is dated Fri 2025-10-31 and says the bug was finally fixed, so the date is directly supported by that note. However, note [3] (Thu 2025-11-06) describes the fix as having landed around the time of the Raspberry Pi deploy, which conflicts with an October 31 fix date."
+      }
+    }
+  ]
+}

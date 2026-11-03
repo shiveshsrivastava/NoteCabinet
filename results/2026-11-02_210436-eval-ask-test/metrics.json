@@ -1,0 +1,610 @@
+{
+  "bm25": {
+    "retrieval": {
+      "n": 41,
+      "all_covered": [
+        30,
+        41
+      ],
+      "mean_coverage": 0.8536585365853658,
+      "mrr": 0.7386178861788618,
+      "by_type": {
+        "single": {
+          "n": 17,
+          "all_covered": [
+            16,
+            17
+          ],
+          "mean_coverage": 0.9411764705882353,
+          "mrr": 0.7617647058823529
+        },
+        "multi": {
+          "n": 12,
+          "all_covered": [
+            6,
+            12
+          ],
+          "mean_coverage": 0.8333333333333331,
+          "mrr": 0.8333333333333334
+        },
+        "temporal": {
+          "n": 8,
+          "all_covered": [
+            4,
+            8
+          ],
+          "mean_coverage": 0.625,
+          "mrr": 0.47916666666666663
+        },
+        "shorthand": {
+          "n": 4,
+          "all_covered": [
+            4,
+            4
+          ],
+          "mean_coverage": 1.0,
+          "mrr": 0.875
+        }
+      }
+    },
+    "answers": {
+      "correct": [
+        25,
+        41
+      ],
+      "faithful": [
+        24,
+        36
+      ],
+      "judge_errors": 0,
+      "invalid_citations": 0,
+      "by_type": {
+        "single": {
+          "correct": [
+            16,
+            17
+          ],
+          "faithful": [
+            14,
+            17
+          ]
+        },
+        "multi": {
+          "correct": [
+            2,
+            12
+          ],
+          "faithful": [
+            2,
+            8
+          ]
+        },
+        "temporal": {
+          "correct": [
+            3,
+            8
+          ],
+          "faithful": [
+            5,
+            7
+          ]
+        },
+        "shorthand": {
+          "correct": [
+            4,
+            4
+          ],
+          "faithful": [
+            3,
+            4
+          ]
+        }
+      }
+    },
+    "abstention": {
+      "tp": 10,
+      "fp": 5,
+      "fn": 0,
+      "precision": [
+        10,
+        15
+      ],
+      "recall": [
+        10,
+        10
+      ],
+      "unanswerable_by_gate": 0,
+      "unanswerable_by_model": 10,
+      "answerable_by_gate": 1,
+      "answerable_by_model": 4,
+      "by_kind": {
+        "off_topic": {
+          "n": 0,
+          "gate": 0,
+          "model": 0,
+          "answered": 0
+        },
+        "near_miss": {
+          "n": 10,
+          "gate": 0,
+          "model": 10,
+          "answered": 0
+        }
+      },
+      "unlabelled": []
+    },
+    "latency_ms": {
+      "retrieval": {
+        "n": 51,
+        "p50": 0.4891499993391335,
+        "p95": 1.0828364993358264
+      },
+      "rerank": {
+        "n": 51,
+        "p50": 25.52821900098934,
+        "p95": 28.743020000547403
+      },
+      "generation": {
+        "n": 50,
+        "p50": 900.3493434993288,
+        "p95": 2144.488237148653
+      }
+    }
+  },
+  "dense": {
+    "retrieval": {
+      "n": 41,
+      "all_covered": [
+        25,
+        41
+      ],
+      "mean_coverage": 0.6910569105691057,
+      "mrr": 0.6422764227642277,
+      "by_type": {
+        "single": {
+          "n": 17,
+          "all_covered": [
+            12,
+            17
+          ],
+          "mean_coverage": 0.7058823529411765,
+          "mrr": 0.5735294117647058
+        },
+        "multi": {
+          "n": 12,
+          "all_covered": [
+            7,
+            12
+          ],
+          "mean_coverage": 0.7777777777777777,
+          "mrr": 0.9166666666666666
+        },
+        "temporal": {
+          "n": 8,
+          "all_covered": [
+            4,
+            8
+          ],
+          "mean_coverage": 0.625,
+          "mrr": 0.44791666666666663
+        },
+        "shorthand": {
+          "n": 4,
+          "all_covered": [
+            2,
+            4
+          ],
+          "mean_coverage": 0.5,
+          "mrr": 0.5
+        }
+      }
+    },
+    "answers": {
+      "correct": [
+        16,
+        41
+      ],
+      "faithful": [
+        18,
+        29
+      ],
+      "judge_errors": 0,
+      "invalid_citations": 0,
+      "by_type": {
+        "single": {
+          "correct": [
+            12,
+            17
+          ],
+          "faithful": [
+            11,
+            13
+          ]
+        },
+        "multi": {
+          "correct": [
+            0,
+            12
+          ],
+          "faithful": [
+            3,
+            8
+          ]
+        },
+        "temporal": {
+          "correct": [
+            3,
+            8
+          ],
+          "faithful": [
+            3,
+            6
+          ]
+        },
+        "shorthand": {
+          "correct": [
+            1,
+            4
+          ],
+          "faithful": [
+            1,
+            2
+          ]
+        }
+      }
+    },
+    "abstention": {
+      "tp": 10,
+      "fp": 12,
+      "fn": 0,
+      "precision": [
+        10,
+        22
+      ],
+      "recall": [
+        10,
+        10
+      ],
+      "unanswerable_by_gate": 0,
+      "unanswerable_by_model": 10,
+      "answerable_by_gate": 4,
+      "answerable_by_model": 8,
+      "by_kind": {
+        "off_topic": {
+          "n": 0,
+          "gate": 0,
+          "model": 0,
+          "answered": 0
+        },
+        "near_miss": {
+          "n": 10,
+          "gate": 0,
+          "model": 10,
+          "answered": 0
+        }
+      },
+      "unlabelled": []
+    },
+    "latency_ms": {
+      "retrieval": {
+        "n": 51,
+        "p50": 8.18976200025645,
+        "p95": 10.803561999637168
+      },
+      "rerank": {
+        "n": 51,
+        "p50": 24.704199000552762,
+        "p95": 26.278334498783806
+      },
+      "generation": {
+        "n": 47,
+        "p50": 906.5087070011941,
+        "p95": 1975.7771434000458
+      }
+    }
+  },
+  "hybrid": {
+    "retrieval": {
+      "n": 41,
+      "all_covered": [
+        30,
+        41
+      ],
+      "mean_coverage": 0.7764227642276422,
+      "mrr": 0.7032520325203252,
+      "by_type": {
+        "single": {
+          "n": 17,
+          "all_covered": [
+            14,
+            17
+          ],
+          "mean_coverage": 0.8235294117647058,
+          "mrr": 0.6764705882352942
+        },
+        "multi": {
+          "n": 12,
+          "all_covered": [
+            9,
+            12
+          ],
+          "mean_coverage": 0.861111111111111,
+          "mrr": 0.9166666666666666
+        },
+        "temporal": {
+          "n": 8,
+          "all_covered": [
+            5,
+            8
+          ],
+          "mean_coverage": 0.6875,
+          "mrr": 0.5416666666666666
+        },
+        "shorthand": {
+          "n": 4,
+          "all_covered": [
+            2,
+            4
+          ],
+          "mean_coverage": 0.5,
+          "mrr": 0.5
+        }
+      }
+    },
+    "answers": {
+      "correct": [
+        21,
+        41
+      ],
+      "faithful": [
+        23,
+        32
+      ],
+      "judge_errors": 0,
+      "invalid_citations": 0,
+      "by_type": {
+        "single": {
+          "correct": [
+            13,
+            17
+          ],
+          "faithful": [
+            11,
+            15
+          ]
+        },
+        "multi": {
+          "correct": [
+            3,
+            12
+          ],
+          "faithful": [
+            5,
+            9
+          ]
+        },
+        "temporal": {
+          "correct": [
+            3,
+            8
+          ],
+          "faithful": [
+            5,
+            6
+          ]
+        },
+        "shorthand": {
+          "correct": [
+            2,
+            4
+          ],
+          "faithful": [
+            2,
+            2
+          ]
+        }
+      }
+    },
+    "abstention": {
+      "tp": 10,
+      "fp": 9,
+      "fn": 0,
+      "precision": [
+        10,
+        19
+      ],
+      "recall": [
+        10,
+        10
+      ],
+      "unanswerable_by_gate": 0,
+      "unanswerable_by_model": 10,
+      "answerable_by_gate": 3,
+      "answerable_by_model": 6,
+      "by_kind": {
+        "off_topic": {
+          "n": 0,
+          "gate": 0,
+          "model": 0,
+          "answered": 0
+        },
+        "near_miss": {
+          "n": 10,
+          "gate": 0,
+          "model": 10,
+          "answered": 0
+        }
+      },
+      "unlabelled": []
+    },
+    "latency_ms": {
+      "retrieval": {
+        "n": 51,
+        "p50": 8.495197002048371,
+        "p95": 10.622937501466367
+      },
+      "rerank": {
+        "n": 51,
+        "p50": 24.114831001497805,
+        "p95": 27.36116100095387
+      },
+      "generation": {
+        "n": 48,
+        "p50": 902.9686800004129,
+        "p95": 1892.1347647517905
+      }
+    }
+  },
+  "hybrid+rerank": {
+    "retrieval": {
+      "n": 41,
+      "all_covered": [
+        33,
+        41
+      ],
+      "mean_coverage": 0.8943089430894309,
+      "mrr": 0.8207317073170731,
+      "by_type": {
+        "single": {
+          "n": 17,
+          "all_covered": [
+            16,
+            17
+          ],
+          "mean_coverage": 0.9411764705882353,
+          "mrr": 0.872549019607843
+        },
+        "multi": {
+          "n": 12,
+          "all_covered": [
+            7,
+            12
+          ],
+          "mean_coverage": 0.8055555555555554,
+          "mrr": 0.9166666666666666
+        },
+        "temporal": {
+          "n": 8,
+          "all_covered": [
+            6,
+            8
+          ],
+          "mean_coverage": 0.875,
+          "mrr": 0.5708333333333333
+        },
+        "shorthand": {
+          "n": 4,
+          "all_covered": [
+            4,
+            4
+          ],
+          "mean_coverage": 1.0,
+          "mrr": 0.8125
+        }
+      }
+    },
+    "answers": {
+      "correct": [
+        27,
+        41
+      ],
+      "faithful": [
+        23,
+        38
+      ],
+      "judge_errors": 0,
+      "invalid_citations": 0,
+      "by_type": {
+        "single": {
+          "correct": [
+            14,
+            17
+          ],
+          "faithful": [
+            13,
+            16
+          ]
+        },
+        "multi": {
+          "correct": [
+            3,
+            12
+          ],
+          "faithful": [
+            3,
+            10
+          ]
+        },
+        "temporal": {
+          "correct": [
+            6,
+            8
+          ],
+          "faithful": [
+            3,
+            8
+          ]
+        },
+        "shorthand": {
+          "correct": [
+            4,
+            4
+          ],
+          "faithful": [
+            4,
+            4
+          ]
+        }
+      }
+    },
+    "abstention": {
+      "tp": 10,
+      "fp": 3,
+      "fn": 0,
+      "precision": [
+        10,
+        13
+      ],
+      "recall": [
+        10,
+        10
+      ],
+      "unanswerable_by_gate": 0,
+      "unanswerable_by_model": 10,
+      "answerable_by_gate": 1,
+      "answerable_by_model": 2,
+      "by_kind": {
+        "off_topic": {
+          "n": 0,
+          "gate": 0,
+          "model": 0,
+          "answered": 0
+        },
+        "near_miss": {
+          "n": 10,
+          "gate": 0,
+          "model": 10,
+          "answered": 0
+        }
+      },
+      "unlabelled": []
+    },
+    "latency_ms": {
+      "retrieval": {
+        "n": 51,
+        "p50": 8.016056002816185,
+        "p95": 9.825758499573567
+      },
+      "rerank": {
+        "n": 51,
+        "p50": 115.96215100144036,
+        "p95": 126.85990000136371
+      },
+      "generation": {
+        "n": 50,
+        "p50": 1048.0590895003843,
+        "p95": 2115.943495300416
+      }
+    }
+  }
+}

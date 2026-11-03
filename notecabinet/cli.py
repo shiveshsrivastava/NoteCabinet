@@ -1,4 +1,4 @@
-"""Command line: `notecabinet download-models | index | ask | serve` (eval arrives in M3)."""
+"""Command line: `notecabinet download-models | index | ask | serve | eval`."""
 
 import argparse
 from pathlib import Path
@@ -33,6 +33,12 @@ def main(argv=None):
                          help="interface to bind (default: 127.0.0.1, this machine only)")
     p_serve.add_argument("--port", type=int, default=8000)
 
+    p_eval = sub.add_parser("eval", help="run an evaluation on the benchmark (source checkout only)",
+                            description="Run an evaluation. Options after the name go to it, e.g. "
+                                        "`notecabinet eval ask --split dev`; see `notecabinet eval ask --help`.")
+    p_eval.add_argument("name", choices=["ask", "organize"])
+    p_eval.add_argument("options", nargs=argparse.REMAINDER, help=argparse.SUPPRESS)
+
     args = parser.parse_args(argv)
     if args.command == "serve":
         import uvicorn
@@ -44,6 +50,8 @@ def main(argv=None):
         cmd_index(p_index, args)
     elif args.command == "ask":
         cmd_ask(p_ask, args)
+    elif args.command == "eval":
+        cmd_eval(p_eval, args)
 
 
 def cmd_index(parser, args):
@@ -101,6 +109,23 @@ def cmd_ask(parser, args):
         print(f"[{c['n']}] {c['path']}:{c['start']}-{c['end']}  {snippet}...")
     if result["invalid_citations"]:
         print(f"(warning: answer cites excerpts that don't exist: {result['invalid_citations']})")
+
+
+def cmd_eval(parser, args):
+    """The evals live in the repo's eval/ folder, not in the package: they need the benchmark data in
+    data/eval/, which only a source checkout has. So this works from a checkout and says so otherwise."""
+    import sys
+
+    if not (config.ROOT / "eval" / "eval_ask.py").is_file() or not (config.ROOT / "data" / "eval").is_dir():
+        parser.exit(2, "evals run from a source checkout of NoteCabinet (they need eval/ and data/eval/); "
+                       "clone the repository and run `uv run notecabinet eval ...` there\n")
+    if args.name == "organize":
+        parser.exit(2, "`notecabinet eval organize` arrives in M4\n")
+    if str(config.ROOT) not in sys.path:
+        sys.path.insert(0, str(config.ROOT))
+    from eval.eval_ask import main as eval_ask
+
+    eval_ask(args.options)
 
 
 def _version():

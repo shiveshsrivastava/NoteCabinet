@@ -91,3 +91,23 @@ def test_serve_starts_and_answers(env):
     finally:
         proc.terminate()
         proc.wait(timeout=10)
+
+
+def test_eval_ask_help_reaches_the_eval_script(env):
+    r = run(["eval", "ask", "--help"], env)
+    assert r.returncode == 0
+    assert "--split" in r.stdout and "--rejudge" in r.stdout
+
+
+def test_eval_organize_is_not_there_yet(env):
+    r = run(["eval", "organize"], env)
+    assert r.returncode == 2 and "M4" in r.stderr
+
+
+def test_eval_outside_a_source_checkout_says_so(tmp_path, monkeypatch, capsys):
+    from notecabinet import cli, config
+
+    monkeypatch.setattr(config, "ROOT", tmp_path)  # an installed wheel: no eval/ or data/eval/ next to it
+    with pytest.raises(SystemExit) as e:
+        cli.main(["eval", "ask"])
+    assert e.value.code == 2 and "source checkout" in capsys.readouterr().err
