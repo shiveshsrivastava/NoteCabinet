@@ -31,3 +31,6 @@ build/
 *.egg-info/
 .pytest_cache/
 .ruff_cache/
+
+# eval judge verdict cache (rebuildable, costs API calls to rebuild)
+results/.judge_cache/
