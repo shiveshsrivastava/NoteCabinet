@@ -52,7 +52,7 @@ build-backend = "hatchling.build"
 packages = ["notecabinet"]
 
 [tool.hatch.build.targets.sdist]
-include = ["notecabinet/", "tests/", "README.md", "CHANGELOG.md", "pyproject.toml"]
+include = ["notecabinet/", "/eval/", "tests/", "README.md", "CHANGELOG.md", "pyproject.toml"]
 
 [dependency-groups]
 # Local dataset tooling only (not part of the package).
