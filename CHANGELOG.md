@@ -4,6 +4,18 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow
 [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+- Ask evaluation (`notecabinet eval ask`, source checkout only): fact-level recall@5, per-fact coverage and
+  MRR; answer correctness and faithfulness from an LLM judge (prompts in `eval/prompts/`, verdicts cached);
+  abstention precision/recall with a gate-vs-model and off-topic/near-miss breakdown; p50/p95 latency per
+  stage; an ablation over `bm25`, `dense`, `hybrid` and `hybrid+rerank` by question type. Each run writes
+  `config.json`, `summary.md` and `metrics.json` under `results/`.
+- Judge check (`python -m eval.judge_check sample|score`): blind hand-grading sheet and agreement with the
+  judge (% agreement, Cohen's kappa).
+- First test-split results: `results/2026-11-02_210436-eval-ask-test/`.
+
 ## [0.1.0] - 2026-10-28
 
 First packaged release (not published to PyPI; install from GitHub).

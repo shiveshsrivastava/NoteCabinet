@@ -2,23 +2,54 @@
 
 **Privacy-focused notes assistant with fully on-device AI.** Ask questions about your markdown notes and get answers with citations, or turn a messy page into a clean, structured view. Nothing leaves your machine.
 
-> **Status:** work in progress. Indexing and Ask work end to end (M0–M2); the evaluation (M3) is next. See the [roadmap](#roadmap).
+> **Status:** work in progress. Indexing, Ask and the Ask evaluation are done (M0–M3); Organize (M4) is next. See the [roadmap](#roadmap).
 
-## What it does
+## Example
 
-**Ask**: answer questions about your notes, with every claim linked to the exact note and character span it came from. When the answer isn't in your notes, it says so instead of guessing.
+A note, as written (`2025-10-21-gclu-pytorch-profiling.md`, an excerpt):
+
+```markdown
+## what happened
+- Marcus Webb sat down w/ me & showed how to profile PyTorch code efficiently on GCLU
+- before this I was basically guessing where time goes -> sprinkling print timers everywhere lol
+- his approach: wrap the region you care about in the built-in profiler instead of timing whole script
+  - only profle a short window, not full run -> otherwise trace is huge & useless
+```
+
+Asking about it in your own shorthand ("MW" for Marcus Webb, "GCLU" for the GPU cluster):
 
 ```
 $ notecabinet ask "what did MW show me how to do on GCLU?"
 MW showed you how to profile PyTorch code efficiently on GCLU by wrapping the region of interest in the
-built-in profiler, focusing only on short windows to avoid large, useless traces, [...] [4].
+built-in profiler, focusing only on short windows to avoid large, useless traces, and examining CUDA vs CPU
+time separately. [...] This helped you identify idle GPU time as a key issue rather than just slow operations [4].
 
 [4] 2025-10-21-gclu-pytorch-profiling.md:94-1205  ## what happened - Marcus Webb sat down w/ me & showed how to profile PyTorch code efficie...
+```
+*(real output on the benchmark notes, shortened at `[...]`; `94-1205` is the cited character span in the note file)*
 
+**Results so far** (Ask, held-out test split; [full results](results/2026-11-02_210436-eval-ask-test/summary.md)):
+
+| 51 test questions (41 answerable, 10 unanswerable) | `bm25` | `dense` | `hybrid` | `hybrid+rerank` |
+|---|---|---|---|---|
+| All facts in the top 5 (fact-level recall@5) | 73% (30/41) | 61% (25/41) | 73% (30/41) | 80% (33/41) |
+| MRR | 0.74 | 0.64 | 0.70 | 0.82 |
+| Answer correct (LLM judge) | 61% (25/41) | 39% (16/41) | 51% (21/41) | 66% (27/41) |
+| Abstention precision | 67% (10/15) | 45% (10/22) | 53% (10/19) | 77% (10/13) |
+| Abstention recall | 100% (10/10) | 100% (10/10) | 100% (10/10) | 100% (10/10) |
+
+The test set is small, so a gap of a few questions (e.g. `hybrid+rerank` vs. `bm25` on correctness, 27 vs. 25) is
+not conclusive. See [Evaluation](#evaluation) for how these were measured and how far to trust the judge.
+
+## What it does
+
+**Ask**: answer questions about your notes, with every claim linked to the exact note and character span it came from (see the [example](#example) above). When the answer isn't in your notes, it says so instead of guessing:
+
+```
 $ notecabinet ask "what is my GPA this quarter?"
 Not in your notes (no relevant notes found).
 ```
-*(real output on the benchmark notes; the first answer is shortened at `[...]`)*
+*(real output on the benchmark notes)*
 
 **Organize page**: turn one shorthand-heavy page into sections, action items and open questions, without dropping or inventing facts. Personal shorthand ("mtg w/ PATL re DSEC") is resolved by retrieving how you've used it in your *other* notes; anything still unclear is marked uncertain, never guessed. The original note is never modified.
 
@@ -73,7 +104,20 @@ The point of this project is measuring it, not just building it. Retrieval, answ
 **Organize**, with vs. without retrieval:
 - **Coverage** of the page's ground-truth facts, **hallucination rate**, and **shorthand accuracy**.
 
-Every eval run writes a timestamped folder under `results/` with its full config (models, thresholds, git commit, data hash) so each number is reproducible. Results will appear here once M3/M4 are complete.
+Every eval run writes a timestamped folder under `results/` with its full config (models, thresholds, git commit, data hash) so each number is reproducible.
+
+### Ask results (M3)
+
+The table at the [top](#example) comes from [`results/2026-11-02_210436-eval-ask-test/`](results/2026-11-02_210436-eval-ask-test/summary.md), which also has the breakdown by question type, the abstention breakdown and latency. Highlights:
+
+- **Reranking helps most.** `hybrid+rerank` leads on recall@5, MRR, correctness and abstention precision; `dense` alone is weakest.
+- **Multi-fact questions are the weak spot**: 25% (3/12) correct even with `hybrid+rerank`, against 82% (14/17) for single-fact questions.
+- **Abstention**: every unanswerable test question was caught by the model's own `NOT_FOUND`, not by the reranker-score gate. All 10 are *near-miss* questions (the notes cover the topic but not the detail), so the gate, which targets off-topic questions, is not exercised by this test set.
+- **Latency** (`hybrid+rerank`, p50 / p95): retrieval 8 / 10 ms, rerank 116 / 127 ms, generation 1,048 / 2,116 ms.
+
+**How far to trust the judge.** Answers are graded by Claude Haiku 5.5 with the prompts in [`eval/prompts/`](eval/prompts/). On a blind sample of 15 answers graded by hand, correctness agreed 87% (13/15), Cohen's κ 0.71; faithfulness agreed only 53% (8/15), κ 0.00, because the judge is stricter than the hand grades ([agreement](results/2026-11-02_210436-eval-ask-test/judge_check/agreement.md), [review](results/2026-11-02_210436-eval-ask-test/judge_check/review.md)). The run's faithfulness rates (61–72%) are therefore lower bounds and are left out of the headline table.
+
+Run it yourself from a source checkout: `uv run --env-file .env notecabinet eval ask` (needs llama-server and `JUDGE_MODEL` / `ANTHROPIC_API_KEY` for the judge). Organize results arrive with M4.
 
 ## Benchmark dataset
 
@@ -95,7 +139,7 @@ How it was made: the bible was drafted with Gemini and then edited by hand to fi
 | M0 | Synthetic benchmark dataset | ✅ |
 | M1 | Indexing: chunking with exact spans, SQLite FTS5 + sqlite-vec, incremental re-index | ✅ |
 | M2 | Retrieval (BM25 / dense / hybrid / rerank) + Ask with citations and abstention | ✅ |
-| M3 | Ask evaluation: recall, correctness, abstention, ablation, latency | |
+| M3 | Ask evaluation: recall, correctness, abstention, ablation, latency | ✅ |
 | M4 | Organize page + evaluation, with vs. without retrieval | |
 | M5 | Demo UI, results, write-up | |
 
@@ -180,13 +224,23 @@ CI runs ruff and the full suite on Python 3.10–3.13 ([`.github/workflows/ci.ym
 
 To run against the benchmark notes in this repo: `notecabinet index data/notes`.
 
+Evals run from a source checkout (they need `eval/` and `data/eval/`) with llama-server up. The judge calls the
+Claude API, so put `ANTHROPIC_API_KEY` and `JUDGE_MODEL` in a `.env` file:
+
+```bash
+uv run --env-file .env notecabinet eval ask                 # test split, all 4 retrievers -> results/<timestamp>-eval-ask-test/
+uv run --env-file .env notecabinet eval ask --split dev     # the 10-question dev split
+uv run --env-file .env notecabinet eval ask --rejudge results/<run>   # re-judge/re-report only (verdicts are cached)
+uv run python -m eval.judge_check sample results/<run>      # blind hand-grading sheet; then `score` for agreement
+```
+
 ## Repository layout
 
 ```
 notecabinet/   the package: cli, config, index (read/chunk/embed), db (SQLite schema), retrieve (bm25/dense/
                hybrid/rerank), ask (LLM + citations + abstention), api (FastAPI), models (download)
 tests/         pytest suite
-eval/          evaluation scripts (dev-split threshold tuning; full evals in M3)
+eval/          evaluation: Ask eval, LLM judge + prompts, judge check, dev-split threshold tuning
 results/       eval outputs, one timestamped folder per run with its config.json
 scripts/       environment smoke test, model download for a source checkout
 data/          benchmark: bible, notes, eval sets
