@@ -121,7 +121,7 @@ def judge_and_report(judge, rows, out):
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    parser = argparse.ArgumentParser(prog="notecabinet eval ask", description=__doc__.split("\n")[0])
     parser.add_argument("--split", default="test", choices=["test", "dev"])
     parser.add_argument("--retrievers", nargs="+", default=list(RETRIEVERS), choices=RETRIEVERS)
     parser.add_argument("--rejudge", type=Path, help="re-run only the judge pass on an existing run folder")
