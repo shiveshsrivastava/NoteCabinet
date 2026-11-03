@@ -2,7 +2,16 @@
 
 import pytest
 
-from eval.metrics import abstention_counts, count, notes_by_fact, pct, percentile, ranked_notes, retrieval_metrics
+from eval.metrics import (
+    abstention_counts,
+    cohens_kappa,
+    count,
+    notes_by_fact,
+    pct,
+    percentile,
+    ranked_notes,
+    retrieval_metrics,
+)
 
 NOTE_FACTS = {
     "a.md": ["F1", "F2"],
@@ -93,3 +102,17 @@ def test_abstention_precision_and_recall():
     a = abstention_counts(rows)
     assert (a["tp"], a["fp"], a["fn"]) == (1, 1, 1)
     assert a["precision"] == (1, 2) and a["recall"] == (1, 2)
+
+
+def test_cohens_kappa_textbook_example():
+    # 50 items: both yes 20, both no 15, A yes/B no 5, A no/B yes 10 -> p_o 0.7, p_e 0.5, kappa 0.4
+    a = ["y"] * 25 + ["n"] * 25
+    b = ["y"] * 20 + ["n"] * 5 + ["y"] * 10 + ["n"] * 15
+    assert cohens_kappa(a, b) == pytest.approx(0.4)
+
+
+def test_cohens_kappa_edges():
+    assert cohens_kappa(["y", "n", "y"], ["y", "n", "y"]) == pytest.approx(1.0)
+    assert cohens_kappa(["y", "y"], ["y", "y"]) is None  # one label only: undefined
+    with pytest.raises(ValueError):
+        cohens_kappa(["y"], [])

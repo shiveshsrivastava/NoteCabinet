@@ -75,3 +75,14 @@ def retrieval_metrics(fact_ids, retrieved_paths, fact_notes):
         "first_relevant_rank": rank,
         "reciprocal_rank": 1 / rank if rank else 0.0,
     }
+
+
+def cohens_kappa(a, b):
+    """Agreement between two raters beyond chance: (p_o - p_e) / (1 - p_e). None if p_e == 1
+    (both raters used one single label, so chance agreement is total and kappa is undefined)."""
+    if len(a) != len(b) or not a:
+        raise ValueError("need two equally long, non-empty lists of labels")
+    n = len(a)
+    p_o = sum(x == y for x, y in zip(a, b)) / n
+    p_e = sum((a.count(lab) / n) * (b.count(lab) / n) for lab in set(a) | set(b))
+    return None if p_e == 1 else (p_o - p_e) / (1 - p_e)
