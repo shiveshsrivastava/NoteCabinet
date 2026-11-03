@@ -136,8 +136,8 @@ questions
 feels like one of those things that'll get worse if I wait
 ```
 
-correct:
-faithful:
+correct: yes
+faithful: yes
 note:
 
 ---
@@ -260,8 +260,8 @@ note:
 - less common in deep nets more in linear models
 ```
 
-correct:
-faithful:
+correct: yes
+faithful: yes
 note:
 
 ---
@@ -358,8 +358,8 @@ lesson: when MW says storage is full, listen. ugh.
 - owe Marcus coffee fr
 ```
 
-correct:
-faithful:
+correct: yes
+faithful: yes
 note:
 
 ---
@@ -503,9 +503,9 @@ mildly demoralizing ngl, but ok. one data point
 note to self: check schdule conflicts BEFORE committing to stuff. lesson learned.
 ```
 
-correct:
-faithful:
-note:
+correct: No
+faithful: Yes
+note: I think it didnt see the correct excerpt
 
 ---
 
@@ -628,9 +628,9 @@ note to self: owe her one don't forget
 feeling: tierd but good. end of quarter energy. long day after a long week, need sleep before Sunday reorg of vault
 ```
 
-correct:
-faithful:
-note:
+correct: No
+faithful: Yes
+note: I think it didnt see the correct excerpt
 
 ---
 
@@ -744,9 +744,9 @@ Source: my notes from the first E596C lecture, which covered backpropagation fun
 - he mentioned some modern archs just use strided conv instead of pooling -> why exactly?? ask / look up
 ```
 
-correct:
-faithful:
-note:
+correct: No
+faithful: Yes
+note: It picked the info from oct 27, even though the questions specifies oct 25
 
 ---
 
@@ -851,8 +851,8 @@ notes:
 - ugh handwriting scans
 ```
 
-correct:
-faithful:
+correct: Yes
+faithful: Yes
 note:
 
 ---
@@ -972,8 +972,8 @@ notes to self:
 - ugh design is not my strong suit
 ```
 
-correct:
-faithful:
+correct: Yes
+faithful: Yes
 note:
 
 ---
@@ -1078,9 +1078,9 @@ Source: my notes from the first E596C lecture, which covered backpropagation fun
 - gradient checking w/ finite differences -> sanity check own impl slow tho
 ```
 
-correct:
-faithful:
-note:
+correct: No
+faithful: Yes
+note: It didnt fetch the excerpt from the correct date
 
 ---
 
@@ -1180,8 +1180,8 @@ note:
 - felt pretty drained after but ok
 ```
 
-correct:
-faithful:
+correct: Yes
+faithful: Yes
 note:
 
 ---
@@ -1302,8 +1302,8 @@ note to self: check schdule conflicts BEFORE committing to stuff. lesson learned
 - should write down what I did so I don't have to redo from memory later
 ```
 
-correct:
-faithful:
+correct: Yes 
+faithful: Yes
 note:
 
 ---
@@ -1434,8 +1434,8 @@ note to self don't let this eat into coursework time, timebox debugging b/c it c
 idk, exciting but don't let this eat into coursework b/c TA stuff too ugh
 ```
 
-correct:
-faithful:
+correct: Yes
+faithful: Yes
 note:
 
 ---
@@ -1517,8 +1517,8 @@ skimmed most of the MARL survey tonight, notes while fresh
 - scalability joint acion space blows up w/ # agents, mean-field style approx as workaround
 ```
 
-correct:
-faithful:
+correct: Yes
+faithful: Yes
 note:
 
 ---
@@ -1648,9 +1648,9 @@ mildly demoralizing ngl, but ok. one data point
 note to self: check schdule conflicts BEFORE committing to stuff. lesson learned.
 ```
 
-correct:
-faithful:
-note:
+correct: Yes
+faithful: Yes
+note: Answer is a bit too wordy but it is correct
 
 ---
 
@@ -1781,6 +1781,6 @@ feels like real progress for once. don't jinx it
 - [ ] skim repo w/ fresh eyes, note embarrassing bits
 ```
 
-correct:
-faithful:
+correct: Yes
+faithful: Yes
 note:
