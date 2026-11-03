@@ -2,7 +2,7 @@
 
 import pytest
 
-from eval.metrics import notes_by_fact, ranked_notes, retrieval_metrics
+from eval.metrics import abstention_counts, count, notes_by_fact, pct, percentile, ranked_notes, retrieval_metrics
 
 NOTE_FACTS = {
     "a.md": ["F1", "F2"],
@@ -66,3 +66,30 @@ def test_empty_retrieval():
 def test_unanswerable_questions_are_rejected():
     with pytest.raises(ValueError):
         retrieval_metrics([], ["a.md"], FACT_NOTES)
+
+
+def test_pct_always_shows_raw_counts():
+    assert pct(8, 10) == "80% (8/10)"
+    assert pct(1, 3) == "33% (1/3)"
+    assert pct(0, 0) == "n/a (0/0)"
+
+
+def test_count_skips_not_applicable():
+    assert count([True, False, None, True]) == (2, 3)
+    assert count([None]) == (0, 0)
+
+
+def test_percentile_interpolates_and_handles_empty():
+    assert percentile([10, 20, 30, 40], 50) == 25
+    assert percentile([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 95) == pytest.approx(9.55)
+    assert percentile([], 50) is None
+
+
+def test_abstention_precision_and_recall():
+    rows = [{"abstained": True, "unanswerable": True},    # caught
+            {"abstained": True, "unanswerable": False},   # wrongly abstained -> hurts precision
+            {"abstained": False, "unanswerable": True},   # answered an unanswerable -> hurts recall
+            {"abstained": False, "unanswerable": False}]
+    a = abstention_counts(rows)
+    assert (a["tp"], a["fp"], a["fn"]) == (1, 1, 1)
+    assert a["precision"] == (1, 2) and a["recall"] == (1, 2)

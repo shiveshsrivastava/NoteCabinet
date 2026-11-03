@@ -4,6 +4,37 @@ Retrieval metrics work on notes, not chunks: the top-5 chunks are reduced to the
 from, in rank order, and a note "contains" a fact if data/eval/note_facts.json says so.
 """
 
+import numpy as np
+
+
+def pct(k, n):
+    """A rate with its raw counts, e.g. "80% (8/10)". Every percentage in a results table uses this."""
+    return f"{k / n:.0%} ({k}/{n})" if n else "n/a (0/0)"
+
+
+def count(values):
+    """(true, total) over booleans, skipping None (not applicable, or a judge error)."""
+    known = [v for v in values if v is not None]
+    return sum(known), len(known)
+
+
+def mean(values):
+    return float(np.mean(values)) if values else None
+
+
+def percentile(values, p):
+    """p-th percentile with linear interpolation (numpy's default); None for no values."""
+    return float(np.percentile(values, p)) if values else None
+
+
+def abstention_counts(rows):
+    """Abstaining is the positive class: precision penalizes abstaining on answerable questions,
+    recall penalizes answering unanswerable ones. rows need "abstained" and "unanswerable"."""
+    tp = sum(r["abstained"] and r["unanswerable"] for r in rows)
+    fp = sum(r["abstained"] and not r["unanswerable"] for r in rows)
+    fn = sum(not r["abstained"] and r["unanswerable"] for r in rows)
+    return {"tp": tp, "fp": fp, "fn": fn, "precision": (tp, tp + fp), "recall": (tp, tp + fn)}
+
 
 def ranked_notes(paths):
     """Distinct note paths in order of first appearance (the top-5 chunks can share a note)."""

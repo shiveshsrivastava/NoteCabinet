@@ -3,8 +3,9 @@
 Two passes, so a judge problem never throws away the slow local generation:
   1. generate: one warm-up query, then every retriever x every question of the split. Each answer, its
      chunks, rerank scores, timings and retrieval metrics go to raw/answers.jsonl as soon as they exist.
-  2. judge: grade the answers with the Claude judge (eval/judge.py) -> raw/per_question.jsonl.
-     If judging fails part-way, re-run it alone with --rejudge RUN_DIR (cached verdicts cost nothing).
+  2. judge: grade the answers with the Claude judge (eval/judge.py) -> raw/per_question.jsonl, then
+     write metrics.json and summary.md (eval/report.py). If judging fails part-way, re-run this pass
+     alone with --rejudge RUN_DIR (cached verdicts cost nothing).
 
 What gets judged:
   - answerable, answered:      correctness + faithfulness
@@ -23,6 +24,7 @@ from pathlib import Path
 from eval.common import EVAL_DATA, load_qa, new_run_dir, require_benchmark_index, run_config, sha256_text
 from eval.judge import Judge, JudgeError, prompt_hashes
 from eval.metrics import notes_by_fact, retrieval_metrics
+from eval.report import write_report
 from notecabinet import config
 from notecabinet.ask import SYSTEM_PROMPT, USER_PROMPT, Asker, format_excerpts
 from notecabinet.retrieve import RETRIEVERS
@@ -107,6 +109,17 @@ def judge_all(judge, rows, out_path):
     return judged
 
 
+def load_kinds():
+    return json.loads((EVAL_DATA / "unanswerable_kind.json").read_text())
+
+
+def judge_and_report(judge, rows, out):
+    judged = judge_all(judge, rows, out / "raw" / "per_question.jsonl")
+    cfg = json.loads((out / "config.json").read_text())
+    write_report(out, judged, cfg, load_kinds())
+    print(f"-> {out.relative_to(config.ROOT)}/summary.md")
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("--split", default="test", choices=["test", "dev"])
@@ -116,9 +129,10 @@ def main(argv=None):
 
     judge = Judge()  # fails fast if JUDGE_MODEL is missing, before any slow generation
     if args.rejudge:
-        rows = [json.loads(line) for line in (args.rejudge / "raw" / "answers.jsonl").read_text().splitlines()]
-        judge_all(judge, rows, args.rejudge / "raw" / "per_question.jsonl")
-        return args.rejudge
+        out = args.rejudge.resolve()
+        rows = [json.loads(line) for line in (out / "raw" / "answers.jsonl").read_text().splitlines()]
+        judge_and_report(judge, rows, out)
+        return out
 
     require_benchmark_index()
     check_llm()
@@ -142,8 +156,7 @@ def main(argv=None):
     print(f"warm-up {time.perf_counter() - t:.1f}s")
 
     rows = generate(asker, questions, args.retrievers, fact_notes, out / "raw" / "answers.jsonl")
-    judge_all(judge, rows, out / "raw" / "per_question.jsonl")
-    print(f"-> {out.relative_to(config.ROOT)}")
+    judge_and_report(judge, rows, out)
     return out
 
 
