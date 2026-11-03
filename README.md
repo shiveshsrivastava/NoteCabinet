@@ -30,6 +30,10 @@ time separately. [...] This helped you identify idle GPU time as a key issue rat
 
 **Results so far** (Ask, held-out test split; [full results](results/2026-11-02_210436-eval-ask-test/summary.md)):
 
+> Every answer below comes from a **small local model on a laptop**: Qwen3-4B (4 billion parameters, 4-bit
+> quantized) on an RTX 4060 laptop GPU with 8 GB of VRAM, sharing it with the embedder and reranker. No cloud
+> model is involved at any point; a typical answer takes about 1 second (p50 generation 1,048 ms).
+
 | 51 test questions (41 answerable, 10 unanswerable) | `bm25` | `dense` | `hybrid` | `hybrid+rerank` |
 |---|---|---|---|---|
 | All facts in the top 5 (fact-level recall@5) | 73% (30/41) | 61% (25/41) | 73% (30/41) | 80% (33/41) |
