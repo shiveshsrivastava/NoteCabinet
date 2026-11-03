@@ -1,7 +1,10 @@
 name: CI
 
+# Pull requests (from dev) and pushes to main. Not every push: a push to a branch with an open PR
+# would otherwise run the whole matrix twice (once for the push, once for the PR).
 on:
   push:
+    branches: [main]
   pull_request:
 
 jobs:
